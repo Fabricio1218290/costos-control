@@ -222,6 +222,7 @@ datalist option {
   <button onclick="st('seguimiento')" id="tab-seguimiento">📌 Seguimiento</button>
   <button onclick="st('siembra')" id="tab-siembra">🗓 Siembra</button>
   <button onclick="st('ventas')" id="tab-ventas">💰 Ventas</button>
+  <button onclick="st('adelantos')" id="tab-adelantos">🏦 Adelantos</button>
   <button onclick="st('equilibrio')" id="tab-equilibrio">⚖ Equilibrio</button>
   <button onclick="st('cierres')" id="tab-cierres">🏁 Cierres</button>
   <button onclick="st('informes')" id="tab-informes">📊 Informes</button>
@@ -590,6 +591,34 @@ datalist option {
 </div>
 
 
+<!-- ADELANTOS -->
+<div id="adelantos" class="sec">
+
+  <div class="card">
+    <div class="ctitle">Registrar adelanto financiero</div>
+    <div class="csub">Un adelanto a cuenta de la cosecha se reparte automáticamente como un gasto más entre todas las chacras del cultivo elegido (o de todos los cultivos), en proporción a sus hectáreas dentro de la zafra seleccionada.</div>
+    <div class="g4">
+      <div class="field"><label>Fecha</label><input type="date" id="ad-fecha"></div>
+      <div class="field"><label>Monto USD</label><input type="text" inputMode="decimal" id="ad-monto" placeholder="0.00"></div>
+      <div class="field"><label>Cultivo</label><select id="ad-cultivo"><option value="">Todos los cultivos</option></select></div>
+      <div class="field"><label>Zafra</label><select id="ad-zafra"></select></div>
+    </div>
+    <div class="field"><label>Nota / Observaciones</label><input id="ad-nota" placeholder="Ej: adelanto acopio X, entidad financiera, etc."></div>
+    <div class="row">
+      <button class="btn btn-p" onclick="guardarAdelanto()">✓ Registrar adelanto</button>
+      <button class="btn btn-s" onclick="limpAdel()">Limpiar</button>
+    </div>
+    <div id="ad-msg" style="margin-top:9px"></div>
+  </div>
+
+  <div class="card">
+    <div class="ctitle">Adelantos registrados</div>
+    <div class="tw" id="ad-lista"></div>
+  </div>
+
+</div>
+
+
 <!-- RESUMEN SIEMBRA -->
 <div id="siembra" class="sec">
   <div class="fbar">
@@ -659,9 +688,11 @@ datalist option {
 // ── ESTADO ─────────────────────────────────────────────────────────────────
 var chacras = [];
 var tratos  = [];
+var adelantos = [];
 var chSelId = null;
 var lineas  = [];
 var linId   = 0;
+var adelId  = 0;
 
 var CATS = ['Labores','Insumos','Arrendamiento','Maquinaria propia','Mano de obra','Fletes y acarreos','Gastos generales'];
 var CBADGE = {'Labores':'bb2','Insumos':'bg2','Arrendamiento':'ba2','Maquinaria propia':'by2','Mano de obra':'bb2','Fletes y acarreos':'ba2','Gastos generales':'by2'};
@@ -683,7 +714,7 @@ function uniq(arr,f){
 function st(id){
   document.querySelectorAll('.sec').forEach(function(s){s.classList.remove('active');});
   document.getElementById(id).classList.add('active');
-  ['inicio','maestro','registro','historial','imprimir','cultivos','seguimiento','siembra','ventas','equilibrio','cierres','clasificar','informes','datos'].forEach(function(t){
+  ['inicio','maestro','registro','historial','imprimir','cultivos','seguimiento','siembra','ventas','adelantos','equilibrio','cierres','clasificar','informes','datos'].forEach(function(t){
     document.getElementById('tab-'+t).classList.toggle('active',t===id);
   });
   updFilters();
@@ -705,6 +736,7 @@ function st(id){
   }
   if(id==='siembra') renderSiembra();
   if(id==='ventas') renderVentas();
+  if(id==='adelantos') renderAdelantos();
   if(id==='equilibrio') renderEq();
   if(id==='cierres') renderCierres();
 }
@@ -1642,7 +1674,7 @@ function filtrarChacrasPrint(){
 
 
 function guardarTXT(){
-  var data={chacras:chacras,tratos:tratos,ventas:ventas,cierres:cierres,preciosCultivo:preciosCultivo,preciosChacra:preciosChacra,version:5};
+  var data={chacras:chacras,tratos:tratos,ventas:ventas,cierres:cierres,preciosCultivo:preciosCultivo,preciosChacra:preciosChacra,adelantos:adelantos,version:5};
   var txt=JSON.stringify(data,null,2);
   var blob=new Blob([txt],{type:'text/plain;charset=utf-8'});
   var a=document.createElement('a');
@@ -1680,6 +1712,7 @@ function cargarTXT(){
       cierres=Array.isArray(data.cierres)?data.cierres:[];
       preciosCultivo=data.preciosCultivo||{};
       preciosChacra=data.preciosChacra||{};
+      adelantos=Array.isArray(data.adelantos)?data.adelantos:[];
       autoSave();updFilters();renderInicio();renderMaestro();renderPills();
       msg.className='alert aok';
       msg.textContent='✓ Cargado: '+chacras.length+' chacras, '+tratos.length+' tratamientos. Guardado automatico activado.';
@@ -1766,7 +1799,7 @@ function renderCultivos(){
   fCh=cvCh?cvCh.value:'';
 
   // Tipos principales para columnas
-  var TIPOS_COLS = ['AGROQUIMICO','LABOREO','COMBUSTIBLES','FERTILIZANTES','SEMILLAS','SEGUROS AGRICOLAS','RENTA','COSTOS ESTRUCTURA','OTROS'];
+  var TIPOS_COLS = ['AGROQUIMICO','LABOREO','COMBUSTIBLES','FERTILIZANTES','SEMILLAS','SEGUROS AGRICOLAS','RENTA','COSTOS ESTRUCTURA','ADELANTOS','OTROS'];
 
   function getTipoNorm(l){
     var t = (l.tipo||'').trim();
@@ -1809,6 +1842,12 @@ function renderCultivos(){
         totTotal+=sub;
       });
     });
+    // Agregar adelantos financieros prorrateados por ha
+    var adel=calcAdelantoChacra(c);
+    if(adel>0){
+      porTipo['ADELANTOS']=(porTipo['ADELANTOS']||0)+adel;
+      totTotal+=adel;
+    }
     var xha = c.ha?totTotal/c.ha:0;
     chacraData.push({c:c, totTotal:totTotal, xha:xha, porTipo:porTipo, porSubtipo:porSubtipo});
   });
@@ -2154,7 +2193,8 @@ function renderSeg(){
       .sort(function(a,b){return parseFecha(a.fecha)-parseFecha(b.fecha);});
     var acum=ts.reduce(function(s,t){return s+tratTot(t);},0);
     var rentaP=alqCostoEstimado(c);
-    var acumTotal=acum+rentaP;
+    var adelP=calcAdelantoChacra(c);
+    var acumTotal=acum+rentaP+adelP;
     var xha=c.ha&&acum?acum/c.ha:0;
     var pVenta=0;try{pVenta=precioPromedio(c.cultivo,c.zafra)||0;}catch(e){}
     var pcEntry=preciosChacra[c.id]||preciosChacra[String(c.id)]||{};
@@ -3044,6 +3084,22 @@ function proporcionRenta(c){
   return 0.5;                            // invierno o segunda: mitad
 }
 
+function calcAdelantoChacra(c){
+  if(!c.zafra||!c.ha) return 0;
+  var totalProrrateado=0;
+  adelantos.forEach(function(a){
+    if(a.zafra!==c.zafra) return;
+    if(a.cultivo&&a.cultivo!==c.cultivo) return; // adelanto de otro cultivo puntual: no aplica a esta chacra
+    var grupo = a.cultivo
+      ? chacras.filter(function(x){return x.zafra===c.zafra&&x.cultivo===a.cultivo;})
+      : chacras.filter(function(x){return x.zafra===c.zafra;});
+    var haGrupo = grupo.reduce(function(s,x){return s+(x.ha||0);},0);
+    if(!haGrupo) return;
+    totalProrrateado += (parseFloat(a.monto)||0) * (c.ha/haGrupo);
+  });
+  return totalProrrateado;
+}
+
 function alqCostoEstimado(c){
   // USD/ha y kg soja: costo fijo, se calcula siempre
   if(!c.alqTipo||c.alqTipo===''||!c.ha) return 0;
@@ -3134,7 +3190,7 @@ function renderInformes(){
 
   if(!filtCh.length){cont.innerHTML='<div class="empty">Sin datos con esos filtros.</div>';return;}
 
-  var TIPOS_COLS = ['AGROQUIMICO','LABOREO','COMBUSTIBLES','FERTILIZANTES','SEMILLAS','SEGUROS AGRICOLAS','RENTA','COSTOS ESTRUCTURA','OTROS'];
+  var TIPOS_COLS = ['AGROQUIMICO','LABOREO','COMBUSTIBLES','FERTILIZANTES','SEMILLAS','SEGUROS AGRICOLAS','RENTA','COSTOS ESTRUCTURA','ADELANTOS','OTROS'];
 
   function getTN(l){
     var t=(l.tipo||'').trim();
@@ -3155,6 +3211,12 @@ function renderInformes(){
         porTipo['RENTA']+=renta;
         tot+=renta;
       }
+    }
+    // Agregar adelantos financieros prorrateados por ha
+    var adel=calcAdelantoChacra(c);
+    if(adel>0){
+      porTipo['ADELANTOS']+=adel;
+      tot+=adel;
     }
     return {tot:tot, xha:c.ha?tot/c.ha:0, porTipo:porTipo, nTratos:ts.length};
   }
@@ -3727,6 +3789,79 @@ function elimVenta(id){
   renderVentas();
 }
 
+function guardarAdelanto(){
+  var msg=document.getElementById('ad-msg');
+  var fecha=document.getElementById('ad-fecha').value;
+  var monto=parseFloat(String(document.getElementById('ad-monto').value).replace(',','.'))||0;
+  var cultivo=document.getElementById('ad-cultivo').value;
+  var zafra=document.getElementById('ad-zafra').value;
+  var nota=document.getElementById('ad-nota').value;
+  if(!monto||monto<=0){msg.className='alert aerr';msg.textContent='Ingresá un monto válido.';return;}
+  if(!zafra){msg.className='alert aerr';msg.textContent='Elegí una zafra.';return;}
+  adelantos.push({id:++adelId,fecha:fecha,monto:monto,cultivo:cultivo,zafra:zafra,nota:nota});
+  autoSave();
+  limpAdel();
+  renderAdelantos();
+  msg.className='alert aok';
+  msg.textContent='✓ Adelanto de USD '+fmt(monto)+' registrado'+(cultivo?' para '+cultivo:' para todos los cultivos')+' — '+zafra+'.';
+  setTimeout(function(){msg.className='';msg.textContent='';},4000);
+}
+
+function limpAdel(){
+  ['ad-fecha','ad-monto','ad-nota'].forEach(function(id){
+    var el=document.getElementById(id);
+    if(el)el.value='';
+  });
+  var c=document.getElementById('ad-cultivo'); if(c)c.value='';
+}
+
+function elimAdelanto(id){
+  if(!confirm('¿Eliminar este adelanto?'))return;
+  adelantos=adelantos.filter(function(a){return a.id!==id;});
+  autoSave();
+  renderAdelantos();
+}
+
+function renderAdelantos(){
+  if(!adelId){
+    adelantos.forEach(function(a){if(a.id>adelId)adelId=a.id;});
+  }
+  var adC=document.getElementById('ad-cultivo');
+  var adZ=document.getElementById('ad-zafra');
+  if(adC){
+    var curC=adC.value;
+    var cs=[];chacras.forEach(function(c){if(c.cultivo&&cs.indexOf(c.cultivo)<0)cs.push(c.cultivo);});cs.sort();
+    adC.innerHTML='<option value="">Todos los cultivos</option>'+cs.map(function(c){return '<option value="'+c+'"'+(c===curC?' selected':'')+'>'+c+'</option>';}).join('');
+  }
+  if(adZ){
+    var curZ=adZ.value;
+    var zs=[];chacras.forEach(function(c){if(c.zafra&&zs.indexOf(c.zafra)<0)zs.push(c.zafra);});zs.sort();
+    adZ.innerHTML=zs.map(function(z){return '<option value="'+z+'"'+(z===curZ?' selected':'')+'>'+z+'</option>';}).join('');
+  }
+
+  var cont=document.getElementById('ad-lista');
+  if(!cont)return;
+  if(!adelantos.length){cont.innerHTML='<div class="empty">Sin adelantos cargados.</div>';return;}
+
+  var lista=adelantos.slice().sort(function(a,b){return (b.fecha||'')>(a.fecha||'')?1:-1;});
+  var totGen=adelantos.reduce(function(s,a){return s+(parseFloat(a.monto)||0);},0);
+
+  var html='<table class="tbl"><thead><tr><th>Fecha</th><th>Cultivo</th><th>Zafra</th><th>Nota</th><th class="r">Monto USD</th><th></th></tr></thead><tbody>';
+  lista.forEach(function(a){
+    html+='<tr>'+
+      '<td class="m">'+(a.fecha||'—')+'</td>'+
+      '<td>'+(a.cultivo?'<span class="badge bg2">'+a.cultivo+'</span>':'<span class="m">Todos los cultivos</span>')+'</td>'+
+      '<td><span class="badge bb2">'+a.zafra+'</span></td>'+
+      '<td class="m">'+(a.nota||'—')+'</td>'+
+      '<td class="r b">USD '+fmt(a.monto)+'</td>'+
+      '<td><button class="btn-del" onclick="elimAdelanto('+a.id+')">✕</button></td>'+
+      '</tr>';
+  });
+  html+='<tr style="background:var(--gd);color:#fff"><td colspan="4" class="b">TOTAL ADELANTOS</td><td class="r b">USD '+fmt(totGen)+'</td><td></td></tr>';
+  html+='</tbody></table>';
+  cont.innerHTML=html;
+}
+
 function renderVentas(){
   // Poblar filtros
   var vfG=document.getElementById('vf-grano');
@@ -3863,6 +3998,7 @@ function autoSave(){
     localStorage.setItem('agro_ci_v4', JSON.stringify(cierres));
     localStorage.setItem('agro_pc_v4', JSON.stringify(preciosCultivo));
     localStorage.setItem('agro_pch_v4', JSON.stringify(preciosChacra));
+    localStorage.setItem('agro_ad_v4', JSON.stringify(adelantos));
   }catch(e){}
   
   // Sincronizar con Firebase con debounce de 2 segundos
@@ -3881,6 +4017,7 @@ function syncToFirebase(){
     cierres: JSON.stringify(cierres),
     preciosCultivo: JSON.stringify(preciosCultivo),
     preciosChacra: JSON.stringify(preciosChacra),
+    adelantos: JSON.stringify(adelantos),
     updatedAt: firebase.firestore.FieldValue.serverTimestamp()
   }).then(function(){
     _lastSaved = new Date();
@@ -3907,6 +4044,7 @@ function loadFromFirebase(callback){
         if(data.cierres) cierres = JSON.parse(data.cierres)||[];
         if(data.preciosCultivo) preciosCultivo = JSON.parse(data.preciosCultivo)||{};
         if(data.preciosChacra) preciosChacra = JSON.parse(data.preciosChacra)||{};
+        if(data.adelantos) adelantos = JSON.parse(data.adelantos)||[];
         
         // Limpiar haL incorrectos
         tratos.forEach(function(t){
@@ -3942,12 +4080,14 @@ function cargarDeLocalStorage(){
     var ci = localStorage.getItem('agro_ci_v4');
     var pc = localStorage.getItem('agro_pc_v4');
     var pch= localStorage.getItem('agro_pch_v4');
+    var ad = localStorage.getItem('agro_ad_v4');
     if(ch) chacras = JSON.parse(ch)||[];
     if(tr) tratos = JSON.parse(tr)||[];
     if(vt) ventas = JSON.parse(vt)||[];
     if(ci) cierres = JSON.parse(ci)||[];
     if(pc) preciosCultivo = JSON.parse(pc)||{};
     if(pch) preciosChacra = JSON.parse(pch)||{};
+    if(ad) adelantos = JSON.parse(ad)||[];
   }catch(e){}
 }
 
