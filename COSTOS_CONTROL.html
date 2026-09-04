@@ -502,6 +502,7 @@ datalist option {
   <div class="fbar no-print">
     <select id="cv-zafra" onchange="renderCultivos()"><option value="">Todas las zafras</option></select>
     <select id="cv-estab" onchange="renderCultivos()"><option value="">Todos los campos</option></select>
+    <select id="cv-chacra" onchange="renderCultivos()"><option value="">Todas las chacras</option></select>
     <button class="btn btn-p no-print" onclick="window.print()">🖨 Imprimir / PDF</button>
   </div>
   <div id="cult-content"></div>
@@ -1745,13 +1746,24 @@ function renderCultivos(){
 
   var cvZ = document.getElementById('cv-zafra');
   var cvE = document.getElementById('cv-estab');
+  var cvCh = document.getElementById('cv-chacra');
   var fZ = cvZ?cvZ.value:'';
   var fE = cvE?cvE.value:'';
+  var fCh = cvCh?cvCh.value:'';
 
   // Poblar filtros
   if(cvZ){var curZ=cvZ.value;var zs=[];chacras.forEach(function(c){if(c.zafra&&zs.indexOf(c.zafra)<0)zs.push(c.zafra);});zs.sort();cvZ.innerHTML='<option value="">Todas las zafras</option>'+zs.map(function(z){return '<option value="'+z+'"'+(z===curZ?' selected':'')+'>'+z+'</option>';}).join('');}
   if(cvE){var curE=cvE.value;var es=[];chacras.forEach(function(c){if(c.estab&&es.indexOf(c.estab)<0)es.push(c.estab);});es.sort();cvE.innerHTML='<option value="">Todos los campos</option>'+es.map(function(e){return '<option value="'+e+'"'+(e===curE?' selected':'')+'>'+e+'</option>';}).join('');}
   fZ=cvZ?cvZ.value:''; fE=cvE?cvE.value:'';
+  if(cvCh){
+    var curCh=cvCh.value;
+    var chOpts=chacras.filter(function(c){return(!fZ||c.zafra===fZ)&&(!fE||c.estab===fE);})
+      .sort(function(a,b){return(a.chacra||'')>(b.chacra||'')?1:-1;});
+    cvCh.innerHTML='<option value="">Todas las chacras</option>'+chOpts.map(function(c){return '<option value="'+String(c.id)+'"'+(String(c.id)===curCh?' selected':'')+'>'+c.chacra+'</option>';}).join('');
+    // Si la chacra elegida ya no está en el filtro actual (cambió campo/zafra), resetear
+    if(curCh&&chOpts.every(function(c){return String(c.id)!==curCh;})) cvCh.value='';
+  }
+  fCh=cvCh?cvCh.value:'';
 
   // Tipos principales para columnas
   var TIPOS_COLS = ['AGROQUIMICO','LABOREO','COMBUSTIBLES','FERTILIZANTES','SEMILLAS','SEGUROS AGRICOLAS','RENTA','COSTOS ESTRUCTURA','OTROS'];
@@ -1776,7 +1788,7 @@ function renderCultivos(){
   // Calcular costos por chacra
   var chacraData = [];
   chacras.filter(function(c){
-    return(!fZ||c.zafra===fZ)&&(!fE||c.estab===fE);
+    return(!fZ||c.zafra===fZ)&&(!fE||c.estab===fE)&&(!fCh||String(c.id)===fCh);
   }).forEach(function(c){
     var ts = tratos.filter(function(t){return String(t.chId)===String(c.id);});
     var porTipo = {};
