@@ -1,0 +1,3861 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Costos por Chacra v20260805170918</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{margin:0;padding:0;background:#E4F0D8;}
+:root{
+  --gd:#27500A;--gm:#3B6D11;--g:#639922;--gl:#C0DD97;--gbg:#EAF3DE;
+  --bd:#0C447C;--bm:#185FA5;--bl:#B5D4F4;--bbg:#E6F1FB;
+  --ad:#633806;--al:#FAC775;--abg:#FAEEDA;
+  --yd:#444441;--ym:#5F5E5A;--yl:#D3D1C7;--ybg:#F1EFE8;
+  --rd:#791F1F;--r:#E24B4A;--rbg:#FCEBEB;
+  --bg:#f4f4f1;--sf:#fff;
+  --br:rgba(0,0,0,.11);--brm:rgba(0,0,0,.20);
+  --tx:#1a1a18;--ts:#5F5E5A;--th:#9a9990;
+  --ra:8px;--rl:12px;
+}
+html,body{margin:0;padding:0;}
+body{font-family:'Aptos Narrow','Aptos','Calibri','Segoe UI',Arial,sans-serif;background:#E4F0D8;color:var(--tx);font-size:13.3px;line-height:1.5;min-height:100vh;letter-spacing:0em}
+.hdr{background:var(--gm);color:#fff;padding:12px 22px;display:flex;align-items:center;gap:10px}
+.hdr h1{font-size:16px;font-weight:700;letter-spacing:0}
+.hdr .hs{font-size:12px;opacity:.75;margin-left:auto}
+/* nav moved below */
+/* nav button styles moved below */
+.main{padding:20px 28px;max-width:1140px;margin:0 auto;background:#E4F0D8;min-height:100vh;}
+.app-wrap{max-width:1140px;margin:0 auto;}
+.hdr,.nav{max-width:100%;}
+.sec{display:none}.sec.active{display:block}
+.card{background:#ffffff;border:1px solid var(--br);border-radius:var(--rl);padding:15px 18px;margin-bottom:12px}
+.ctitle{font-size:14px;font-weight:700;margin-bottom:12px}
+.csub{font-size:12px;color:var(--ts);margin-top:-8px;margin-bottom:12px}
+.g2{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px;margin-bottom:10px}
+.g3{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:10px}
+.g4{display:grid;grid-template-columns:repeat(auto-fit,minmax(135px,1fr));gap:10px;margin-bottom:14px}
+.metric{background:#ffffff;border-radius:var(--ra);padding:12px 14px;border:1px solid var(--gl)}
+.mlabel{font-size:11px;color:var(--ts);text-transform:uppercase;letter-spacing:.4px;margin-bottom:4px}
+.mval{font-size:20px;font-weight:700;color:var(--tx)}.mval.g{color:var(--gm)}
+.field label{display:block;font-size:13.3px;font-weight:600;color:var(--ts);margin-bottom:4px}
+.field input,.field select{width:100%;padding:7px 9px;border:1px solid var(--brm);border-radius:var(--ra);font-size:13.3px;font-family:'Aptos Narrow','Aptos','Calibri','Segoe UI',Arial,sans-serif;font-family:inherit;background:var(--sf);color:var(--tx);outline:none;transition:border-color .15s}
+.field input:focus,.field select:focus{border-color:var(--g);box-shadow:0 0 0 3px rgba(99,153,34,.12)}
+.field input[readonly]{background:var(--bg);color:var(--ts)}
+.btn{padding:7px 14px;border-radius:var(--ra);font-size:13.3px;font-weight:600;font-family:'Aptos Narrow','Aptos','Calibri','Segoe UI',Arial,sans-serif;cursor:pointer;border:none;font-family:inherit;display:inline-flex;align-items:center;gap:5px;transition:background .15s,transform .1s}
+.btn:active{transform:scale(.98)}
+.btn-p{background:var(--gm);color:#fff}.btn-p:hover{background:var(--gd)}
+.btn-s{background:var(--sf);color:var(--tx);border:1px solid var(--brm)}.btn-s:hover{background:var(--bg)}
+.btn-b{background:var(--bm);color:#fff}.btn-b:hover{background:var(--bd)}
+.btn-a{background:var(--abg);color:var(--ad);border:1px solid var(--al)}.btn-a:hover{background:var(--al)}
+.btn-del{background:none;border:none;cursor:pointer;color:var(--th);font-size:15px;padding:2px 4px;font-family:inherit}.btn-del:hover{color:var(--r)}
+.btn-sm{padding:5px 10px;font-size:12px}
+.tbl{width:100%;border-collapse:collapse;font-size:13px}
+.tbl th{text-align:left;font-weight:700;font-size:11px;color:var(--ts);text-transform:uppercase;letter-spacing:.3px;padding:7px 8px;border-bottom:1px solid var(--br);background:var(--bg);white-space:nowrap}
+.tbl td{padding:7px 8px;font-size:13.3px;border-bottom:1px solid var(--br);vertical-align:middle}
+.tbl tr:last-child td{border-bottom:none}
+.tbl tr:hover td{background:#fafaf7}
+.r{text-align:right}.b{font-weight:600}.m{color:var(--ts);font-size:12px}
+.tw{overflow-x:auto}
+.badge{display:inline-block;font-size:11px;font-weight:600;padding:2px 7px;border-radius:20px;white-space:nowrap}
+.bg2{background:var(--gbg);color:var(--gd)}.bb2{background:var(--bbg);color:var(--bd)}
+.ba2{background:var(--abg);color:var(--ad)}.by2{background:var(--ybg);color:var(--yd)}
+.alert{padding:9px 13px;border-radius:var(--ra);font-size:13px;margin-bottom:10px}
+.aok{background:var(--gbg);color:var(--gd);border:1px solid var(--gl)}
+.aerr{background:var(--rbg);color:var(--rd);border:1px solid #F09595}
+.ainf{background:var(--bbg);color:var(--bd);border:1px solid var(--bl)}
+.empty{color:var(--th);text-align:center;padding:32px 16px;font-size:13px}
+.fbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:12px}
+.fbar select{padding:6px 9px;border:1px solid var(--brm);border-radius:var(--ra);font-size:13px;font-family:inherit;background:var(--sf);color:var(--tx);outline:none}
+.fbar select:focus{border-color:var(--g)}
+.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.ssep{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--th);margin:14px 0 6px;padding-bottom:4px;border-bottom:1px solid var(--br)}
+.cpill{display:inline-flex;align-items:center;gap:5px;padding:5px 11px;border:1px solid var(--brm);border-radius:20px;background:var(--sf);cursor:pointer;font-size:12px;font-weight:500;margin:3px;transition:all .15s}
+.cpill:hover,.cpill.sel{border-color:var(--g);background:var(--gbg);color:var(--gd)}
+.ib{background:var(--gbg);border:1px solid var(--gl);border-radius:var(--ra);padding:10px 14px;margin-bottom:12px;display:flex;gap:18px;flex-wrap:wrap;align-items:center}
+.ib-it{font-size:11px;color:var(--gd)}.ib-v{font-size:13px;font-weight:600;color:var(--gd)}
+.lineas-wrap{border:1px solid var(--br);border-radius:var(--ra);overflow:hidden;margin-bottom:10px}
+.ltbl{width:100%;border-collapse:collapse;font-size:13px}
+.ltbl th{background:var(--bg);font-size:11px;font-weight:700;text-transform:uppercase;color:var(--ts);padding:7px 8px;border-bottom:1px solid var(--br);white-space:nowrap}
+.ltbl td{padding:4px 5px;border-bottom:1px solid var(--br);vertical-align:middle}
+.ltbl tr:last-child td{border-bottom:none}
+.ltbl input,.ltbl select{width:100%;padding:5px 6px;border:1px solid var(--brm);border-radius:6px;font-size:12px;font-family:inherit;background:var(--sf);color:var(--tx);outline:none}
+.ltbl input:focus,.ltbl select:focus{border-color:var(--g)}
+.calc{background:var(--gbg);color:var(--gm);font-weight:700;text-align:right;font-size:13px;padding:5px 8px;border-radius:5px;min-width:85px;display:block}
+.tot-bar{background:var(--gd);color:#fff;border-radius:var(--ra);padding:11px 16px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:10px}
+.tot-bar .ti{text-align:center}
+.tot-bar .tl{font-size:10px;opacity:.7;margin-bottom:2px}
+.tot-bar .tv{font-size:17px;font-weight:800}
+/* DATA MGMT */
+.data-box{background:var(--bg);border:1px solid var(--br);border-radius:var(--ra);padding:14px;margin-bottom:10px}
+.data-box h3{font-size:13px;font-weight:600;margin-bottom:8px}
+/* PRINT */
+.nav{background:#E4F0D8;border-bottom:none;display:flex;padding:8px 12px;overflow-x:auto;gap:6px;align-items:center;}
+.nav button{background:#3B6D11;color:#ffffff;border:none;border-radius:6px;padding:8px 14px;font-size:13px;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:5px;white-space:nowrap;font-family:'Aptos Narrow','Aptos','Calibri','Segoe UI',Arial,sans-serif;box-shadow:0 2px 5px rgba(39,80,10,0.25);transition:background .15s;}
+.nav button:hover{background:#639922;}
+.nav button.active{background:#27500A;outline:2px solid #C0DD97;outline-offset:1px;}
+.pag-chacra{page-break-after:always;padding:0;margin:0;}
+.pag-chacra:last-child{page-break-after:avoid;}
+.rp-cab{display:flex;justify-content:space-between;align-items:flex-start;border-bottom:3px solid #3B6D11;padding-bottom:10px;margin-bottom:14px;}
+.rp-cab-iz .rp-campo{font-size:11px;font-weight:600;color:#5a5a5a;text-transform:uppercase;letter-spacing:.5px;}
+.rp-cab-iz .rp-chacra{font-size:22px;font-weight:900;color:#2d5a0e;line-height:1.1;}
+.rp-cab-iz .rp-sub{font-size:13px;color:#555;margin-top:2px;}
+.rp-cab-der{text-align:right;}
+.rp-cab-der .rp-zafra-lbl{font-size:13px;font-weight:700;color:#3B6D11;background:#e8f5d9;padding:3px 10px;border-radius:12px;display:inline-block;margin-bottom:4px;}
+.rp-cab-der .rp-ha{font-size:16px;font-weight:700;color:#333;}
+.rp-cab-der .rp-alq{font-size:11px;color:#666;margin-top:2px;}
+.rp-trat{margin-bottom:14px;border:1px solid #ddd;border-radius:6px;overflow:hidden;}
+.rp-trat-cab{background:#f5f5f5;padding:7px 10px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:12px;border-bottom:1px solid #ddd;}
+.rp-ot{font-weight:800;color:#2d5a0e;font-size:13px;}
+.rp-fecha{color:#555;}
+.rp-desc{font-weight:600;color:#222;}
+.rp-prov{color:#777;font-style:italic;}
+.rp-hat{color:#555;}
+.rp-tot{margin-left:auto;font-weight:700;color:#2d5a0e;}
+.rp-tbl{width:100%;border-collapse:collapse;font-size:11.5px;}
+.rp-tbl th{background:#f0f7e8;padding:5px 8px;text-align:left;font-size:10px;text-transform:uppercase;color:#555;border-bottom:1px solid #ddd;}
+.rp-tbl th.r,.rp-tbl td.r{text-align:right;}
+.rp-tbl td{padding:5px 8px;border-bottom:1px solid #eee;}
+.rp-tbl tr:last-child td{border-bottom:none;}
+.rp-tipo{font-size:9px;color:#888;margin-left:4px;}
+.rp-total-camp{background:#2d5a0e;color:#fff;padding:8px 12px;display:flex;justify-content:space-between;font-weight:700;font-size:13px;margin-bottom:12px;border-radius:4px;}
+.rp-cierre{border:2px solid #2d5a0e;border-radius:6px;overflow:hidden;margin-top:8px;}
+.rp-cierre-tit{background:#2d5a0e;color:#fff;padding:6px 12px;font-weight:700;font-size:12px;letter-spacing:.3px;}
+.rp-ingreso td{background:#e8f5d9;font-weight:600;color:#2d5a0e;}
+.rp-costo-tot td{background:#fff0f0;font-weight:600;color:#c00;}
+.rp-margen.pos td{background:#d4edda;color:#155724;font-weight:800;font-size:13px;}
+.rp-margen.neg td{background:#f8d7da;color:#721c24;font-weight:800;font-size:13px;}
+.rp-empty{color:#888;font-style:italic;padding:12px 0;}
+@media print{
+  /* Cuando se imprime desde cultivos, mostrar solo cult-content */
+  #cultivos .no-print { display: none !important; }
+  #cult-content .card { page-break-inside: avoid; margin-bottom: 12pt; }
+  #cult-content { font-size: 11pt; }
+
+  .hdr,.nav,.fbar,.btn,.btn-p,.btn-s,.btn-b,.btn-a,.btn-del,.no-print{display:none!important}
+  body{background:#fff;font-size:11pt}
+  .main{padding:0;max-width:100%}
+  .sec{display:block!important}
+  #inicio,#maestro,#registro,#datos{display:none!important}
+  #imprimir{display:block!important}
+  .card{border:none;border-radius:0;padding:0;margin:0;box-shadow:none}
+  .print-field{break-inside:avoid}
+  .print-page-break{page-break-before:always}
+  .print-chacra{margin-bottom:18pt;break-inside:avoid}
+}
+input[type="text"], input:not([type]), input[type="number"] + input, input[list] {
+  text-transform: uppercase;
+}
+input[type="date"], input[type="number"] {
+  text-transform: none;
+}
+/* Aplicar mayusculas a todos los inputs de texto */
+input:not([type="number"]):not([type="date"]) {
+  text-transform: uppercase;
+}
+select {
+  text-transform: uppercase;
+}
+datalist option {
+  text-transform: uppercase;
+}
+</style>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+</head>
+<body>
+
+<div class="app-wrap">
+<div class="hdr">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="5" fill="rgba(255,255,255,.15)"/><path d="M12 3C12 3 6 8 6 14C6 17.3 8.7 20 12 20C15.3 20 18 17.3 18 14C18 8 12 3 12 3Z" fill="rgba(255,255,255,.9)"/><path d="M12 3V20M9 9C9 9 12 11 15 9" stroke="rgba(99,153,34,.8)" stroke-width="1.5" stroke-linecap="round"/></svg>
+  <h1>Costos por Chacra</h1>
+  <span class="hs" id="hstat">—</span>
+</div>
+
+<nav class="nav">
+  <button class="active" onclick="st('inicio')" id="tab-inicio">🏠 Inicio</button>
+  <button onclick="st('maestro')" id="tab-maestro">🌾 Chacras</button>
+  <button onclick="st('registro')" id="tab-registro">➕ Nuevo tratamiento</button>
+  <button onclick="st('historial')" id="tab-historial">📁 Historial</button>
+  <button onclick="st('imprimir')" id="tab-imprimir">🖨 Imprimir</button>
+  <button onclick="st('cultivos')" id="tab-cultivos">🌿 Costo x cultivo</button>
+  <button onclick="st('seguimiento')" id="tab-seguimiento">📌 Seguimiento</button>
+  <button onclick="st('siembra')" id="tab-siembra">🗓 Siembra</button>
+  <button onclick="st('ventas')" id="tab-ventas">💰 Ventas</button>
+  <button onclick="st('equilibrio')" id="tab-equilibrio">⚖ Equilibrio</button>
+  <button onclick="st('cierres')" id="tab-cierres">🏁 Cierres</button>
+  <button onclick="st('informes')" id="tab-informes">📊 Informes</button>
+  <button onclick="st('clasificar')" id="tab-clasificar">🏷 Clasificar</button>
+  <button onclick="st('datos')" id="tab-datos">💾 Guardar / Cargar</button>
+</nav>
+
+<div class="main">
+
+<!-- INICIO -->
+<div id="inicio" class="sec active">
+  <div id="kpi" class="g4"></div>
+  <div class="card">
+    <div class="ctitle">Últimos tratamientos registrados</div>
+    <div class="tw" id="ult-tbl"></div>
+  </div>
+</div>
+
+<!-- MAESTRO CHACRAS -->
+<div id="maestro" class="sec">
+  <div class="card">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+      <div class="ctitle" style="margin-bottom:0">Agregar chacra / zafra</div>
+      <button class="btn btn-a btn-sm" onclick="nuevaChacra()">+ Nueva chacra</button>
+    </div>
+    <div class="csub">Cada combinación campo + chacra + cultivo + zafra se configura una sola vez.</div>
+    <div class="g3">
+      <div class="field"><label>Campo / Establecimiento</label><input id="m-estab" list="m-edl" placeholder="Ej: La Esperanza"><datalist id="m-edl"></datalist></div>
+      <div class="field"><label>Chacra / Potrero</label><input id="m-ch" placeholder="Ej: Chacra Norte"></div>
+      <div class="field"><label>Superficie total (ha)</label><input type="number" id="m-ha" placeholder="0.0" min="0" step="0.1"></div>
+    </div>
+    <div class="g3">
+      <div class="field"><label>Zafra</label>
+        <div style="display:flex;gap:6px">
+          <select id="m-zafra-est" style="flex:1">
+            <option value="INVIERNO">INVIERNO</option>
+            <option value="VERANO">VERANO</option>
+          </select>
+          <select id="m-zafra-anio" style="flex:1">
+            <option>2023</option><option>2024</option><option selected>2025</option><option>2026</option><option>2027</option><option>2028</option>
+          </select>
+        </div>
+      </div>
+      <div class="field"><label>Cultivo</label>
+        <input id="m-cult" list="m-cdl" placeholder="EJ: SOJA, TRIGO, MAIZ" oninput="toggleEpoca(this.value)">
+        <datalist id="m-cdl"><option>SOJA</option><option>TRIGO</option><option>MAÍZ</option><option>SORGO</option><option>GIRASOL</option><option>CEBADA</option><option>ARROZ</option><option>CANOLA</option><option>LUPINO</option><option>COBERTURA</option></datalist>
+      </div>
+      <div class="field"><label>Variedad</label><input id="m-variedad" list="m-var-dl" placeholder="EJ: DM 4615, ACA 315…"><datalist id="m-var-dl"></datalist></div>
+      <div class="field" id="m-epoca-wrap" style="display:none">
+        <label>Época</label>
+        <select id="m-epoca">
+          <option value="">— NO APLICA —</option>
+          <option value="PRIMERA">PRIMERA</option>
+          <option value="SEGUNDA">SEGUNDA</option>
+        </select>
+      </div>
+      <div class="field"><label>Notas (opcional)</label><input id="m-nota" placeholder="ARRENDADA, PROPIA…"></div>
+    </div>
+    <div class="g3" style="margin-bottom:10px">
+      <div class="field">
+        <label>Tipo de alquiler</label>
+        <select id="m-alq-tipo" onchange="toggleAlquiler(this.value)">
+          <option value="">CAMPO PROPIO / SIN ALQUILER</option>
+          <option value="usd_ha">USD FIJO POR HECTÁREA</option>
+          <option value="kg_soja">KILOS DE SOJA POR HECTÁREA/AÑO</option>
+          <option value="porcentaje">PORCENTAJE DE LO PRODUCIDO</option>
+        </select>
+      </div>
+      <div class="field" id="m-alq-val-wrap" style="display:none">
+        <label id="m-alq-val-label">Valor</label>
+        <input type="number" id="m-alq-val" min="0" step="0.01" placeholder="0">
+      </div>
+      <div class="field" id="m-alq-precio-wrap" style="display:none">
+        <label>Precio soja acordado (USD/ton)</label>
+        <input type="number" id="m-alq-precio" min="0" step="0.01" placeholder="0.00">
+      </div>
+    </div>
+    <div class="row">
+      <button class="btn btn-p" id="m-btn-guardar" onclick="guardarChacra()">✓ Guardar chacra</button>
+      <button class="btn btn-s" onclick="nuevaChacra()">Limpiar</button>
+      <button class="btn btn-s" id="m-btn-cancelar" onclick="cancelarEdicion()" style="display:none;color:var(--rd)">✕ Cancelar edición</button>
+    </div>
+    <div id="m-msg" style="margin-top:9px"></div>
+  </div>
+  <div class="card"><div class="ctitle">Chacras configuradas</div><div class="tw" id="m-tbl"></div></div>
+</div>
+
+<!-- REGISTRO TRATAMIENTO -->
+<div id="registro" class="sec">
+
+  <div class="card">
+    <div class="ctitle">Datos del tratamiento</div>
+    <div class="g3">
+      <div class="field">
+        <label>Campo / Establecimiento</label>
+        <select id="r-estab" onchange="filtrarChacrasReg()">
+          <option value="">— Seleccioná campo —</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Chacra / Potrero</label>
+        <select id="r-chacra-sel" onchange="selChacraReg()">
+          <option value="">— Seleccioná chacra —</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>N° de Orden de Trabajo</label>
+        <input id="r-ot" placeholder="EJ: 14031, 1403A" list="r-otdl" maxlength="20" onblur="buscarOT(this.value)" onkeydown="if(event.key==='Enter')buscarOT(this.value)" style="text-transform:uppercase"><datalist id="r-otdl"></datalist>
+        <datalist id="r-otdl"></datalist>
+      </div>
+    </div>
+
+    <div id="reg-info-sel" style="display:none;background:var(--gbg);border:1px solid var(--gl);border-radius:var(--ra);padding:10px 14px;margin-bottom:10px;font-size:13px;color:var(--gd)"></div>
+
+    <div class="g4">
+      <div class="field"><label>Fecha</label><input type="text" id="r-fecha" placeholder="EJ: 30ABR2026" maxlength="10" oninput="fmtFecha(this)" style="text-transform:uppercase"></div>
+      <div class="field"><label>Descripción del trabajo</label><input id="r-desc" placeholder="EJ: FUMIGACION 1RA APLICACION"></div>
+      <div class="field"><label>Ha tratadas</label><input type="number" id="r-ha" placeholder="0.0" min="0" step="0.1" oninput="recalc()"></div>
+      <div class="field"><label>Contratista / Proveedor</label><input id="r-prov" list="prov-dl" placeholder="EJ: JUAN PEREZ, ACA"><datalist id="prov-dl"></datalist></div>
+    </div>
+    <div class="g2">
+      <div class="field"><label>Observaciones</label><input id="r-obs" placeholder="OPCIONAL"></div>
+    </div>
+    <input type="hidden" id="r-cat" value="INSUMOS">
+  </div>
+
+  <div class="card">
+    <div class="ctitle">Líneas de costo</div>
+    <div class="csub">Cargá todos los productos e insumos. Dosis × precio × ha = subtotal. Si hay cantidad real distinta a la calculada, ingresala en "Cant. real".</div>
+    <div class="tw">
+      <datalist id="prod-dl"></datalist>
+      <table class="ltbl" id="ltbl">
+        <thead><tr>
+          <th style="width:3%">#</th>
+          <th style="width:10%">Tipo</th>
+          <th style="width:9%">Subtipo</th>
+          <th style="width:14%">Producto / Insumo</th>
+          <th style="width:7%">Dosis</th>
+          <th style="width:7%">Unidad</th>
+          <th style="width:6%">Ha trat.</th>
+          <th style="width:7%">Cant. calc.</th>
+          <th style="width:7%">Cant. real</th>
+          <th style="width:7%">Precio USD</th>
+          <th style="width:7%">Subtotal USD</th>
+          <th style="width:3%"></th>
+        </tr></thead>
+        <tbody id="ltbl-body"></tbody>
+        <tfoot><tr>
+          <td colspan="9" style="text-align:right;padding:9px 8px;font-weight:700;font-size:12px;color:var(--ts)">TOTAL TRATAMIENTO:</td>
+          <td style="padding:9px 8px"><span id="tot-lineas" style="font-size:15px;font-weight:800;color:var(--gm)">USD 0.00</span></td>
+          <td></td>
+        </tr></tfoot>
+      </table>
+    </div>
+    <div class="row" style="margin-bottom:12px;margin-top:8px">
+      <button class="btn btn-a btn-sm" type="button" onclick="addLinea();return false;">+ Agregar línea</button>
+    </div>
+    <div id="tot-panel" class="tot-bar" style="display:none">
+      <div class="ti"><div class="tl">Total tratamiento</div><div class="tv" id="tp-tot">—</div></div>
+      <div class="ti"><div class="tl">Ha tratadas</div><div class="tv" id="tp-ha">—</div></div>
+      <div class="ti"><div class="tl">USD / ha tratada</div><div class="tv" id="tp-xha">—</div></div>
+      <div class="ti"><div class="tl">Acumulado chacra</div><div class="tv" id="tp-acum">—</div></div>
+      <div class="ti"><div class="tl">Acum / ha chacra</div><div class="tv" id="tp-axha">—</div></div>
+    </div>
+    <div class="row">
+      <button class="btn btn-p" onclick="guardarTrat()">✓ Guardar tratamiento</button>
+      <button class="btn btn-s" onclick="limpReg()">Cancelar</button>
+    </div>
+    <div id="r-msg" style="margin-top:9px"></div>
+  </div>
+
+</div>
+
+<!-- HISTORIAL -->
+<div id="historial" class="sec">
+  <div class="fbar">
+    <select id="h-estab" onchange="renderHist()"><option value="">Todos los campos</option></select>
+    <select id="h-zafra" onchange="renderHist()"><option value="">Todas las zafras</option></select>
+    <select id="h-ch" onchange="renderHist()"><option value="">Todas las chacras</option></select>
+    <select id="h-cat" onchange="renderHist()"><option value="">Todas las categorias</option></select>
+    <button class="btn btn-b btn-sm no-print" onclick="exportarExcel()">⬇ Excel</button>
+  </div>
+  <div id="h-acum"></div>
+  <div id="h-content"></div>
+</div>
+
+<!-- IMPRIMIR -->
+<div id="imprimir" class="sec">
+  <div class="no-print fbar">
+    <select id="pr-zafra" onchange="renderPrint()"><option value="">Todas las zafras</option></select>
+    <select id="pr-estab" onchange="filtrarChacrasPrint()"><option value="">Todos los campos</option></select>
+    <select id="pr-chacra" onchange="renderPrint()"><option value="">Todas las chacras</option></select>
+    <button class="btn btn-p no-print" onclick="window.print()">🖨 Imprimir / Guardar PDF</button>
+  </div>
+  <div id="print-content"></div>
+</div>
+
+<!-- INFORMES -->
+<div id="informes" class="sec">
+  <div class="fbar no-print">
+    <select id="inf-zafra" onchange="renderInformes()"><option value="">Todas las zafras</option></select>
+    <select id="inf-campo" onchange="renderInformes()"><option value="">Todos los campos</option></select>
+    <select id="inf-tipo" onchange="renderInformes()">
+      <option value="chacra">📋 Costo por chacra</option>
+      <option value="campo">🏘 Costo por campo</option>
+      <option value="historico">📅 Histórico por cultivo</option>
+      <option value="ranking">🏆 Ranking de chacras</option>
+      <option value="cierre">💰 Resumen de cierres</option>
+      <option value="equilibrio">⚖ Análisis de equilibrio</option>
+    </select>
+    <button class="btn btn-p no-print" onclick="window.print()">🖨 Imprimir / PDF</button>
+  </div>
+  <div id="inf-content"></div>
+</div>
+
+<!-- CLASIFICAR -->
+<div id="clasificar" class="sec">
+  <div class="card">
+    <div class="ctitle">Reclasificar productos e insumos</div>
+    <div class="csub">Cada fila es un producto único. Cambiá el tipo y hacé clic en "Aplicar a todos" para actualizar todos los tratamientos que usan ese producto.</div>
+    <div style="background:#fff3cd;border:1px solid #ffc107;border-radius:var(--ra);padding:10px 14px;margin-bottom:12px;font-size:13px">
+      <strong>⚠ Tratamientos cargados antes del cambio de tipos</strong> — Hacé clic aquí para migrar todos los tipos viejos automáticamente:
+      <button class="btn btn-p btn-sm" onclick="migrarTiposViejos()" style="margin-left:10px">⚡ Migrar tipos viejos ahora</button>
+    </div>
+    <div class="row" style="margin-bottom:12px">
+      <button class="btn btn-s" onclick="renderClasificar()">🔄 Actualizar lista</button>
+      <button class="btn btn-a" onclick="aplicarTodosClasif()">✓ Guardar todos los cambios</button>
+    </div>
+    <div id="clasif-msg" style="margin-bottom:8px"></div>
+    <div class="tw" id="clasif-tabla"></div>
+  </div>
+</div>
+
+<!-- GUARDAR / CARGAR -->
+<div id="datos" class="sec">
+  <div class="card">
+    <div class="ctitle">✅ Guardado automatico</div>
+    <div class="csub">Cada vez que cargás datos, el sistema los guarda automaticamente en este navegador y dispositivo.</div>
+    <div class="data-box">
+      <div id="autosave-ind" style="font-size:13px;color:var(--gm);font-weight:500;margin-bottom:8px">Verificando...</div>
+      <p style="font-size:13px;color:var(--ts);margin-bottom:8px">Los datos se guardan solos cada vez que cargás algo. No necesitás hacer nada.</p>
+      <p style="font-size:12px;color:var(--ts)">ℹ El navegador puede almacenar hasta ~5MB. El indicador arriba muestra el espacio usado. Cuando te avise que está casi lleno, descargá el TXT.</p>
+    </div>
+  </div>
+  <div class="card">
+    <div class="ctitle">💾 Copia de seguridad (recomendado)</div>
+    <div class="csub">Exportá un TXT de respaldo para tener una copia extra o para transferir datos a otro dispositivo.</div>
+    <div class="data-box">
+      <p style="font-size:13px;color:var(--ts);margin-bottom:10px">Descarga un archivo <strong>costos_datos.txt</strong> con todos tus datos actuales.</p>
+      <button class="btn btn-p" onclick="guardarTXT()">⬇ Descargar copia de seguridad (TXT)</button>
+      <div id="save-msg" style="margin-top:8px"></div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="ctitle">📂 Restaurar desde copia de seguridad</div>
+    <div class="csub">Usá esto si cambiaste de navegador, de computadora, o si querés cargar datos desde el celular.</div>
+    <div class="data-box">
+      <input type="file" id="file-input" accept=".txt" style="font-size:13px;margin-bottom:8px">
+      <br>
+      <button class="btn btn-b" onclick="cargarTXT()">📂 Cargar desde TXT</button>
+      <div id="load-msg" style="margin-top:8px"></div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="ctitle">ℹ Como funciona</div>
+    <ul style="font-size:13px;color:var(--ts);padding-left:18px;line-height:2.2">
+      <li><strong>PC / notebook:</strong> abrís el HTML, los datos cargan solos. No hay que hacer nada.</li>
+      <li><strong>Celular (OneDrive):</strong> abrís el HTML, vas a esta seccion y cargás el TXT una vez. Despues queda guardado en el celular tambien.</li>
+      <li><strong>Cambio de dispositivo:</strong> descargá el TXT en la PC y cargalo en el dispositivo nuevo.</li>
+      <li><strong>El TXT</strong> es tu respaldo. Guardalo en OneDrive para tenerlo siempre disponible.</li>
+    </ul>
+  </div>
+</div>
+
+
+<!-- COSTO POR CULTIVO -->
+<div id="cultivos" class="sec">
+  <div class="fbar no-print">
+    <select id="cv-zafra" onchange="renderCultivos()"><option value="">Todas las zafras</option></select>
+    <select id="cv-estab" onchange="renderCultivos()"><option value="">Todos los campos</option></select>
+    <button class="btn btn-p no-print" onclick="window.print()">🖨 Imprimir / PDF</button>
+  </div>
+  <div id="cult-content"></div>
+</div>
+
+<!-- SEGUIMIENTO POR CHACRA -->
+<div id="seguimiento" class="sec">
+  <div class="fbar">
+    <select id="sg-campo" onchange="renderSeg()"><option value="">Todos los campos</option></select>
+    <select id="sg-zafra" onchange="renderSeg()"><option value="">Todas las zafras</option></select>
+  </div>
+  <div id="sg-content"></div>
+</div>
+
+
+<!-- EQUILIBRIO -->
+<div id="equilibrio" class="sec">
+  <div class="fbar" style="align-items:flex-end;gap:12px">
+    <div class="field" style="margin:0"><label style="font-size:11px;font-weight:700;color:var(--gd)">AÑO</label>
+      <select id="eq-anio" onchange="renderEq()"><option value="">Todos</option></select></div>
+    <div class="field" style="margin:0"><label style="font-size:11px;font-weight:700;color:var(--gd)">ZAFRA</label>
+      <select id="eq-est" onchange="renderEq()">
+        <option value="">Todas</option>
+        <option value="INVIERNO">INVIERNO</option>
+        <option value="VERANO">VERANO</option>
+      </select></div>
+    <div class="field" style="margin:0"><label style="font-size:11px;font-weight:700;color:var(--gd)">CAMPO</label>
+      <select id="eq-campo" onchange="renderEq()"><option value="">Todos</option></select></div>
+    <div class="field" style="margin:0"><label style="font-size:11px;font-weight:700;color:var(--gd)">CHACRA</label>
+      <select id="eq-chacra" onchange="renderEq()"><option value="">Todas</option></select></div>
+  </div>
+
+
+
+  <!-- Resultados -->
+  <div id="eq-content"></div>
+</div>
+
+
+<!-- VENTAS -->
+<div id="ventas" class="sec">
+
+  <div class="card">
+    <div class="ctitle">Registrar venta anticipada</div>
+    <div class="csub">Cada venta que hagas queda registrada. El sistema calcula el precio promedio ponderado por grano y lo usa automáticamente en Equilibrio.</div>
+    <div class="g4">
+      <div class="field"><label>Fecha</label><input type="date" id="v-fecha"></div>
+      <div class="field"><label>Grano</label>
+        <input id="v-grano" list="v-grano-dl" placeholder="Ej: Soja, Trigo, Maíz">
+        <datalist id="v-grano-dl"><option>SOJA</option><option>TRIGO</option><option>MAÍZ</option><option>SORGO</option><option>GIRASOL</option><option>CEBADA</option><option>ARROZ</option><option>CANOLA</option><option>LUPINO</option><option>COBERTURA</option></datalist>
+      </div>
+      <div class="field"><label>Precio USD/ton</label><input type="number" id="v-precio" min="0" step="0.01" placeholder="0.00"></div>
+      <div class="field"><label>Toneladas vendidas</label><input type="number" id="v-tons" min="0" step="0.1" placeholder="0.0" title="Opcional — para calcular promedio ponderado por volumen"></div>
+    </div>
+    <div class="g3">
+      <div class="field"><label>Cliente / Comprador</label><input id="v-cliente" list="v-cliente-dl" placeholder="Ej: Cargill, ADP, Dreyfus"><datalist id="v-cliente-dl"></datalist></div>
+      <div class="field"><label>Zafra</label>
+        <div style="display:flex;gap:6px">
+          <select id="v-zafra-est" style="flex:1"><option value="INVIERNO">INVIERNO</option><option value="VERANO">VERANO</option></select>
+          <select id="v-zafra-anio" style="flex:1"><option>2023</option><option>2024</option><option selected>2025</option><option>2026</option><option>2027</option><option>2028</option></select>
+        </div>
+      </div>
+      <div class="field"><label>Observaciones</label><input id="v-obs" placeholder="Condición, forma de pago, etc."></div>
+    </div>
+    <div class="row">
+      <button class="btn btn-p" onclick="guardarVenta()">✓ Registrar venta</button>
+      <button class="btn btn-s" onclick="limpV()">Limpiar</button>
+    </div>
+    <div id="v-msg" style="margin-top:9px"></div>
+  </div>
+
+  <!-- Resumen por grano -->
+  <div id="v-resumen"></div>
+
+  <!-- Historial de ventas -->
+  <div class="card">
+    <div class="ctitle">Historial de ventas</div>
+    <div class="fbar">
+      <select id="vf-grano" onchange="renderVentas()"><option value="">Todos los granos</option></select>
+      <select id="vf-zafra" onchange="renderVentas()"><option value="">Todas las zafras</option></select>
+    </div>
+    <div class="tw" id="v-historial"></div>
+  </div>
+
+</div>
+
+
+<!-- RESUMEN SIEMBRA -->
+<div id="siembra" class="sec">
+  <div class="fbar">
+    <select id="sb-anio" onchange="renderSiembra()"><option value="">Todos los años</option></select>
+    <select id="sb-est" onchange="renderSiembra()"><option value="">INVIERNO Y VERANO</option><option value="INVIERNO">SOLO INVIERNO</option><option value="VERANO">SOLO VERANO</option></select>
+    <select id="sb-campo" onchange="renderSiembra()"><option value="">Todos los campos</option></select>
+  </div>
+  <div id="sb-content"></div>
+</div>
+
+
+<!-- CIERRES -->
+<div id="cierres" class="sec">
+
+  <div class="card">
+    <div class="ctitle">Cerrar chacra</div>
+    <div class="csub">Seleccioná la chacra cosechada e ingresá el rendimiento y costos post-cosecha.</div>
+    <div id="ci-selector-wrap"></div>
+  </div>
+
+  <div id="ci-detalle" style="display:none">
+    <div class="card" id="ci-info-card"></div>
+    <div class="card">
+      <div class="ctitle" style="font-size:13px">Rendimiento y fecha</div>
+      <div class="g3">
+        <div class="field"><label>Rendimiento (kg/ha)</label><input type="number" id="ci-kgha" min="0" step="1" placeholder="0" oninput="calcCierre()"></div>
+        <div class="field"><label>Producción total (kg)</label><input type="number" id="ci-kgtot" min="0" step="1" placeholder="0" oninput="calcCierre()"></div>
+        <div class="field"><label>Fecha cosecha</label><input type="text" id="ci-fecha" placeholder="EJ: 15JUL2026" style="text-transform:uppercase"></div>
+      </div>
+      <div class="ctitle" style="font-size:13px;margin-top:8px">Costos post-cosecha</div>
+      <table style="width:100%;border-collapse:collapse;font-size:13px;margin-bottom:8px">
+        <thead><tr>
+          <th style="padding:6px 8px;background:var(--bg);font-size:11px;font-weight:700;text-transform:uppercase;color:var(--ts);border-bottom:1px solid var(--br)">Concepto</th>
+          <th style="padding:6px 8px;background:var(--bg);font-size:11px;font-weight:700;text-transform:uppercase;color:var(--ts);border-bottom:1px solid var(--br);width:150px">USD/ton</th>
+          <th style="padding:6px 8px;background:var(--bg);font-size:11px;font-weight:700;text-transform:uppercase;color:var(--ts);border-bottom:1px solid var(--br);width:150px">Total USD</th>
+          <th style="width:40px;background:var(--bg);border-bottom:1px solid var(--br)"></th>
+        </tr></thead>
+        <tbody id="ci-pc-body"></tbody>
+      </table>
+      <button class="btn btn-a btn-sm" id="ci-add-pc-btn">+ Agregar concepto</button>
+    </div>
+    <div id="ci-resultado-wrap"></div>
+    <div class="card">
+      <div class="row">
+        <button class="btn btn-p" id="ci-guardar-btn">✓ Cerrar y guardar</button>
+        <button class="btn btn-s" onclick="limpCierre()">Cancelar</button>
+      </div>
+      <div id="ci-msg" style="margin-top:9px"></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="ctitle">Chacras cerradas</div>
+    <div class="fbar">
+      <select id="cf-zafra" onchange="renderListaCierres()"><option value="">Todas las zafras</option></select>
+      <select id="cf-campo" onchange="renderListaCierres()"><option value="">Todos los campos</option></select>
+    </div>
+    <div id="ci-lista"></div>
+  </div>
+
+</div>
+
+</div><!-- /main -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script>
+// ── ESTADO ─────────────────────────────────────────────────────────────────
+var chacras = [];
+var tratos  = [];
+var chSelId = null;
+var lineas  = [];
+var linId   = 0;
+
+var CATS = ['Labores','Insumos','Arrendamiento','Maquinaria propia','Mano de obra','Fletes y acarreos','Gastos generales'];
+var CBADGE = {'Labores':'bb2','Insumos':'bg2','Arrendamiento':'ba2','Maquinaria propia':'by2','Mano de obra':'bb2','Fletes y acarreos':'ba2','Gastos generales':'by2'};
+
+function chById(id){ return chacras.find(function(c){return String(c.id)===String(id);}); }
+function tratTot(t){ return (t.lineas||[]).reduce(function(s,l){return s+(l.sub||0);},0); }
+
+// ── FORMATO ─────────────────────────────────────────────────────────────────
+function fmt(n){
+  return new Intl.NumberFormat('es-UY',{minimumFractionDigits:2,maximumFractionDigits:2}).format(n||0);
+}
+function uniq(arr,f){
+  var seen={},out=[];
+  arr.forEach(function(d){var v=d[f];if(v&&!seen[v]){seen[v]=1;out.push(v);}});
+  return out.sort();
+}
+
+// ── NAV ─────────────────────────────────────────────────────────────────────
+function st(id){
+  document.querySelectorAll('.sec').forEach(function(s){s.classList.remove('active');});
+  document.getElementById(id).classList.add('active');
+  ['inicio','maestro','registro','historial','imprimir','cultivos','seguimiento','siembra','ventas','equilibrio','cierres','clasificar','informes','datos'].forEach(function(t){
+    document.getElementById('tab-'+t).classList.toggle('active',t===id);
+  });
+  updFilters();
+  if(id==='inicio')   renderInicio();
+  if(id==='maestro')  renderMaestro();
+  if(id==='registro'){
+    renderPills();
+    if(!lineas.length) addLinea();
+  }
+  if(id==='historial')renderHist();
+  if(id==='imprimir') renderPrint();
+  if(id==='cultivos') renderCultivos();
+  if(id==='seguimiento'){
+    var sc=document.getElementById('sg-campo');
+    var sz=document.getElementById('sg-zafra');
+    if(sc)sc.value='';
+    if(sz)sz.value='';
+    renderSeg();
+  }
+  if(id==='siembra') renderSiembra();
+  if(id==='ventas') renderVentas();
+  if(id==='equilibrio') renderEq();
+  if(id==='cierres') renderCierres();
+}
+
+// ── FILTROS ──────────────────────────────────────────────────────────────────
+function updFilters(){
+  if(!Array.isArray(ventas))ventas=[];
+  if(!Array.isArray(chacras))chacras=[];
+  if(!Array.isArray(tratos))tratos=[];
+  if(!Array.isArray(cierres))cierres=[];
+  // datalist campo en maestro
+  var edl=document.getElementById('m-edl');
+  edl.innerHTML=uniq(chacras,'estab').map(function(v){return '<option value="'+v+'">';}).join('');
+
+  // datalist OT en registro
+  var otdl=document.getElementById('r-otdl');
+  var nums=[];tratos.forEach(function(t){if(t.ot&&nums.indexOf(t.ot)<0)nums.push(t.ot);});
+  otdl.innerHTML=nums.map(function(v){return '<option value="'+v+'">';}).join('');
+
+  var sets=[
+    {id:'h-estab',arr:chacras,f:'estab',ph:'Todos los campos'},
+    {id:'h-zafra',arr:chacras,f:'zafra',ph:'Todas las zafras'},
+    {id:'h-ch',   arr:chacras,f:'chacra',ph:'Todas las chacras'},
+    {id:'pr-zafra',arr:chacras,f:'zafra',ph:'Todas las zafras'},
+    {id:'pr-estab',arr:chacras,f:'estab',ph:'Todos los campos'},
+  ];
+  sets.forEach(function(s){
+    var el=document.getElementById(s.id);if(!el)return;
+    var cur=el.value;
+    el.innerHTML='<option value="">'+s.ph+'</option>'+
+      uniq(s.arr,s.f).map(function(o){return '<option value="'+o+'"'+(o===cur?' selected':'')+'>'+o+'</option>';}).join('');
+  });
+  // año y campo en cultivos
+  var cvA=document.getElementById('cv-anio');
+  var cvC=document.getElementById('cv-campo');
+  if(cvA){
+    var curA=cvA.value;
+    var anos=[];chacras.forEach(function(c){var p=c.zafra?c.zafra.split(' ').pop():'';if(p&&anos.indexOf(p)<0)anos.push(p);});anos.sort();
+    cvA.innerHTML='<option value="">Todos los años</option>'+anos.map(function(a){return '<option value="'+a+'"'+(a===curA?' selected':'')+'>'+a+'</option>';}).join('');
+  }
+  if(cvC){
+    var curC=cvC.value;
+    cvC.innerHTML='<option value="">Todos los campos</option>'+uniq(chacras,'estab').map(function(e){return '<option value="'+e+'"'+(e===curC?' selected':'')+'>'+e+'</option>';}).join('');
+  }
+  // zafra y campo en cierres
+  var cfZ=document.getElementById('cf-zafra');
+  var cfC=document.getElementById('cf-campo');
+  if(cfZ){var curCfZ=cfZ.value;var zafrasCi=[];cierres.forEach(function(c){var ch=chById(c.chId);if(ch&&ch.zafra&&zafrasCi.indexOf(ch.zafra)<0)zafrasCi.push(ch.zafra);});zafrasCi.sort();cfZ.innerHTML='<option value="">Todas las zafras</option>'+zafrasCi.map(function(z){return '<option value="'+z+'"'+(z===curCfZ?' selected':'')+'>'+z+'</option>';}).join('');}
+  if(cfC){var curCfC=cfC.value;var camposCi=[];cierres.forEach(function(c){var ch=chById(c.chId);if(ch&&ch.estab&&camposCi.indexOf(ch.estab)<0)camposCi.push(ch.estab);});camposCi.sort();cfC.innerHTML='<option value="">Todos los campos</option>'+camposCi.map(function(e){return '<option value="'+e+'"'+(e===curCfC?' selected':'')+'>'+e+'</option>';}).join('');}
+  // ci-chacra se puebla en renderCierres()
+  // granos y zafra en ventas
+  var vfG=document.getElementById('vf-grano');
+  var vfZ=document.getElementById('vf-zafra');
+  if(vfG){
+    var curVG=vfG.value;
+    var granos=[];ventas.forEach(function(v){if(v.grano&&granos.indexOf(v.grano)<0)granos.push(v.grano);});granos.sort();
+    vfG.innerHTML='<option value="">Todos los granos</option>'+granos.map(function(g){return '<option value="'+g+'"'+(g===curVG?' selected':'')+'>'+g+'</option>';}).join('');
+  }
+  if(vfZ){
+    var curVZ=vfZ.value;
+    var zafrasV=[];ventas.forEach(function(v){if(v.zafra&&zafrasV.indexOf(v.zafra)<0)zafrasV.push(v.zafra);});zafrasV.sort();
+    vfZ.innerHTML='<option value="">Todas las zafras</option>'+zafrasV.map(function(z){return '<option value="'+z+'"'+(z===curVZ?' selected':'')+'>'+z+'</option>';}).join('');
+  }
+  // clientes datalist
+  var vcdl=document.getElementById('v-cliente-dl');
+  if(vcdl){
+    var clientes=[];ventas.forEach(function(v){if(v.cliente&&clientes.indexOf(v.cliente)<0)clientes.push(v.cliente);});
+    vcdl.innerHTML=clientes.map(function(c){return '<option value="'+c+'">';}).join('');
+  }
+  // variedades datalist
+  var mvardl=document.getElementById('m-var-dl');
+  if(mvardl){
+    var vars=[];chacras.forEach(function(c){if(c.variedad&&vars.indexOf(c.variedad)<0)vars.push(c.variedad);});vars.sort();
+    mvardl.innerHTML=vars.map(function(v){return '<option value="'+v+'">';}).join('');
+  }
+  // año, campo en siembra
+  var sbA=document.getElementById('sb-anio');
+  var sbC=document.getElementById('sb-campo');
+  if(sbA){
+    var curSbA=sbA.value;
+    var anosSb=[];chacras.forEach(function(c){var p=c.zafra?c.zafra.split(' ').pop():'';if(p&&anosSb.indexOf(p)<0)anosSb.push(p);});anosSb.sort();
+    sbA.innerHTML='<option value="">Todos los años</option>'+anosSb.map(function(a){return '<option value="'+a+'"'+(a===curSbA?' selected':'')+'>'+a+'</option>';}).join('');
+  }
+  if(sbC){
+    var curSbC=sbC.value;
+    sbC.innerHTML='<option value="">Todos los campos</option>'+uniq(chacras,'estab').map(function(e){return '<option value="'+e+'"'+(e===curSbC?' selected':'')+'>'+e+'</option>';}).join('');
+  }
+  // año y campo en equilibrio
+  var eqA=document.getElementById('eq-anio');
+  var eqC=document.getElementById('eq-campo');
+  if(eqA){
+    var curEqA=eqA.value;
+    var anosEq=[];chacras.forEach(function(c){var p=c.zafra?c.zafra.split(' ').pop():'';if(p&&anosEq.indexOf(p)<0)anosEq.push(p);});anosEq.sort();
+    eqA.innerHTML='<option value="">Todos los años</option>'+anosEq.map(function(a){return '<option value="'+a+'"'+(a===curEqA?' selected':'')+'>'+a+'</option>';}).join('');
+  }
+  if(eqC){
+    var curEqC=eqC.value;
+    eqC.innerHTML='<option value="">Todos los campos</option>'+uniq(chacras,'estab').map(function(e){return '<option value="'+e+'"'+(e===curEqC?' selected':'')+'>'+e+'</option>';}).join('');
+  }
+  // campo y zafra en seguimiento
+  var sgCa=document.getElementById('sg-campo');
+  var sgZ=document.getElementById('sg-zafra');
+  if(sgCa){var curSg=sgCa.value;sgCa.innerHTML='<option value="">Todos los campos</option>'+uniq(chacras,'estab').map(function(e){return '<option value="'+e+'"'+(e===curSg?' selected':'')+'>'+e+'</option>';}).join('');}
+  if(sgZ){var curSgZ=sgZ.value;sgZ.innerHTML='<option value="">Todas las zafras</option>'+uniq(chacras,'zafra').map(function(z){return '<option value="'+z+'"'+(z===curSgZ?' selected':'')+'>'+z+'</option>';}).join('');}
+  // categorias
+  var hc=document.getElementById('h-cat');
+  if(hc){
+    var cv=hc.value;
+    hc.innerHTML='<option value="">Todas las categorias</option>'+
+      CATS.map(function(c){return '<option value="'+c+'"'+(c===cv?' selected':'')+'>'+c+'</option>';}).join('');
+  }
+  // header
+  var tot=tratos.reduce(function(s,t){return s+tratTot(t);},0);
+  document.getElementById('hstat').textContent=
+    chacras.length?chacras.length+' chacras · USD '+fmt(tot)+' total':'Sin datos';
+}
+
+// ── MAESTRO ──────────────────────────────────────────────────────────────────
+function guardarChacra(){
+  // Verificar si estamos en modo edición
+  var btn=document.getElementById('m-btn-guardar');
+  var editId=btn?parseInt(btn.getAttribute('data-editid')):null;
+  if(editId){
+    actualizarChacra(editId);return;
+  }
+  var estab=document.getElementById('m-estab').value.trim().toUpperCase();
+  var ch=document.getElementById('m-ch').value.trim().toUpperCase();
+  var ha=parseFloat(document.getElementById('m-ha').value)||0;
+  var zafra=document.getElementById('m-zafra-est').value+' '+document.getElementById('m-zafra-anio').value;
+  var cult=document.getElementById('m-cult').value.trim().toUpperCase();
+  var variedad=document.getElementById('m-variedad').value.trim().toUpperCase();
+  var epoca=document.getElementById('m-epoca').value||'';
+  var nota=document.getElementById('m-nota').value.trim().toUpperCase();
+  var msg=document.getElementById('m-msg');
+  if(!estab||!ch||!cult){msg.className='alert aerr';msg.textContent='Completá campo, chacra y cultivo.';return;}
+  if(chacras.find(function(c){return c.estab===estab&&c.chacra===ch&&c.zafra===zafra;})){
+    msg.className='alert aerr';msg.textContent='Ya existe esa combinacion.';return;
+  }
+  var alqTipo=document.getElementById('m-alq-tipo').value||'';
+  var alqVal=parseFloat(document.getElementById('m-alq-val').value)||0;
+  var alqPrecio=parseFloat(document.getElementById('m-alq-precio').value)||0;
+  chacras.push({id:Date.now(),estab:estab,chacra:ch,ha:ha,zafra:zafra,cultivo:cult,variedad:variedad,epoca:epoca,nota:nota,alqTipo:alqTipo,alqVal:alqVal,alqPrecio:alqPrecio});
+  autoSave();updFilters();renderMaestro();
+  msg.className='alert aok';msg.textContent='Guardado: '+ch+' ('+cult+', '+zafra+')';
+  limpM(true);
+  setTimeout(function(){msg.className='';msg.textContent='';},3000);
+}
+function toggleAlquiler(val){
+  var vw=document.getElementById('m-alq-val-wrap');
+  var pw=document.getElementById('m-alq-precio-wrap');
+  var lbl=document.getElementById('m-alq-val-label');
+  vw.style.display=(val&&val!=='')?'block':'none';
+  pw.style.display=(val==='kg_soja')?'block':'none';
+  if(val==='usd_ha')lbl.textContent='USD por hectárea';
+  else if(val==='kg_soja')lbl.textContent='Kilos de soja por ha/año';
+  else if(val==='porcentaje')lbl.textContent='% de la producción';
+}
+var CULT_VERANO=['SOJA','MAIZ','MAÍZ','SORGO','GIRASOL','LUPINO','COBERTURA','ARROZ'];
+function toggleEpoca(val){
+  var v=val.toUpperCase().trim();
+  var esVerano=CULT_VERANO.some(function(c){return v===c||v.indexOf(c)>=0;});
+  var wrap=document.getElementById('m-epoca-wrap');
+  if(wrap)wrap.style.display=esVerano?'block':'none';
+  if(!esVerano&&document.getElementById('m-epoca'))document.getElementById('m-epoca').value='';
+}
+
+function actualizarChacra(id){
+  var estab=document.getElementById('m-estab').value.trim().toUpperCase();
+  var ch=document.getElementById('m-ch').value.trim().toUpperCase();
+  var ha=parseFloat(document.getElementById('m-ha').value)||0;
+  var zafra=document.getElementById('m-zafra-est').value+' '+document.getElementById('m-zafra-anio').value;
+  var cult=document.getElementById('m-cult').value.trim().toUpperCase();
+  var variedad=document.getElementById('m-variedad').value.trim().toUpperCase();
+  var epoca=document.getElementById('m-epoca').value||'';
+  var nota=document.getElementById('m-nota').value.trim().toUpperCase();
+  var msg=document.getElementById('m-msg');
+  if(!estab||!ch||!cult){msg.className='alert aerr';msg.textContent='Completá campo, chacra y cultivo.';return;}
+  var idx=chacras.findIndex(function(c){return c.id===id;});
+  if(idx<0){msg.className='alert aerr';msg.textContent='Error: chacra no encontrada.';return;}
+  var alqTipo=document.getElementById('m-alq-tipo').value||'';
+  var alqVal=parseFloat(document.getElementById('m-alq-val').value)||0;
+  var alqPrecio=parseFloat(document.getElementById('m-alq-precio').value)||0;
+  chacras[idx].estab=estab;chacras[idx].chacra=ch;chacras[idx].ha=ha;
+  chacras[idx].zafra=zafra;chacras[idx].cultivo=cult;chacras[idx].variedad=variedad;chacras[idx].epoca=epoca;chacras[idx].nota=nota;
+  chacras[idx].alqTipo=alqTipo;chacras[idx].alqVal=alqVal;chacras[idx].alqPrecio=alqPrecio;
+  autoSave();updFilters();renderMaestro();
+  cancelarEdicion();
+  msg.className='alert aok';
+  msg.textContent='✓ Chacra actualizada: '+ch+' ('+cult+(variedad?' — '+variedad:'')+', '+zafra+')';
+  setTimeout(function(){msg.className='';msg.textContent='';},3500);
+}
+
+function limpM(keepEstab){
+  if(!keepEstab)document.getElementById('m-estab').value='';
+  ['m-ch','m-ha','m-cult','m-variedad','m-nota','m-alq-val','m-alq-precio'].forEach(function(id){document.getElementById(id).value='';}); document.getElementById('m-epoca').value='';document.getElementById('m-epoca-wrap').style.display='none';document.getElementById('m-alq-tipo').value='';toggleAlquiler('');
+}
+function nuevaChacra(){
+  // Limpia TODO para empezar desde cero
+  ['m-estab','m-ch','m-ha','m-cult','m-variedad','m-nota','m-alq-val','m-alq-precio'].forEach(function(id){document.getElementById(id).value='';}); document.getElementById('m-epoca').value='';document.getElementById('m-epoca-wrap').style.display='none';document.getElementById('m-alq-tipo').value='';toggleAlquiler('');
+  document.getElementById('m-zafra-est').selectedIndex=0;
+  document.getElementById('m-zafra-anio').value='2025';
+  document.getElementById('m-msg').className='';
+  document.getElementById('m-msg').textContent='';
+  document.getElementById('m-estab').focus();
+}
+function elimCh(id){
+  var hasT=tratos.some(function(t){return t.chId===id;});
+  if(hasT&&!confirm('Tiene tratamientos. Eliminar todo?'))return;
+  if(!hasT&&!confirm('Eliminar esta chacra?'))return;
+  chacras=chacras.filter(function(c){return c.id!==id;});
+  tratos=tratos.filter(function(t){return t.chId!==id;});
+  autoSave();updFilters();renderMaestro();
+  if(chSelId===id){chSelId=null;renderPills();}
+}
+function renderMaestro(){
+  var tbl=document.getElementById('m-tbl');
+  if(!chacras.length){tbl.innerHTML='<div class="empty">🌱 Aun no hay chacras. Completá el formulario arriba.</div>';return;}
+
+  // Totales generales
+  var haTot=chacras.reduce(function(s,c){return s+(c.ha||0);},0);
+  var usdTot=tratos.reduce(function(s,t){return s+tratTot(t);},0);
+
+  var byE={};
+  chacras.forEach(function(c){if(!byE[c.estab])byE[c.estab]=[];byE[c.estab].push(c);});
+
+  // Panel de totales
+  var resumen='<div style="display:flex;gap:20px;flex-wrap:wrap;background:var(--gbg);border-radius:var(--ra);padding:10px 16px;margin-bottom:14px;border:1px solid var(--gl)">'+
+    '<div><div style="font-size:11px;color:var(--gd);text-transform:uppercase;letter-spacing:.3px">Total hectáreas</div><div style="font-size:20px;font-weight:800;color:var(--gm)">'+haTot+' ha</div></div>'+
+    '<div><div style="font-size:11px;color:var(--gd);text-transform:uppercase;letter-spacing:.3px">Total campos</div><div style="font-size:20px;font-weight:800;color:var(--gm)">'+Object.keys(byE).length+'</div></div>'+
+    '<div><div style="font-size:11px;color:var(--gd);text-transform:uppercase;letter-spacing:.3px">Total chacras</div><div style="font-size:20px;font-weight:800;color:var(--gm)">'+chacras.length+'</div></div>'+
+    '<div><div style="font-size:11px;color:var(--gd);text-transform:uppercase;letter-spacing:.3px">Total gastado</div><div style="font-size:20px;font-weight:800;color:var(--gm)">'+(usdTot?'USD '+fmt(usdTot):'—')+'</div></div>'+
+    '</div>';
+
+  var h='<table class="tbl"><thead><tr>'+
+    '<th>Campo</th><th>Chacra / Potrero</th><th>Cultivo</th><th>Variedad</th>'+
+    '<th>Zafra</th><th class="r">Ha</th><th class="r">Tratamientos</th>'+
+    '<th class="r">Total USD</th><th>Notas</th><th>Alquiler</th><th></th>'+
+    '</tr></thead><tbody>';
+
+  Object.keys(byE).sort().forEach(function(e){
+    var haEstab=byE[e].reduce(function(s,c){return s+(c.ha||0);},0);
+    var usdEstab=byE[e].reduce(function(s,c){
+      return s+tratos.filter(function(t){return t.chId===c.id;}).reduce(function(s2,t){return s2+tratTot(t);},0);
+    },0);
+    // Fila cabecera del campo — negrita, con subtotales
+    h+='<tr style="background:#f0f7e8">'+
+      '<td colspan="5" style="font-size:13px;font-weight:800;color:var(--gd);padding:9px 8px">'+e+'</td>'+
+      '<td class="r b" style="color:var(--gd);padding:9px 8px">'+haEstab+' ha</td>'+
+      '<td class="r" style="color:var(--ts);padding:9px 8px;font-size:12px">'+
+        byE[e].reduce(function(s,c){return s+tratos.filter(function(t){return t.chId===c.id;}).length;},0)+
+      '</td>'+
+      '<td class="r b" style="color:var(--gd);padding:9px 8px">'+(usdEstab?'USD '+fmt(usdEstab):'—')+'</td>'+
+      '<td colspan="2"></td>'+
+      '</tr>';
+    byE[e].forEach(function(c){
+      var ts=tratos.filter(function(t){return t.chId===c.id;});
+      var tot=ts.reduce(function(s,t){return s+tratTot(t);},0);
+      h+='<tr>'+
+        '<td class="m" style="padding-left:16px">'+e+'</td>'+
+        '<td style="font-weight:400">'+c.chacra+'</td>'+
+        '<td>'+c.cultivo+'</td>'+
+        '<td class="m">'+(c.variedad||'—')+(c.epoca?' <span class="badge ba2">'+c.epoca+'</span>':'')+'</td>'+
+        '<td><span class="badge bb2">'+c.zafra+'</span></td>'+
+        '<td class="r">'+(c.ha||'—')+'</td>'+
+        '<td class="r">'+ts.length+'</td>'+
+        '<td class="r b">'+(ts.length?'USD '+fmt(tot):'—')+'</td>'+
+        '<td class="m">'+(c.nota||'—')+'</td>'+
+        '<td class="m">'+alqLabel(c)+'</td>'+
+        '<td class="r" style="white-space:nowrap">'+
+          '<button class="btn btn-s btn-sm" onclick="editarChacra('+c.id+')" style="margin-right:4px">✏ Editar</button>'+
+          '<button class="btn-del" onclick="elimCh('+c.id+')">✕</button>'+
+        '</td>'+
+        '</tr>';
+    });
+  });
+
+  // Fila total general
+  h+='<tr style="background:var(--gd);color:#fff">'+
+    '<td colspan="6" style="padding:9px 8px;font-weight:800;font-size:13px">TOTAL GENERAL</td>'+
+    '<td class="r b" style="padding:9px 8px">'+haTot+' ha</td>'+
+    '<td class="r" style="padding:9px 8px">'+tratos.length+'</td>'+
+    '<td class="r b" style="padding:9px 8px">'+(usdTot?'USD '+fmt(usdTot):'—')+'</td>'+
+    '<td colspan="2"></td>'+
+    '</tr>';
+
+  tbl.innerHTML=resumen+h+'</tbody></table>';
+}
+
+function editarChacra(id){
+  var c=chacras.find(function(x){return x.id===id;});
+  if(!c)return;
+  // Cargar datos en el formulario
+  document.getElementById('m-estab').value=c.estab||'';
+  document.getElementById('m-ch').value=c.chacra||'';
+  document.getElementById('m-ha').value=c.ha||'';
+  document.getElementById('m-cult').value=c.cultivo||'';
+  document.getElementById('m-variedad').value=c.variedad||'';
+  document.getElementById('m-epoca').value=c.epoca||'';
+  toggleEpoca(c.cultivo||'');
+  document.getElementById('m-alq-tipo').value=c.alqTipo||'';
+  document.getElementById('m-alq-val').value=c.alqVal||'';
+  document.getElementById('m-alq-precio').value=c.alqPrecio||'';
+  toggleAlquiler(c.alqTipo||'');
+  document.getElementById('m-nota').value=c.nota||'';
+  // Zafra: separar estacion y año
+  var partes=c.zafra?c.zafra.split(' '):['INVIERNO','2025'];
+  document.getElementById('m-zafra-est').value=partes[0]||'INVIERNO';
+  document.getElementById('m-zafra-anio').value=partes[1]||'2025';
+  // Cambiar el botón guardar a modo edición
+  document.getElementById('m-btn-guardar').textContent='✓ Actualizar chacra';
+  document.getElementById('m-btn-guardar').setAttribute('data-editid', id);
+  document.getElementById('m-btn-cancelar').style.display='inline-flex';
+  document.getElementById('m-msg').className='alert ainf';
+  document.getElementById('m-msg').textContent='Editando: '+c.chacra+'. Modificá los datos y hacé clic en Actualizar.';
+  // Scroll al formulario
+  document.getElementById('m-estab').focus();
+  document.querySelector('#maestro .card').scrollIntoView({behavior:'smooth'});
+}
+
+function cancelarEdicion(){
+  document.getElementById('m-btn-guardar').textContent='✓ Guardar chacra';
+  document.getElementById('m-btn-guardar').removeAttribute('data-editid');
+  document.getElementById('m-btn-cancelar').style.display='none';
+  document.getElementById('m-msg').className='';
+  document.getElementById('m-msg').textContent='';
+  nuevaChacra();
+}
+
+// ── PILLS REGISTRO ────────────────────────────────────────────────────────────
+function renderPills(){
+  // Ahora pobla los selects de campo y chacra
+  var selEstab = document.getElementById('r-estab');
+  if(!selEstab) return;
+  var curE = selEstab.value;
+  var campos = [];
+  chacras.forEach(function(c){if(campos.indexOf(c.estab)<0)campos.push(c.estab);});
+  campos.sort();
+  selEstab.innerHTML = '<option value="">— Seleccioná campo —</option>'+
+    campos.map(function(e){return '<option value="'+e+'"'+(e===curE?' selected':'')+'>'+e+'</option>';}).join('');
+  filtrarChacrasReg();
+  // Poblar datalist de proveedores
+  var provDL=document.getElementById('prov-dl');
+  if(provDL){
+    var provs=[];
+    tratos.forEach(function(t){if(t.prov&&provs.indexOf(t.prov)<0)provs.push(t.prov);});
+    provs.sort();
+    provDL.innerHTML=provs.map(function(p){return '<option value="'+p+'">';}).join('');
+  }
+  // Poblar datalist de OTs
+  var otDL=document.getElementById('r-otdl');
+  if(otDL){
+    var ots=[];
+    tratos.forEach(function(t){if(t.ot&&ots.indexOf(t.ot)<0)ots.push(t.ot);});
+    ots.sort();
+    otDL.innerHTML=ots.map(function(o){return '<option value="'+o+'">';}).join('');
+  }
+}
+
+function filtrarChacrasReg(){
+  var estab = document.getElementById('r-estab').value;
+  var selCh = document.getElementById('r-chacra-sel');
+  var curCh = selCh.value;
+  var filtradas = chacras.filter(function(c){return !estab||c.estab===estab;});
+  selCh.innerHTML = '<option value="">— Seleccioná chacra —</option>'+
+    filtradas.map(function(c){
+      return '<option value="'+String(c.id)+'"'+(String(c.id)===curCh?' selected':'')+'>'+
+        c.chacra+' ('+c.cultivo+', '+c.zafra+')</option>';
+    }).join('');
+  if(curCh && filtradas.some(function(c){return String(c.id)===curCh;})){
+    selCh.value = curCh;
+    selChacraReg();
+  } else {
+    chSelId = null;
+    document.getElementById('reg-info-sel').style.display='none';
+  }
+}
+
+function selChacraReg(){
+  var v = document.getElementById('r-chacra-sel').value;
+  if(!v){chSelId=null;document.getElementById('reg-info-sel').style.display='none';return;}
+  var ch = chacras.find(function(c){return String(c.id)===String(v);});
+  if(!ch){chSelId=null;return;}
+  chSelId = ch.id;
+  var ts = tratos.filter(function(t){return String(t.chId)===String(ch.id);});
+  var acum = ts.reduce(function(s,t){return s+tratTot(t);},0);
+  var info = document.getElementById('reg-info-sel');
+  info.style.display = 'block';
+  info.innerHTML =
+    '<strong>'+ch.chacra+'</strong> &middot; '+ch.estab+
+    ' &middot; '+ch.cultivo+(ch.variedad?' ('+ch.variedad+')':'')+
+    (ch.epoca?' &middot; <span class="badge ba2">'+ch.epoca+'</span>':'')+
+    ' &middot; <span class="badge bb2">'+ch.zafra+'</span>'+
+    (ch.ha?' &middot; '+ch.ha+' ha':'')+
+    '<br>Acumulado: <strong>USD '+fmt(acum)+'</strong>'+
+    (ch.ha&&acum?' (USD '+fmt(acum/ch.ha)+'/ha)':'')+
+    (ch.alqTipo?' &middot; Alquiler: '+alqLabel(ch):'');
+  // Setear ha tratadas por defecto
+  document.getElementById('r-ha').value = ch.ha||'';
+  if(!lineas.length) addLinea();
+  recalc();
+}
+
+function hideReg(){
+  // ya no necesaria pero la dejamos por compatibilidad
+}
+
+function renderIB(){
+  // reemplazada por selChacraReg
+}
+
+
+function r_msg(cls,txt){
+  var m=document.getElementById('r-msg');
+  if(m){m.className='alert '+cls;m.textContent=txt;setTimeout(function(){m.className='';m.textContent='';},4000);}
+}
+function getPrecioProducto(prod){
+  // Busca el último precio usado para ese producto en todos los tratamientos
+  if(!prod)return null;
+  var prodUp=prod.toUpperCase().trim();
+  var ultimoPrecio=null;
+  var ultimoId=0;
+  tratos.forEach(function(t){
+    (t.lineas||[]).forEach(function(l){
+      var pr=parseFloat(String(l.precio||'').replace(',','.'))||0;
+      if(l.prod&&l.prod.toUpperCase().trim()===prodUp&&pr>0){
+        if(t.id>ultimoId){ultimoId=t.id;ultimoPrecio=String(l.precio);}
+      }
+    });
+  });
+  // También buscar en las líneas del tratamiento actual que se está editando
+  lineas.forEach(function(l){
+    var pr=parseFloat(String(l.precio||'').replace(',','.'))||0;
+    if(l.prod&&l.prod.toUpperCase().trim()===prodUp&&pr>0){
+      ultimoPrecio=String(l.precio);
+    }
+  });
+  return ultimoPrecio;
+}
+
+function getProductosDL(){
+  var prods=[];
+  tratos.forEach(function(t){(t.lineas||[]).forEach(function(l){if(l.prod&&prods.indexOf(l.prod)<0)prods.push(l.prod);});});
+  lineas.forEach(function(l){if(l.prod&&prods.indexOf(l.prod)<0)prods.push(l.prod);});
+  return prods.sort();
+}
+function addLinea(d){
+  var id=++linId;
+  lineas.push({id:id,tipo:(d&&d.tipo)||'AGROQUIMICO',subtipo:(d&&d.subtipo)||'',prod:(d&&d.prod)||'',cat:'Insumos',dosis:(d&&d.dosis)||'',unidad:(d&&d.unidad)||'L/ha',precio:(d&&d.precio)||'',haL:(d&&d.haL)||'',cantReal:(d&&d.cantReal)||'',sub:(d&&d.sub)||0});
+  renderLineas();
+}
+function delLinea(id){
+  lineas=lineas.filter(function(l){return l.id!==id;});
+  renderLineas();recalcTots();
+}
+function updL(id,f,v){
+  var l=lineas.find(function(x){return x.id===id;});
+  if(l){
+    if(f==='prod'&&typeof v==='string')v=v.toUpperCase();
+    // Normalizar decimales: aceptar coma o punto
+    if((f==='dosis'||f==='precio'||f==='cantReal')&&typeof v==='string'){
+      v=v.replace(',','.');
+    }
+    l[f]=v;
+  }
+}
+function renderLineas(){
+  var haT=parseFloat(document.getElementById('r-ha').value)||0;
+  var UNIDS=['L/ha','kg/ha','g/ha','cc/ha','ha','tarea/ha','kg total','L total','unidad','jornada','hora','km','global'];
+  var TIPOS=['AGROQUIMICO','LABOREO','COMBUSTIBLES','FERTILIZANTES','SEMILLAS','SEGUROS AGRICOLAS','RENTA','COSTOS ESTRUCTURA','OTROS'];
+  var prods=getProductosDL();
+
+  // Actualizar datalist
+  var dl=document.getElementById('prod-dl');
+  if(dl) dl.innerHTML=prods.map(function(p){return '<option value="'+p+'">';}).join('');
+
+  var tbody=document.getElementById('ltbl-body');
+  tbody.innerHTML='';
+
+  lineas.forEach(function(l,i){
+    var dosis=parseFloat(l.dosis)||0;
+    var haL=(l.haL!==undefined&&l.haL!=='')?parseFloat(l.haL):haT;
+    var u=(l.unidad||'').toLowerCase().trim();
+  var porHa=u.indexOf('/ha')>=0||u==='ha'||u==='tarea/ha';
+    var cantTeo=porHa&&haL?dosis*haL:dosis;
+    var cantReal=(l.cantReal!==undefined&&l.cantReal!=='')?parseFloat(l.cantReal):null;
+
+    var tr=document.createElement('tr');
+    tr.id='lr-'+l.id;
+
+    // # 
+    var tdN=document.createElement('td');
+    tdN.style.cssText='color:var(--th);font-size:11px;text-align:center';
+    tdN.textContent=i+1;
+    tr.appendChild(tdN);
+
+    // Tipo
+    var tdT=document.createElement('td');
+    var selT=document.createElement('select');
+    selT.style.fontSize='11px';
+    TIPOS.forEach(function(t){var o=document.createElement('option');o.value=t;o.textContent=t;if(t===(l.tipo||'AGROQUIMICO'))o.selected=true;selT.appendChild(o);});
+
+    // Subtipo
+    var _SM={'AGROQUIMICO':['HERBICIDA','FUNGICIDA','INSECTICIDA','BIOESTIMULANTE','FERTILIZANTE LIQUIDO','OTRO'],'LABOREO':['PROPIA','CONTRATADA']};
+    var tdSub=document.createElement('td');
+    tdSub.style.cssText='padding:4px 6px;min-width:90px';
+    (function buildSub(tipo,val){
+      tdSub.innerHTML='';
+      var opts=_SM[tipo]||[];
+      if(!opts.length)return;
+      var s=document.createElement('select');
+      s.style.cssText='font-size:11px;width:100%;padding:4px 5px;border:1px solid var(--brm);border-radius:6px';
+      var o0=document.createElement('option');o0.value='';o0.textContent='—';s.appendChild(o0);
+      opts.forEach(function(op){var o=document.createElement('option');o.value=op;o.textContent=op;if(op===val)o.selected=true;s.appendChild(o);});
+      s.addEventListener('change',function(){updL(l.id,'subtipo',this.value);});
+      tdSub.appendChild(s);
+    })(l.tipo||'AGROQUIMICO', l.subtipo||'');
+
+    selT.addEventListener('change',function(){
+      updL(l.id,'tipo',this.value);
+      updL(l.id,'subtipo','');
+      tdSub.innerHTML='';
+      var opts2=_SM[this.value]||[];
+      if(!opts2.length)return;
+      var s2=document.createElement('select');
+      s2.style.cssText='font-size:11px;width:100%;padding:4px 5px;border:1px solid var(--brm);border-radius:6px';
+      var o02=document.createElement('option');o02.value='';o02.textContent='—';s2.appendChild(o02);
+      opts2.forEach(function(op){var o=document.createElement('option');o.value=op;o.textContent=op;s2.appendChild(o);});
+      s2.addEventListener('change',function(){updL(l.id,'subtipo',this.value);});
+      tdSub.appendChild(s2);
+    });
+    tdT.appendChild(selT);tr.appendChild(tdT);
+    tr.appendChild(tdSub);
+
+    // Producto
+    var tdP=document.createElement('td');
+    var inpP=document.createElement('input');
+    inpP.setAttribute('list','prod-dl');
+    inpP.value=l.prod||'';inpP.placeholder='PRODUCTO';
+    inpP.style.cssText='width:100%;text-transform:uppercase;padding:5px 6px;border:1px solid var(--brm);border-radius:6px;font-size:12px;font-family:inherit';
+    var _precioTimer=null;
+    inpP.addEventListener('input',function(){
+      var v=this.value.toUpperCase();
+      updL(l.id,'prod',v);
+      // Buscar precio con pequeño delay para capturar selección del datalist
+      clearTimeout(_precioTimer);
+      _precioTimer=setTimeout(function(){
+        var precio=getPrecioProducto(v);
+        if(precio){
+          updL(l.id,'precio',precio);
+          // Actualizar solo el input de precio sin redibujar
+          var elPr2=document.getElementById('precio-'+l.id);
+          if(elPr2)elPr2.value=precio;
+          calcL(l.id);
+          recalcTots();
+        }
+      },300);
+    });
+    inpP.addEventListener('change',function(){
+      var v=this.value.toUpperCase();
+      updL(l.id,'prod',v);
+      var precio=getPrecioProducto(v);
+      if(precio){
+        updL(l.id,'precio',precio);
+        var elPr3=document.getElementById('precio-'+l.id);
+        if(elPr3)elPr3.value=precio;
+        calcL(l.id);
+        recalcTots();
+      }
+    });
+    tdP.appendChild(inpP);tr.appendChild(tdP);
+
+    // Dosis
+    var tdD=document.createElement('td');
+    var inpD=document.createElement('input');
+    inpD.type='text';inpD.inputMode='decimal';inpD.value=l.dosis||'';inpD.placeholder='0.000';
+    inpD.style.cssText='width:100%;padding:5px 6px;border:1px solid var(--brm);border-radius:6px;font-size:12px;text-align:right';
+    inpD.addEventListener('input',function(){updL(l.id,'dosis',this.value);calcL(l.id);});
+    tdD.appendChild(inpD);tr.appendChild(tdD);
+
+    // Unidad
+    var tdU=document.createElement('td');
+    var selU=document.createElement('select');
+    selU.style.fontSize='11px';
+    UNIDS.forEach(function(u){var o=document.createElement('option');o.value=u;o.textContent=u;if(u===l.unidad)o.selected=true;selU.appendChild(o);});
+    selU.addEventListener('change',function(){updL(l.id,'unidad',this.value);calcL(l.id);});
+    tdU.appendChild(selU);tr.appendChild(tdU);
+
+    // Ha tratadas
+    var tdH=document.createElement('td');
+    var inpH=document.createElement('input');
+    inpH.type='number';inpH.min='0';inpH.step='0.1';
+    inpH.value=(l.haL!==undefined&&l.haL!=='')?l.haL:(haT||'');
+    inpH.placeholder=haT||'';
+    inpH.style.cssText='width:100%;padding:5px 6px;border:1px solid var(--brm);border-radius:6px;font-size:12px;text-align:right';
+    inpH.addEventListener('input',function(){updL(l.id,'haL',this.value);calcL(l.id);});
+    tdH.appendChild(inpH);tr.appendChild(tdH);
+
+    // Cant calc
+    var tdCC=document.createElement('td');
+    tdCC.id='cc-'+l.id;
+    tdCC.style.cssText='text-align:center;font-size:11px;color:var(--ts)';
+    tdCC.textContent=cantTeo>0?cantTeo.toFixed(2):'—';
+    tr.appendChild(tdCC);
+
+    // Cant real
+    var tdCR=document.createElement('td');
+    var inpCR=document.createElement('input');
+    inpCR.type='number';inpCR.min='0';inpCR.step='0.01';
+    inpCR.value=cantReal!==null?cantReal:'';
+    inpCR.placeholder=cantTeo>0?cantTeo.toFixed(2):'';
+    if(cantReal!==null)inpCR.style.borderColor='var(--g)';
+    inpCR.style.cssText='width:100%;padding:5px 6px;border:1px solid var(--brm);border-radius:6px;font-size:12px;text-align:right';
+    inpCR.addEventListener('input',function(){updL(l.id,'cantReal',this.value);calcL(l.id);});
+    tdCR.appendChild(inpCR);
+    if(cantReal!==null&&cantTeo>0){
+      var diff=cantReal-cantTeo;var pct=Math.round(diff/cantTeo*100);
+      var sp=document.createElement('span');
+      sp.style.cssText='font-size:10px;color:'+(diff>0?'var(--r)':'var(--gm)');
+      sp.textContent='('+(diff>0?'+':'')+pct+'%)';
+      tdCR.appendChild(sp);
+    }
+    tr.appendChild(tdCR);
+
+    // Precio
+    var tdPr=document.createElement('td');
+    var inpPr=document.createElement('input');
+    inpPr.type='text';inpPr.inputMode='decimal';inpPr.value=l.precio||'';inpPr.placeholder='0.00';inpPr.id='precio-'+l.id;
+    inpPr.style.cssText='width:100%;padding:5px 6px;border:1px solid var(--brm);border-radius:6px;font-size:12px;text-align:right';
+    inpPr.addEventListener('input',function(){updL(l.id,'precio',this.value);calcL(l.id);});
+    tdPr.appendChild(inpPr);tr.appendChild(tdPr);
+
+    // Subtotal
+    var tdS=document.createElement('td');
+    var inpS=document.createElement('input');
+    inpS.type='number';inpS.min='0';inpS.step='0.01';inpS.value=l.sub||'';inpS.placeholder='0.00';
+    inpS.id='sub-'+l.id;
+    inpS.style.cssText='width:100%;padding:5px 6px;border:1px solid var(--brm);border-radius:6px;font-size:12px;text-align:right;font-weight:700;color:var(--gm)';
+    inpS.addEventListener('input',function(){updL(l.id,'sub',parseFloat(this.value)||0);recalcTots();});
+    tdS.appendChild(inpS);tr.appendChild(tdS);
+
+    // Borrar
+    var tdX=document.createElement('td');
+    var btnX=document.createElement('button');
+    btnX.className='btn-del';btnX.textContent='✕';
+    btnX.addEventListener('click',function(){delLinea(l.id);});
+    tdX.appendChild(btnX);tr.appendChild(tdX);
+
+    tbody.appendChild(tr);
+  });
+}
+
+function calcL(id){
+  var l=lineas.find(function(x){return x.id===id;});if(!l)return;
+  var haT=parseFloat(document.getElementById('r-ha').value)||0;
+  var haL=(l.haL!==undefined&&l.haL!=='')?parseFloat(String(l.haL).replace(',','.')):haT;
+  var dosis=parseFloat(String(l.dosis||'').replace(',','.'))||0;
+  var precio=parseFloat(String(l.precio||'').replace(',','.'))||0;
+  var porHa=(l.unidad||'').indexOf('/ha')>=0;
+  var cantReal=(l.cantReal!==undefined&&l.cantReal!=='')?parseFloat(String(l.cantReal).replace(',','.')):null;
+  var cantCalc=porHa?dosis*haL:dosis;
+  var cantFinal=cantReal!==null?cantReal:cantCalc;
+  // Actualizar cant calculada en pantalla sin redibujar
+  var tdCC=document.getElementById('cc-'+id);
+  if(tdCC)tdCC.textContent=cantCalc>0?cantCalc.toFixed(3):'—';
+  if(precio>0&&cantFinal>0){
+    l.sub=cantFinal*precio;
+    var elSub=document.getElementById('sub-'+id);
+    if(elSub)elSub.value=l.sub.toFixed(2);
+  } else {
+    l.sub=0;
+    var elSub2=document.getElementById('sub-'+id);
+    if(elSub2)elSub2.value='';
+  }
+  recalcTots();
+  // NO llamar renderLineas() para no perder el foco del usuario
+}
+function recalc(){
+  var haT=parseFloat(document.getElementById('r-ha').value)||0;
+  lineas.forEach(function(l){if(!l.haL||l.haL==='')l.haL=haT;calcL(l.id);});
+}
+function recalcTots(){
+  var tot=lineas.reduce(function(s,l){return s+(parseFloat(l.sub)||0);},0);
+  var elTot=document.getElementById('tot-lineas');
+  if(elTot)elTot.textContent='USD '+fmt(tot);
+  var ch=chacras.find(function(c){return String(c.id)===String(chSelId);});
+  var haT=parseFloat(document.getElementById('r-ha').value)||0;
+  var acum=tratos.filter(function(t){return String(t.chId)===String(chSelId);}).reduce(function(s,t){return s+tratTot(t);},0);
+  var panel=document.getElementById('tot-panel');
+  if(panel){
+    if(lineas.length){
+      panel.style.display='flex';
+      document.getElementById('tp-tot').textContent='USD '+fmt(tot);
+      document.getElementById('tp-ha').textContent=haT?haT+' ha':'—';
+      document.getElementById('tp-xha').textContent=(haT&&tot)?'USD '+fmt(tot/haT)+'/ha':'—';
+      document.getElementById('tp-acum').textContent='USD '+fmt(acum+tot);
+      document.getElementById('tp-axha').textContent=(ch&&ch.ha&&(acum+tot))?'USD '+fmt((acum+tot)/ch.ha)+'/ha':'—';
+    } else panel.style.display='none';
+  }
+}
+function guardarTrat(){
+  var v=document.getElementById('r-chacra-sel').value;
+  var ch=v?chacras.find(function(c){return String(c.id)===String(v);}):null;
+  var msg=document.getElementById('r-msg');
+  if(!ch){if(msg){msg.className='alert aerr';msg.textContent='Seleccioná un campo y chacra primero.';setTimeout(function(){msg.className='';msg.textContent='';},3000);}return;}
+  chSelId=ch.id;
+  var ot=document.getElementById('r-ot').value.trim();
+  var fecha=document.getElementById('r-fecha').value.trim().toUpperCase();
+  var cat=document.getElementById('r-cat').value;
+  var desc=document.getElementById('r-desc').value.trim().toUpperCase();
+  var haT=parseFloat(document.getElementById('r-ha').value)||0;
+  var prov=document.getElementById('r-prov').value.trim().toUpperCase();
+  var obs=document.getElementById('r-obs').value.trim().toUpperCase();
+  var tot=lineas.reduce(function(s,l){return s+(parseFloat(l.sub)||0);},0);
+  if(!lineas.length||!tot){if(msg){msg.className='alert aerr';msg.textContent='Agregá al menos una línea con monto.';setTimeout(function(){msg.className='';msg.textContent='';},3000);}return;}
+  var nuevoTrat={id:window._editTratId||Date.now(),chId:ch.id,ot:ot,fecha:fecha,cat:cat,desc:desc,haT:haT,prov:prov,obs:obs,
+    lineas:lineas.map(function(l){return {tipo:l.tipo,subtipo:l.subtipo||'',prod:l.prod,cat:l.cat,dosis:l.dosis,unidad:l.unidad,precio:l.precio,haL:l.haL,cantReal:l.cantReal,sub:parseFloat(l.sub)||0};})
+  };
+  if(window._editTratId){
+    var idx=tratos.findIndex(function(t){return t.id===window._editTratId;});
+    if(idx>=0)tratos[idx]=nuevoTrat;else tratos.push(nuevoTrat);
+    window._editTratId=null;
+  } else {
+    nuevoTrat.id=Date.now();
+    tratos.push(nuevoTrat);
+  }
+  autoSave();updFilters();renderPills();
+  limpReg();
+  // Mostrar mensaje DESPUÉS de limpReg para que no lo borre
+  setTimeout(function(){
+    var msgEl=document.getElementById('r-msg');
+    if(msgEl){
+      msgEl.className='alert aok';
+      msgEl.textContent='✓ Tratamiento guardado — USD '+fmt(tot);
+      setTimeout(function(){msgEl.className='';msgEl.textContent='';},4000);
+    }
+  },50);
+  renderInicio();
+}
+function r_msg(cls,txt){
+  var m=document.getElementById('r-msg');
+  if(m){m.className='alert '+cls;m.textContent=txt;setTimeout(function(){m.className='';m.textContent='';},4000);}
+}
+function editarTratDesdeInicio(id){
+  var t=tratos.find(function(x){return x.id===id;});
+  if(!t)return;
+  st('registro');
+  setTimeout(function(){
+    var otInp=document.getElementById('r-ot');
+    if(otInp){otInp.value=t.ot||'';buscarOT(t.ot||'');}
+    // Si no tiene OT, cargar directamente
+    if(!t.ot){
+      var ch=chacras.find(function(c){return String(c.id)===String(t.chId);});
+      if(!ch)return;
+      var se=document.getElementById('r-estab');
+      if(se){se.value=ch.estab;filtrarChacrasReg();}
+      setTimeout(function(){
+        var sc=document.getElementById('r-chacra-sel');
+        if(sc){for(var i=0;i<sc.options.length;i++){if(sc.options[i].value===String(ch.id)){sc.selectedIndex=i;break;}}selChacraReg();}
+        document.getElementById('r-fecha').value=t.fecha||'';
+        document.getElementById('r-desc').value=t.desc||'';
+        document.getElementById('r-ha').value=t.haT||'';
+        document.getElementById('r-prov').value=t.prov||'';
+        document.getElementById('r-obs').value=t.obs||'';
+        lineas=(t.lineas||[]).map(function(l,i){return {id:i+1,tipo:l.tipo||'AGROQUIMICO',prod:l.prod||'',cat:l.cat||'',dosis:l.dosis||'',unidad:l.unidad||'L/ha',precio:l.precio||'',haL:l.haL||'',cantReal:l.cantReal||'',sub:l.sub||0};});
+        linId=lineas.length;renderLineas();recalcTots();
+        window._editTratId=t.id;
+        var msg=document.getElementById('r-msg');
+        if(msg){msg.className='alert ainf';msg.textContent='Editando tratamiento — al guardar reemplazará el original.';}
+      },150);
+    }
+  },200);
+}
+function buscarOT(val){
+  if(!val||val.length<2)return;
+  val=val.trim().toUpperCase();
+  if(!val)return;  // Sin OT: no buscar nada
+  var t=tratos.find(function(x){return (x.ot||'').trim().toUpperCase()===val;});
+  if(!t)return;
+  // Cargar el tratamiento existente para edición
+  var ch=chacras.find(function(c){return String(c.id)===String(t.chId);});
+  if(!ch)return;
+  // Setear campo y chacra
+  var se=document.getElementById('r-estab');
+  if(se){se.value=ch.estab;filtrarChacrasReg();}
+  setTimeout(function(){
+    var sc=document.getElementById('r-chacra-sel');
+    if(sc){
+      // Buscar la opción correcta
+      for(var i=0;i<sc.options.length;i++){
+        if(sc.options[i].value===String(ch.id)){sc.selectedIndex=i;break;}
+      }
+      selChacraReg();
+    }
+    document.getElementById('r-ot').value=t.ot||'';
+    document.getElementById('r-fecha').value=t.fecha||'';
+    document.getElementById('r-desc').value=t.desc||'';
+    document.getElementById('r-ha').value=t.haT||'';
+    document.getElementById('r-prov').value=t.prov||'';
+    document.getElementById('r-obs').value=t.obs||'';
+    // Cargar líneas
+    lineas=(t.lineas||[]).map(function(l,i){return {id:i+1,tipo:l.tipo||'AGROQUIMICO',prod:l.prod||'',cat:l.cat||'',dosis:l.dosis||'',unidad:l.unidad||'L/ha',precio:l.precio||'',haL:l.haL||'',cantReal:l.cantReal||'',sub:l.sub||0};});
+    linId=lineas.length;
+    renderLineas();recalcTots();
+    // Guardar referencia al trato original para reemplazarlo
+    window._editTratId=t.id;
+    var msg=document.getElementById('r-msg');
+    if(msg){msg.className='alert ainf';msg.textContent='Editando OT '+t.ot+' — al guardar reemplazará el original.';}
+  },100);
+}
+
+function limpReg(){
+  ['r-ot','r-fecha','r-desc','r-prov','r-obs'].forEach(function(id){var el=document.getElementById(id);if(el)el.value='';});
+  document.getElementById('r-ha').value='';
+  document.getElementById('reg-info-sel').style.display='none';
+  // Resetear selects de campo y chacra
+  var se=document.getElementById('r-estab');var sc=document.getElementById('r-chacra-sel');
+  if(se)se.value='';if(sc){sc.innerHTML='<option value="">— Seleccioná chacra —</option>';}
+  chSelId=null;
+  lineas=[];linId=0;
+  var tb=document.getElementById('ltbl-body');if(tb)tb.innerHTML='';
+  var tl=document.getElementById('tot-lineas');if(tl)tl.textContent='USD 0.00';
+  var tp=document.getElementById('tot-panel');if(tp)tp.style.display='none';
+  var msg=document.getElementById('r-msg');if(msg){msg.className='';msg.textContent='';}
+  window._editTratId=null;
+}
+
+// ── HISTORIAL ─────────────────────────────────────────────────────────────────
+function renderHist(){
+  var fe=document.getElementById('h-estab').value;
+  var fz=document.getElementById('h-zafra').value;
+  var fc=document.getElementById('h-ch').value;
+  var fcat=document.getElementById('h-cat').value;
+  var filtCh=chacras.filter(function(c){return(!fe||c.estab===fe)&&(!fz||c.zafra===fz)&&(!fc||c.chacra===fc);});
+  var chIds=filtCh.map(function(c){return c.id;});
+  var filtT=tratos.filter(function(t){return chIds.some(function(id){return String(id)===String(t.chId);})&&(!fcat||t.cat===fcat||t.lineas.some(function(l){return l.cat===fcat;}));});
+  filtT=[].concat(filtT).sort(function(a,b){return a.fecha<b.fecha?1:-1;});
+  var cont=document.getElementById('h-content');
+  var acumDiv=document.getElementById('h-acum');
+  if(!filtT.length){acumDiv.innerHTML='';cont.innerHTML='<div class="empty">📁 Sin tratamientos con los filtros seleccionados.</div>';return;}
+  var totGen=filtT.reduce(function(s,t){return s+tratTot(t);},0);
+  acumDiv.innerHTML='<div style="background:var(--gm);color:#fff;border-radius:var(--ra);padding:10px 16px;display:flex;gap:20px;flex-wrap:wrap;margin-bottom:12px">'+
+    '<div><div style="font-size:11px;opacity:.75">Total filtrado</div><div style="font-size:16px;font-weight:700">USD '+fmt(totGen)+'</div></div>'+
+    '<div><div style="font-size:11px;opacity:.75">Tratamientos</div><div style="font-size:16px;font-weight:700">'+filtT.length+'</div></div>'+
+    '<div><div style="font-size:11px;opacity:.75">Chacras</div><div style="font-size:16px;font-weight:700">'+new Set(filtT.map(function(t){return t.chId;})).size+'</div></div>'+
+    '</div>';
+  cont.innerHTML=filtT.map(function(t){
+    var ch=chById(t.chId)||{};
+    var tot=tratTot(t);
+    var lins=t.lineas||[];
+    if(fcat)lins=lins.filter(function(l){return l.cat===fcat;});
+    var linRows=lins.map(function(l,i){
+      return '<tr>'+
+        '<td class="m" style="text-align:center">'+(i+1)+'</td>'+
+        '<td class="b">'+(l.prod||'—')+'</td>'+
+        '<td><span class="badge by2">'+((l.tipo&&l.tipo!==''?l.tipo:(l.cat||'AGROQUIMICO'))+(l.subtipo?' · '+l.subtipo:''))+'</span></td>'+
+        '<td class="r m">'+(l.dosis?l.dosis+' '+(l.unidad||''):'—')+'</td>'+
+        '<td class="r m">'+(l.precio?'USD '+fmt(l.precio):'—')+'</td>'+
+        '<td class="r m">'+(l.haL||t.haT||'—')+' ha</td>'+
+        '<td class="r b">USD '+fmt(l.sub)+'</td>'+
+        '</tr>';
+    }).join('');
+    return '<div style="border:1px solid var(--br);border-radius:var(--rl);margin-bottom:10px;overflow:hidden">'+
+      '<div style="background:var(--bg);padding:10px 14px;display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;border-bottom:1px solid var(--br)">'+
+      '<div>'+
+        (t.ot?'<span style="font-size:15px;font-weight:800;color:var(--gm)">'+t.ot+'</span> ':'<span style="font-size:12px;color:var(--ts)">Sin N° OT</span> ')+
+        '<span class="m">'+( t.fecha||'s/f')+' · '+(t.desc||t.cat)+'</span><br>'+
+        '<span class="m">'+ch.estab+' › '+ch.chacra+' · '+ch.cultivo+' · <span class="badge bb2">'+ch.zafra+'</span>'+(t.haT?' · '+t.haT+' ha tratadas':'')+'</span>'+
+        (t.prov?'<span class="m"> · '+t.prov+'</span>':'')+
+      '</div>'+
+      '<div style="text-align:right">'+
+        '<div style="font-size:16px;font-weight:800;color:var(--gm)">USD '+fmt(tot)+'</div>'+
+        '<div class="m">'+(t.haT&&tot?'USD '+fmt(tot/t.haT)+'/ha':'')+' tratada</div>'+
+        '<button class="btn-del" onclick="elimTrat('+t.id+')" style="margin-top:4px">✕ Eliminar</button>'+
+      '</div>'+
+      '</div>'+
+      (lins.length?
+        '<div style="padding:10px 14px"><div class="tw"><table class="tbl">'+
+          '<thead><tr><th style="width:4%">#</th><th style="width:26%">Producto/Concepto</th><th style="width:15%">Categoria</th><th style="width:14%" class="r">Dosis/Cant</th><th style="width:14%" class="r">Precio unit</th><th style="width:11%" class="r">Ha</th><th style="width:16%" class="r">Subtotal</th></tr></thead>'+
+          '<tbody>'+linRows+'</tbody></table></div>'+
+          (t.obs?'<div class="m" style="margin-top:7px;font-style:italic">Obs: '+t.obs+'</div>':'')+
+        '</div>':'')+
+      '</div>';
+  }).join('');
+}
+function elimTrat(id){
+  if(!confirm('Eliminar este tratamiento?'))return;
+  tratos=tratos.filter(function(t){return t.id!==id;});
+  autoSave();updFilters();renderHist();renderInicio();
+}
+
+// ── INICIO ────────────────────────────────────────────────────────────────────
+function renderInicio(){
+  var tot=tratos.reduce(function(s,t){return s+tratTot(t);},0);
+  document.getElementById('kpi').innerHTML=
+    '<div class="metric"><div class="mlabel">Costo total</div><div class="mval g">USD '+fmt(tot)+'</div></div>'+
+    '<div class="metric"><div class="mlabel">Chacras</div><div class="mval">'+chacras.length+'</div></div>'+
+    '<div class="metric"><div class="mlabel">Campos</div><div class="mval">'+new Set(chacras.map(function(c){return c.estab;})).size+'</div></div>'+
+    '<div class="metric"><div class="mlabel">Tratamientos</div><div class="mval">'+tratos.length+'</div></div>';
+  var ults=[].concat(tratos).sort(function(a,b){var fa=parseFechaGlobal(a.fecha),fb=parseFechaGlobal(b.fecha);if(fa&&fb)return fb-fa;return (a.fecha||'')<(b.fecha||'')?1:-1;}).slice(0,10);
+  var tbl=document.getElementById('ult-tbl');
+  if(!ults.length){tbl.innerHTML='<div class="empty">🌾 Sin datos. Configurá chacras y registrá tratamientos.</div>';return;}
+  tbl.innerHTML='<table class="tbl"><thead><tr><th>N° OT</th><th>Chacra</th><th>Campo</th><th>Cultivo/Zafra</th><th>Descripcion</th><th>Fecha</th><th class="r">Ha</th><th class="r">Total USD</th><th></th></tr></thead><tbody>'+
+    ults.map(function(t){
+      var ch=chacras.find(function(c){return String(c.id)===String(t.chId);})||{};var tot=tratTot(t);
+      return '<tr>'+
+        '<td class="b">'+(t.ot||'—')+'</td>'+
+        '<td>'+ch.chacra+'</td>'+
+        '<td class="m">'+ch.estab+'</td>'+
+        '<td><span class="badge bb2" style="font-size:10px">'+ch.zafra+'</span> '+ch.cultivo+'</td>'+
+        '<td class="m">'+(t.desc||t.cat)+'</td>'+
+        '<td class="m">'+(t.fecha||'—')+'</td>'+
+        '<td class="r">'+(t.haT||'—')+'</td>'+
+        '<td class="r b">USD '+fmt(tot)+'</td>'+
+        '<td class="r"><button class="btn-del" onclick="elimTrat('+t.id+');renderInicio()">✕</button></td>'+
+        '</tr>';
+    }).join('')+
+    '</tbody></table>';
+}
+
+// ── IMPRIMIR ──────────────────────────────────────────────────────────────────
+function filtrarChacrasPrint(){
+  var fz=document.getElementById('pr-zafra').value;
+  var fe=document.getElementById('pr-estab').value;
+  var sc=document.getElementById('pr-chacra');
+  if(sc){
+    // Guardar selección actual antes de repoblar
+                var chs=chacras.filter(function(c){return(!fz||c.zafra===fz)&&(!fe||c.estab===fe);});
+    sc.innerHTML='<option value="">Todas las chacras</option>'+
+      chs.sort(function(a,b){return (a.chacra||'')>(b.chacra||'')?1:-1;})
+        .map(function(c){return '<option value="'+String(c.id)+'">'+c.chacra+'</option>';}).join('');
+  }
+  renderPrint();
+}
+
+
+
+function guardarTXT(){
+  var data={chacras:chacras,tratos:tratos,ventas:ventas,cierres:cierres,preciosCultivo:preciosCultivo,preciosChacra:preciosChacra,version:5};
+  var txt=JSON.stringify(data,null,2);
+  var blob=new Blob([txt],{type:'text/plain;charset=utf-8'});
+  var a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download='costos_datos.txt';
+  document.body.appendChild(a);a.click();document.body.removeChild(a);
+  autoSave();
+  var msg=document.getElementById('save-msg');
+  msg.className='alert aok';
+  msg.textContent='✓ costos_datos.txt guardado — '+chacras.length+' chacras, '+tratos.length+' tratamientos.';
+  setTimeout(function(){msg.className='';msg.textContent='';},4000);
+}
+function cargarTXT(){
+  var fi=document.getElementById('file-input');
+  var msg=document.getElementById('load-msg');
+  if(!fi.files||!fi.files[0]){msg.className='alert aerr';msg.textContent='Seleccioná un archivo primero.';return;}
+  var reader=new FileReader();
+  reader.onload=function(e){
+    try{
+      var data=JSON.parse(e.target.result);
+      if(!data.chacras||!data.tratos){throw new Error('Formato invalido');}
+      if(chacras.length||tratos.length){
+        if(!confirm('Hay datos en memoria. Reemplazarlos con los del archivo?'))return;
+      }
+      chacras=Array.isArray(data.chacras)?data.chacras:[];
+      chacras.forEach(function(c){
+        if(c.estab)c.estab=c.estab.toUpperCase();
+        if(c.chacra)c.chacra=c.chacra.toUpperCase();
+        if(c.cultivo)c.cultivo=c.cultivo.toUpperCase();
+        if(c.variedad)c.variedad=c.variedad.toUpperCase();
+        if(c.nota)c.nota=c.nota.toUpperCase();
+      });
+      tratos=Array.isArray(data.tratos)?data.tratos:[];
+      ventas=Array.isArray(data.ventas)?data.ventas:[];
+      cierres=Array.isArray(data.cierres)?data.cierres:[];
+      preciosCultivo=data.preciosCultivo||{};
+      preciosChacra=data.preciosChacra||{};
+      autoSave();updFilters();renderInicio();renderMaestro();renderPills();
+      msg.className='alert aok';
+      msg.textContent='✓ Cargado: '+chacras.length+' chacras, '+tratos.length+' tratamientos. Guardado automatico activado.';
+      setTimeout(function(){msg.className='';msg.textContent='';},4000);
+    }catch(err){
+      msg.className='alert aerr';
+      msg.textContent='Error al leer el archivo. Verificá que sea un TXT guardado por esta app.';
+    }
+  };
+  reader.readAsText(fi.files[0]);
+}
+
+// ── EXCEL ─────────────────────────────────────────────────────────────────────
+function exportarExcel(){
+  var fz=document.getElementById('h-zafra').value;
+  var fe=document.getElementById('h-estab').value;
+  var _scPr=document.getElementById('pr-chacra');
+  var fc=_scPr?_scPr.value:'';
+  var filtCh=chacras.filter(function(c){
+    return(!fz||c.zafra===fz)&&(!fe||c.estab===fe)&&(!fc||String(c.id)===String(fc));
+  });
+  var chIds=filtCh.map(function(c){return c.id;});
+  var filtT=tratos.filter(function(t){return chIds.indexOf(t.chId)>=0;});
+  if(!filtT.length){alert('Sin datos para exportar.');return;}
+  var wb=XLSX.utils.book_new();
+  // Maestro
+  var mSh=chacras.map(function(c){return {'Campo':c.estab,'Chacra':c.chacra,'Cultivo':c.cultivo,'Zafra':c.zafra,'Ha':c.ha||'','Notas':c.nota||''};});
+  XLSX.utils.book_append_sheet(wb,XLSX.utils.json_to_sheet(mSh),'Maestro chacras');
+  // Tratamientos resumen
+  var tSh=filtT.map(function(t){
+    var ch=chById(t.chId)||{};
+    return {'N_OT':t.ot||'','Campo':ch.estab,'Chacra':ch.chacra,'Cultivo':ch.cultivo,'Zafra':ch.zafra,'Ha_chacra':ch.ha||'','Ha_tratadas':t.haT||'','Fecha':t.fecha,'Categoria':t.cat,'Descripcion':t.desc,'Total_USD':tratTot(t),'USD_ha_trat':t.haT?+(tratTot(t)/t.haT).toFixed(2):'','USD_ha_chacra':ch.ha?+(tratTot(t)/ch.ha).toFixed(2):'','Proveedor':t.prov,'Obs':t.obs};
+  });
+  XLSX.utils.book_append_sheet(wb,XLSX.utils.json_to_sheet(tSh),'Tratamientos');
+  // Detalle lineas
+  var lSh=filtT.flatMap(function(t){
+    var ch=chById(t.chId)||{};
+    return (t.lineas||[]).map(function(l){
+      var dT=parseFloat(l.dosis)||0;var hL=parseFloat(l.haL)||t.haT||0;var pHa=(l.unidad||'').indexOf('/ha')>=0;var cCalc=pHa?dT*hL:dT;var cReal=l.cantReal!==undefined&&l.cantReal!==''?parseFloat(l.cantReal):null;return {'N_OT':t.ot||'','Campo':ch.estab,'Chacra':ch.chacra,'Cultivo':ch.cultivo,'Zafra':ch.zafra,'Ha_tratadas':t.haT||'','Fecha':t.fecha,'Producto':l.prod,'Categoria':l.cat,'Dosis':l.dosis||'','Unidad':l.unidad||'','Ha_linea':l.haL||t.haT||'','Cant_calculada':cCalc||'','Cant_real':cReal!==null?cReal:cCalc||'','Precio_USD':l.precio||'','Subtotal_USD':l.sub||0};
+    });
+  });
+  XLSX.utils.book_append_sheet(wb,XLSX.utils.json_to_sheet(lSh),'Detalle lineas');
+  // Resumen por chacra
+  var rSh=filtCh.map(function(ch){
+    var row={'Campo':ch.estab,'Chacra':ch.chacra,'Cultivo':ch.cultivo,'Zafra':ch.zafra,'Ha':ch.ha||''};
+    CATS.forEach(function(cat){
+      row[cat]=tratos.filter(function(t){return t.chId===ch.id;}).flatMap(function(t){return t.lineas||[];}).filter(function(l){return l.cat===cat;}).reduce(function(s,l){return s+(l.sub||0);},0)||'';
+    });
+    var tot=tratos.filter(function(t){return t.chId===ch.id;}).reduce(function(s,t){return s+tratTot(t);},0);
+    row['Total_USD']=tot||'';
+    row['USD_ha']=ch.ha&&tot?+(tot/ch.ha).toFixed(2):'';
+    return row;
+  });
+  XLSX.utils.book_append_sheet(wb,XLSX.utils.json_to_sheet(rSh),'Resumen chacras');
+  var nombre='costos'+(fz?'_'+fz.replace(/ /g,'_'):'')+(fe?'_'+fe.replace(/ /g,'_'):'')+'.xlsx';
+  XLSX.writeFile(wb,nombre);
+}
+
+// ── COSTO POR CULTIVO ─────────────────────────────────────────────────────────
+function renderCultivos(){
+  var cont = document.getElementById('cult-content');
+  if(!cont) return;
+  cont.innerHTML = '';
+
+  var cvZ = document.getElementById('cv-zafra');
+  var cvE = document.getElementById('cv-estab');
+  var fZ = cvZ?cvZ.value:'';
+  var fE = cvE?cvE.value:'';
+
+  // Poblar filtros
+  if(cvZ){var curZ=cvZ.value;var zs=[];chacras.forEach(function(c){if(c.zafra&&zs.indexOf(c.zafra)<0)zs.push(c.zafra);});zs.sort();cvZ.innerHTML='<option value="">Todas las zafras</option>'+zs.map(function(z){return '<option value="'+z+'"'+(z===curZ?' selected':'')+'>'+z+'</option>';}).join('');}
+  if(cvE){var curE=cvE.value;var es=[];chacras.forEach(function(c){if(c.estab&&es.indexOf(c.estab)<0)es.push(c.estab);});es.sort();cvE.innerHTML='<option value="">Todos los campos</option>'+es.map(function(e){return '<option value="'+e+'"'+(e===curE?' selected':'')+'>'+e+'</option>';}).join('');}
+  fZ=cvZ?cvZ.value:''; fE=cvE?cvE.value:'';
+
+  // Tipos principales para columnas
+  var TIPOS_COLS = ['AGROQUIMICO','LABOREO','COMBUSTIBLES','FERTILIZANTES','SEMILLAS','SEGUROS AGRICOLAS','RENTA','COSTOS ESTRUCTURA','OTROS'];
+
+  function getTipoNorm(l){
+    var t = (l.tipo||'').trim();
+    if(!t||t==='INSUMO') return 'AGROQUIMICO';
+    if(t==='LABOR PROPIA'||t==='LABOR AGRICOLA PROPIA') return 'LABOREO';
+    if(t==='LABOR CONTRATADA'||t==='LABOR AGRICOLA CONTRATADA') return 'LABOREO';
+    return t;
+  }
+  function getSubtipoNorm(l){
+    var sub = (l.subtipo||'').trim();
+    if(sub) return sub;
+    var t = (l.tipo||'').trim();
+    if(t==='LABOR PROPIA'||t==='LABOR AGRICOLA PROPIA') return 'PROPIA';
+    if(t==='LABOR CONTRATADA'||t==='LABOR AGRICOLA CONTRATADA') return 'CONTRATADA';
+    if(t==='INSUMO') return '';
+    return '';
+  }
+
+  // Calcular costos por chacra
+  var chacraData = [];
+  chacras.filter(function(c){
+    return(!fZ||c.zafra===fZ)&&(!fE||c.estab===fE);
+  }).forEach(function(c){
+    var ts = tratos.filter(function(t){return String(t.chId)===String(c.id);});
+    var porTipo = {};
+    var porSubtipo = {};  // {tipo_sub: total}
+    TIPOS_COLS.forEach(function(t){porTipo[t]=0;});
+    var totTotal = 0;
+    ts.forEach(function(t){
+      (t.lineas||[]).forEach(function(l){
+        var sub = parseFloat(l.sub)||0;
+        var tipo = getTipoNorm(l);
+        var stipo = getSubtipoNorm(l);
+        if(porTipo[tipo]!==undefined) porTipo[tipo]+=sub;
+        else porTipo['OTROS']+=sub;
+        if(stipo){
+          var key = tipo+'|'+stipo;
+          porSubtipo[key]=(porSubtipo[key]||0)+sub;
+        }
+        totTotal+=sub;
+      });
+    });
+    var xha = c.ha?totTotal/c.ha:0;
+    chacraData.push({c:c, totTotal:totTotal, xha:xha, porTipo:porTipo, porSubtipo:porSubtipo});
+  });
+
+  if(!chacraData.length){cont.innerHTML='<div class="empty">Sin chacras con esos filtros.</div>';return;}
+
+  // Totales generales
+  var totGen = {tot:0,ha:0};
+  TIPOS_COLS.forEach(function(t){totGen[t]=0;});
+  var totGenSub = {};
+  chacraData.forEach(function(d){
+    totGen.tot+=d.totTotal; totGen.ha+=(d.c.ha||0);
+    TIPOS_COLS.forEach(function(t){totGen[t]+=d.porTipo[t];});
+    Object.keys(d.porSubtipo).forEach(function(k){totGenSub[k]=(totGenSub[k]||0)+d.porSubtipo[k];});
+  });
+  var totXha = totGen.ha?totGen.tot/totGen.ha:0;
+
+  var byCult = {};
+  chacraData.forEach(function(d){
+    var cult=d.c.cultivo;
+    if(!byCult[cult]){byCult[cult]={cult:cult,chacras:[],tot:0,ha:0,porTipo:{},porSub:{}}; TIPOS_COLS.forEach(function(t){byCult[cult].porTipo[t]=0;});}
+    byCult[cult].chacras.push(d);
+    byCult[cult].tot+=d.totTotal;
+    byCult[cult].ha+=(d.c.ha||0);
+    TIPOS_COLS.forEach(function(t){byCult[cult].porTipo[t]+=d.porTipo[t];});
+    Object.keys(d.porSubtipo).forEach(function(k){byCult[cult].porSub[k]=(byCult[cult].porSub[k]||0)+d.porSubtipo[k];});
+  });
+
+  // ── PANEL RESUMEN EJECUTIVO ──────────────────────────────────────────────
+  var html = '<div class="card" style="margin-bottom:16px">';
+  html += '<div class="ctitle">Resumen ejecutivo de la zafra</div>';
+
+  // KPIs principales
+  html += '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-bottom:20px">';
+  html += '<div class="metric"><div class="mlabel">Chacras</div><div class="mval">'+chacraData.length+'</div></div>';
+  html += '<div class="metric"><div class="mlabel">Total ha</div><div class="mval">'+totGen.ha+'</div></div>';
+  html += '<div class="metric"><div class="mlabel">Costo total</div><div class="mval g">USD '+fmt(totGen.tot)+'</div></div>';
+  html += '<div class="metric"><div class="mlabel">USD/ha promedio</div><div class="mval g">'+fmt(totXha)+'</div></div>';
+  html += '</div>';
+
+  // Barras de resumen por tipo
+  html += '<div style="font-size:12px;font-weight:700;color:var(--gd);text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px">Desglose por tipo de gasto</div>';
+  html += '<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px;margin-bottom:16px">';
+  TIPOS_COLS.forEach(function(t){
+    if(!totGen[t]) return;
+    var xha = totGen.ha?totGen[t]/totGen.ha:0;
+    var pct = totGen.tot?Math.round(totGen[t]/totGen.tot*100):0;
+    var barW = Math.min(pct,100);
+    html += '<div style="background:var(--sf);border:1px solid var(--br);border-radius:var(--ra);padding:10px 12px">'+
+      '<div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px">'+
+        '<span style="font-size:11px;font-weight:700;color:var(--gd);text-transform:uppercase">'+t+'</span>'+
+        '<span style="font-size:11px;color:var(--ts)">'+pct+'%</span>'+
+      '</div>'+
+      '<div style="font-size:16px;font-weight:800;color:var(--gm)">USD '+fmt(totGen[t])+'</div>'+
+      '<div style="font-size:11px;color:var(--ts);margin-bottom:6px">'+fmt(xha)+' USD/ha</div>'+
+      '<div style="height:5px;background:#e0e0e0;border-radius:3px">'+
+        '<div style="height:5px;background:var(--gm);border-radius:3px;width:'+barW+'%"></div>'+
+      '</div>';
+    // Subtipos
+    var subsCv = Object.keys(totGenSub).filter(function(k){return k.startsWith(t+'|');});
+    if(subsCv.length){
+      html += '<div style="margin-top:6px;padding-top:6px;border-top:1px solid var(--br)">';
+      subsCv.sort().forEach(function(k){
+        var sub=k.split('|')[1];
+        var xhaSub=totGen.ha?totGenSub[k]/totGen.ha:0;
+        var pctSub=totGen[t]?Math.round(totGenSub[k]/totGen[t]*100):0;
+        html += '<div style="display:flex;justify-content:space-between;font-size:10px;color:var(--ts);margin-bottom:2px">'+
+          '<span>↳ '+sub+'</span>'+
+          '<span>'+fmt(xhaSub)+'/ha ('+pctSub+'%)</span>'+
+        '</div>';
+      });
+      html += '</div>';
+    }
+    html += '</div>';
+  });
+  html += '</div>';
+
+  // Resumen por cultivo — cards grandes
+  html += '<div style="font-size:12px;font-weight:700;color:var(--gd);text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px">Resumen por cultivo</div>';
+  html += '<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;margin-bottom:16px">';
+  Object.values(byCult).sort(function(a,b){return b.tot-a.tot;}).forEach(function(cv){
+    var xha=cv.ha?cv.tot/cv.ha:0;
+    var pct=totGen.tot?Math.round(cv.tot/totGen.tot*100):0;
+    var barW=Math.min(pct,100);
+    html += '<div style="border:2px solid var(--gl);border-radius:var(--rl);overflow:hidden">'+
+      // Cabecera cultivo
+      '<div style="background:var(--gd);color:#fff;padding:10px 14px;display:flex;justify-content:space-between;align-items:center">'+
+        '<div>'+
+          '<div style="font-size:15px;font-weight:800">'+cv.cult+'</div>'+
+          '<div style="font-size:11px;opacity:.75">'+cv.chacras.length+' chacra'+(cv.chacras.length>1?'s':'')+' · '+cv.ha+' ha</div>'+
+        '</div>'+
+        '<div style="text-align:right">'+
+          '<div style="font-size:18px;font-weight:800">USD '+fmt(cv.tot)+'</div>'+
+          '<div style="font-size:12px;opacity:.85">'+fmt(xha)+' USD/ha</div>'+
+        '</div>'+
+      '</div>'+
+      // Barra del total relativo
+      '<div style="height:4px;background:#e0e0e0">'+
+        '<div style="height:4px;background:var(--gm);width:'+barW+'%"></div>'+
+      '</div>'+
+      // Desglose por tipo
+      '<div style="padding:10px 14px">';
+    TIPOS_COLS.forEach(function(t){
+      if(!cv.porTipo[t]) return;
+      var xhaCv=cv.ha?cv.porTipo[t]/cv.ha:0;
+      var pctT=cv.tot?Math.round(cv.porTipo[t]/cv.tot*100):0;
+      html += '<div style="display:flex;justify-content:space-between;align-items:center;padding:3px 0;border-bottom:1px solid var(--br)">'+
+        '<span style="font-size:11px;color:var(--gd);font-weight:600">'+t+'</span>'+
+        '<span style="font-size:11px;color:var(--ts)">'+fmt(xhaCv)+' USD/ha <span style="color:var(--th)">('+pctT+'%)</span></span>'+
+      '</div>';
+      // Subtipos
+      Object.keys(cv.porSub).filter(function(k){return k.startsWith(t+'|');}).sort().forEach(function(k){
+        var sub=k.split('|')[1];
+        var xhaSub=cv.ha?cv.porSub[k]/cv.ha:0;
+        html += '<div style="display:flex;justify-content:space-between;padding:2px 0 2px 12px">'+
+          '<span style="font-size:10px;color:var(--ts)">↳ '+sub+'</span>'+
+          '<span style="font-size:10px;color:var(--ts)">'+fmt(xhaSub)+' USD/ha</span>'+
+        '</div>';
+      });
+    });
+    html += '</div></div>';
+  });
+  html += '</div>';
+
+  // Tabla comparativa compacta entre cultivos
+  html += '<div class="tw"><table class="tbl"><thead><tr>'+
+    '<th>Cultivo</th><th class="r">Ha</th><th class="r">Total USD</th><th class="r">USD/ha</th><th class="r">% del gasto</th>';
+  TIPOS_COLS.forEach(function(t){if(totGen[t])html+='<th class="r" style="font-size:10px">'+t+'<br>/ha</th>';});
+  html += '</tr></thead><tbody>';
+  Object.values(byCult).sort(function(a,b){return b.tot-a.tot;}).forEach(function(cv){
+    var xha=cv.ha?cv.tot/cv.ha:0;
+    var pct=totGen.tot?Math.round(cv.tot/totGen.tot*100):0;
+    html += '<tr><td class="b">'+cv.cult+'</td><td class="r">'+cv.ha+'</td>'+
+      '<td class="r b" style="color:var(--gd)">USD '+fmt(cv.tot)+'</td>'+
+      '<td class="r b" style="color:var(--gm)">'+fmt(xha)+'</td>'+
+      '<td class="r">'+pct+'%</td>';
+    TIPOS_COLS.forEach(function(t){
+      if(!totGen[t])return;
+      var xhaCv=cv.ha&&cv.porTipo[t]?cv.porTipo[t]/cv.ha:0;
+      html += '<td class="r m">'+(xhaCv?fmt(xhaCv):'—')+'</td>';
+    });
+    html += '</tr>';
+  });
+  html += '<tr style="background:var(--gd);color:#fff"><td class="b">TOTAL</td>'+
+    '<td class="r b">'+totGen.ha+'</td>'+
+    '<td class="r b">USD '+fmt(totGen.tot)+'</td>'+
+    '<td class="r b">'+fmt(totXha)+'</td><td class="r b">100%</td>';
+  TIPOS_COLS.forEach(function(t){
+    if(!totGen[t])return;
+    html += '<td class="r b">'+fmt(totGen.ha?totGen[t]/totGen.ha:0)+'</td>';
+  });
+  html += '</tr></tbody></table></div>';
+  html += '</div>';
+
+  // ── RESUMEN GENERAL (tabla por filas) ────────────────────────────────────
+  html += '<div class="card" style="margin-bottom:16px">';
+  html += '<div class="ctitle">Detalle de costos</div>';
+
+  // Una tabla por chacra con filas por tipo de gasto
+  chacraData.sort(function(a,b){
+    if(a.c.cultivo!==b.c.cultivo)return a.c.cultivo>b.c.cultivo?1:-1;
+    if(a.c.estab!==b.c.estab)return a.c.estab>b.c.estab?1:-1;
+    return (a.c.chacra||'')>(b.c.chacra||'')?1:-1;
+  }).forEach(function(d){
+    html += '<div style="margin-bottom:18px;border:1px solid var(--br);border-radius:var(--rl);overflow:hidden">';
+    // Cabecera chacra
+    html += '<div style="background:var(--gd);color:#fff;padding:8px 14px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px">'+
+      '<div>'+
+        '<span style="font-size:14px;font-weight:800">'+d.c.chacra+'</span>'+
+        '<span style="font-size:11px;opacity:.75;margin-left:8px">'+d.c.estab+' · '+d.c.cultivo+(d.c.variedad?' ('+d.c.variedad+')':'')+'</span>'+
+        '<span class="badge bb2" style="margin-left:8px;font-size:10px">'+d.c.zafra+'</span>'+
+      '</div>'+
+      '<div style="text-align:right">'+
+        '<span style="font-size:16px;font-weight:800">USD '+fmt(d.totTotal)+'</span>'+
+        (d.c.ha?'<span style="font-size:11px;opacity:.8;margin-left:8px">'+fmt(d.xha)+' USD/ha</span>':'')+
+      '</div>'+
+    '</div>';
+
+    // Filas por tipo de gasto
+    html += '<table style="width:100%;border-collapse:collapse;font-size:13px">';
+    html += '<thead><tr style="background:var(--bg)">'+
+      '<th style="padding:6px 12px;text-align:left;font-size:11px;color:var(--ts);font-weight:600;border-bottom:1px solid var(--br)">Tipo de gasto</th>'+
+      '<th style="padding:6px 12px;text-align:right;font-size:11px;color:var(--ts);font-weight:600;border-bottom:1px solid var(--br)">Total USD</th>'+
+      '<th style="padding:6px 12px;text-align:right;font-size:11px;color:var(--ts);font-weight:600;border-bottom:1px solid var(--br)">USD/ha</th>'+
+      '<th style="padding:6px 12px;text-align:right;font-size:11px;color:var(--ts);font-weight:600;border-bottom:1px solid var(--br)">% del costo</th>'+
+      '</tr></thead><tbody>';
+
+    TIPOS_COLS.forEach(function(t){
+      if(!d.porTipo[t]) return;
+      var xha=d.c.ha?d.porTipo[t]/d.c.ha:0;
+      var pct=d.totTotal?Math.round(d.porTipo[t]/d.totTotal*100):0;
+      var barW=Math.min(pct,100);
+      html += '<tr style="border-bottom:1px solid var(--br)">'+
+        '<td style="padding:8px 12px;font-weight:700;color:var(--gd)">'+t+
+          '<div style="height:3px;background:#e0e0e0;border-radius:2px;margin-top:4px;width:120px">'+
+            '<div style="height:3px;background:var(--gm);border-radius:2px;width:'+barW+'%"></div>'+
+          '</div>'+
+        '</td>'+
+        '<td style="padding:8px 12px;text-align:right;font-weight:600">USD '+fmt(d.porTipo[t])+'</td>'+
+        '<td style="padding:8px 12px;text-align:right;color:var(--gm);font-weight:700">'+fmt(xha)+' /ha</td>'+
+        '<td style="padding:8px 12px;text-align:right;color:var(--ts)">'+pct+'%</td>'+
+      '</tr>';
+
+      // Subtipos indentados
+      Object.keys(d.porSubtipo).filter(function(k){return k.startsWith(t+'|');}).sort().forEach(function(k){
+        var sub=k.split('|')[1];
+        var subTot=d.porSubtipo[k];
+        var subXha=d.c.ha?subTot/d.c.ha:0;
+        var subPct=d.porTipo[t]?Math.round(subTot/d.porTipo[t]*100):0;
+        html += '<tr style="background:var(--bg);border-bottom:1px solid var(--br)">'+
+          '<td style="padding:4px 12px 4px 28px;font-size:11px;color:var(--ts)">↳ '+sub+'</td>'+
+          '<td style="padding:4px 12px;text-align:right;font-size:11px;color:var(--ts)">USD '+fmt(subTot)+'</td>'+
+          '<td style="padding:4px 12px;text-align:right;font-size:11px;color:var(--ts)">'+fmt(subXha)+' /ha</td>'+
+          '<td style="padding:4px 12px;text-align:right;font-size:11px;color:var(--ts)">'+subPct+'% del tipo</td>'+
+        '</tr>';
+      });
+    });
+
+    // Total
+    html += '<tr style="background:var(--gbg)">'+
+      '<td style="padding:8px 12px;font-weight:800;color:var(--gd)">TOTAL</td>'+
+      '<td style="padding:8px 12px;text-align:right;font-weight:800;color:var(--gd)">USD '+fmt(d.totTotal)+'</td>'+
+      '<td style="padding:8px 12px;text-align:right;font-weight:800;color:var(--gm)">'+fmt(d.xha)+' /ha</td>'+
+      '<td style="padding:8px 12px;text-align:right;color:var(--ts)">100%</td>'+
+    '</tr>';
+    html += '</tbody></table></div>';
+  });
+  html += '</div>';
+
+  // Tabla por tipo (columnas principales)
+  html += '</div>';
+
+  // ── POR CULTIVO ──────────────────────────────────────────────────────────
+
+  Object.values(byCult).sort(function(a,b){return a.cult>b.cult?1:-1;}).forEach(function(cv){
+    var cultXha=cv.ha?cv.tot/cv.ha:0;
+    html += '<div class="card" style="margin-bottom:16px">';
+    html += '<div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;margin-bottom:12px">'+
+      '<div><div style="font-size:18px;font-weight:800;color:var(--gm)">'+cv.cult+'</div>'+
+      '<div class="m">'+cv.chacras.length+' chacra'+(cv.chacras.length>1?'s':'')+' · '+cv.ha+' ha</div></div>'+
+      '<div style="text-align:right"><div style="font-size:20px;font-weight:800;color:var(--gm)">USD '+fmt(cultXha)+'/ha</div>'+
+      '<div class="m">Total: USD '+fmt(cv.tot)+'</div></div></div>';
+
+    // Tarjetas por tipo
+    html += '<div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px">';
+    TIPOS_COLS.forEach(function(t){
+      if(!cv.porTipo[t]) return;
+      var xha=cv.ha?cv.porTipo[t]/cv.ha:0;
+      var pct=cultXha?Math.round(xha/cultXha*100):0;
+      html += '<div style="background:var(--gbg);border-radius:var(--ra);padding:8px 12px;min-width:120px">'+
+        '<div style="font-size:10px;font-weight:700;text-transform:uppercase;color:var(--gd);margin-bottom:2px">'+t+'</div>'+
+        '<div style="font-size:16px;font-weight:800;color:var(--gm)">'+fmt(xha)+'/ha</div>'+
+        '<div style="font-size:10px;color:var(--ts)">'+pct+'% · USD '+fmt(cv.porTipo[t])+'</div>';
+      // Subtipos de este tipo
+      Object.keys(cv.porSub).filter(function(k){return k.startsWith(t+'|');}).sort().forEach(function(k){
+        var sub=k.split('|')[1];
+        var xhaSub=cv.ha?cv.porSub[k]/cv.ha:0;
+        html += '<div style="font-size:10px;color:var(--ts);margin-top:2px">↳ '+sub+': '+fmt(xhaSub)+'/ha</div>';
+      });
+      html += '</div>';
+    });
+    html += '</div>';
+
+    // Tabla comparativa si hay más de una chacra
+    if(cv.chacras.length>1){
+      html += '<div class="tw"><table class="tbl"><thead><tr><th>Chacra</th><th>Campo</th><th class="r">Ha</th>';
+      TIPOS_COLS.forEach(function(t){if(cv.porTipo[t])html+='<th class="r" style="font-size:10px">'+t+'</th>';});
+      html += '<th class="r">Total/ha</th><th class="r">DIF. USD/ha</th></tr></thead><tbody>';
+      cv.chacras.sort(function(a,b){return b.xha-a.xha;}).forEach(function(d){
+        var diff=d.xha-cultXha;
+        html += '<tr><td class="b">'+d.c.chacra+'</td><td class="m">'+d.c.estab+'</td><td class="r">'+(d.c.ha||'—')+'</td>';
+        TIPOS_COLS.forEach(function(t){if(cv.porTipo[t]){var xha=d.c.ha&&d.porTipo[t]?d.porTipo[t]/d.c.ha:0;html+='<td class="r">'+(xha?fmt(xha):'—')+'</td>';}});
+        html += '<td class="r b" style="color:var(--gd)">'+fmt(d.xha)+'</td>'+
+          '<td class="r b" style="color:'+(diff>0?'var(--r)':'var(--gm)')+'">'+(diff===0?'—':(diff>0?'+':'')+fmt(Math.abs(diff)))+'</td></tr>';
+      });
+      html += '<tr style="background:var(--gbg)"><td colspan="2" class="b" style="color:var(--gd)">PROMEDIO</td><td class="r b" style="color:var(--gd)">'+cv.ha+'</td>';
+      TIPOS_COLS.forEach(function(t){if(cv.porTipo[t]){var xha=cv.ha?cv.porTipo[t]/cv.ha:0;html+='<td class="r b" style="color:var(--gd)">'+fmt(xha)+'</td>';}});
+      html += '<td class="r b" style="color:var(--gd)">'+fmt(cultXha)+'</td><td></td></tr>';
+      html += '</tbody></table></div>';
+    }
+    html += '</div>';
+  });
+
+  cont.innerHTML = html;
+}
+
+
+function renderSeg(){
+  var sgCa=document.getElementById('sg-campo');
+  var sgZ=document.getElementById('sg-zafra');
+  var fCampo=sgCa?sgCa.value:'';
+  var fZafra=sgZ?sgZ.value:'';
+  var cont=document.getElementById('sg-content');
+  cont.innerHTML='';
+
+  if(sgCa){
+    var curC=fCampo;
+    var cs=[];chacras.forEach(function(c){if(c.estab&&cs.indexOf(c.estab)<0)cs.push(c.estab);});cs.sort();
+    sgCa.innerHTML='<option value="">— Seleccioná un campo —</option>'+cs.map(function(e){return '<option value="'+e+'"'+(e===curC?' selected':'')+'>'+e+'</option>';}).join('');
+  }
+  if(sgZ){
+    var curZ=fZafra;
+    var zs=[];chacras.forEach(function(c){if(c.zafra&&zs.indexOf(c.zafra)<0)zs.push(c.zafra);});zs.sort();
+    sgZ.innerHTML='<option value="">Todas las zafras</option>'+zs.map(function(z){return '<option value="'+z+'"'+(z===curZ?' selected':'')+'>'+z+'</option>';}).join('');
+  }
+
+  if(!fCampo){
+    cont.innerHTML='<div class="alert ainf" style="margin-top:8px">Seleccioná un campo para ver el detalle.</div>';
+    return;
+  }
+
+  var filtCh=chacras.filter(function(c){
+    return c.estab===fCampo&&(!fZafra||c.zafra===fZafra);
+  }).sort(function(a,b){return (a.chacra||'')>(b.chacra||'')?1:-1;});
+
+  if(!filtCh.length){cont.innerHTML='<div class="empty">Sin chacras para ese filtro.</div>';return;}
+
+  var totCampo=filtCh.reduce(function(s,c){
+    return s+tratos.filter(function(t){return String(t.chId)===String(c.id);}).reduce(function(s2,t){return s2+tratTot(t);},0);
+  },0);
+  var haTot=filtCh.reduce(function(s,c){return s+(c.ha||0);},0);
+
+  // Banner campo
+  var bann=document.createElement('div');
+  bann.style.cssText='background:var(--gd);color:#fff;border-radius:var(--ra);padding:12px 18px;margin-bottom:16px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px';
+  bann.innerHTML='<div><div style="font-size:18px;font-weight:800">'+fCampo+'</div>'+
+    '<div style="font-size:12px;opacity:.75">'+filtCh.length+' chacras · '+haTot+' ha'+(fZafra?' · '+fZafra:'')+'</div></div>'+
+    '<div style="text-align:right"><div style="font-size:11px;opacity:.75">TOTAL CAMPO</div>'+
+    '<div style="font-size:22px;font-weight:800">USD '+fmt(totCampo)+'</div></div>';
+  cont.appendChild(bann);
+
+  filtCh.forEach(function(c){
+    var MORD={'ENE':1,'FEB':2,'MAR':3,'ABR':4,'MAY':5,'JUN':6,'JUL':7,'AGO':8,'SEP':9,'OCT':10,'NOV':11,'DIC':12};
+    function parseFecha(f){
+      if(!f)return 0;
+      f=f.toUpperCase().trim();
+      // Formato DDMMMAAAA ej: 30ABR2026
+      var m=f.match(/^(\d{1,2})([A-Z]{3})(\d{4})$/);
+      if(m){var mes=MORD[m[2]]||0;return parseInt(m[3])*10000+mes*100+parseInt(m[1]);}
+      return 0;
+    }
+    var ts=tratos.filter(function(t){return String(t.chId)===String(c.id);})
+      .sort(function(a,b){return parseFecha(a.fecha)-parseFecha(b.fecha);});
+    var acum=ts.reduce(function(s,t){return s+tratTot(t);},0);
+    var rentaP=alqCostoEstimado(c);
+    var acumTotal=acum+rentaP;
+    var xha=c.ha&&acum?acum/c.ha:0;
+    var pVenta=0;try{pVenta=precioPromedio(c.cultivo,c.zafra)||0;}catch(e){}
+    var pcEntry=preciosChacra[c.id]||preciosChacra[String(c.id)]||{};
+    var flete=0;
+    if(pcEntry.flete!==undefined&&pcEntry.flete!=='')flete=parseFloat(pcEntry.flete)||0;
+    else if(preciosCultivo[c.cultivo]&&preciosCultivo[c.cultivo].flete)flete=parseFloat(preciosCultivo[c.cultivo].flete)||0;
+    var neto=pVenta-flete;
+    // Equilibrio base sin renta
+    var eqBase=(neto>0&&xha>0)?xha/(neto/1000):0;
+    // Para % producción: equilibrio_con_renta = equilibrio_base / (1 - %renta/100)
+    var eq=null;
+    if(eqBase>0){
+      if(c.alqTipo==='porcentaje'&&c.alqVal>0){
+        eq=Math.round(eqBase/(1-c.alqVal/100));
+      } else {
+        eq=Math.round(eqBase);
+      }
+    }
+
+    var card=document.createElement('div');card.className='card';card.style.marginBottom='16px';
+
+    // Cabecera chacra
+    var cabH=document.createElement('div');
+    cabH.style.cssText='display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;padding-bottom:12px;border-bottom:2px solid var(--gl);margin-bottom:12px';
+    cabH.innerHTML=
+      '<div><div style="font-size:16px;font-weight:800;color:var(--gm)">'+c.chacra+'</div>'+
+      '<div class="m">'+c.cultivo+(c.variedad?' — '+c.variedad:'')+(c.epoca?' ('+c.epoca+')':'')+
+      ' · <span class="badge bb2">'+c.zafra+'</span>'+(c.ha?' · '+c.ha+' ha':'')+'</div>'+
+      (c.alqTipo?'<div class="m">Alquiler: '+alqLabel(c)+'</div>':'')+
+      '</div>'+
+      '<div style="text-align:right">'+
+      '<div style="font-size:20px;font-weight:800;color:var(--gm)">USD '+fmt(acum)+'</div>'+
+      (xha?'<div class="m">USD '+fmt(xha)+'/ha</div>':'')+
+      (eq?'<div style="font-size:13px;font-weight:700;color:var(--gd)">Equilibrio: '+eq+' kg/ha</div>':'')+
+      '</div>';
+    card.appendChild(cabH);
+
+    if(!ts.length){
+      var emp=document.createElement('div');emp.className='empty';emp.textContent='Sin tratamientos.';
+      card.appendChild(emp);
+    } else {
+      ts.forEach(function(t){
+        var tt=tratTot(t);
+        var tXha=c.ha&&tt?tt/c.ha:0;
+
+        // Fila encabezado tratamiento
+        var otH=document.createElement('div');
+        otH.style.cssText='background:var(--bg);border-left:4px solid var(--gm);padding:8px 12px;margin-bottom:4px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:4px;border-radius:0 var(--ra) var(--ra) 0';
+        otH.innerHTML=
+          '<div><b style="color:var(--gm)">'+(t.ot||'S/N°')+'</b>'+
+          '<span class="m" style="margin-left:8px">'+(t.fecha||'—')+'</span>'+
+          '<span class="m" style="margin-left:8px">'+(t.desc||'—')+'</span>'+
+          (t.prov?'<span class="m" style="margin-left:8px">· '+t.prov+'</span>':'')+
+          (t.haT?'<span class="m" style="margin-left:8px">'+t.haT+' ha</span>':'')+
+          '</div>'+
+          '<div><b style="color:var(--gm)">USD '+fmt(tt)+'</b>'+
+          (tXha?'<span class="m" style="margin-left:6px">USD '+fmt(tXha)+'/ha</span>':'')+
+          '</div>';
+        card.appendChild(otH);
+
+        // Tabla de líneas
+        if(t.lineas&&t.lineas.length){
+          var tbl=document.createElement('table');
+          tbl.className='tbl';tbl.style.cssText='margin-bottom:14px;font-size:12px';
+          var hdr=document.createElement('thead');
+          hdr.innerHTML='<tr>'+
+            '<th style="width:10%">Fecha</th>'+
+            '<th style="width:28%">Producto</th>'+
+            '<th style="width:10%">Dosis</th>'+
+            '<th style="width:9%">Unidad</th>'+
+            '<th style="width:7%">Ha</th>'+
+            '<th style="width:9%">Cant.real</th>'+
+            '<th class="r" style="width:12%">Precio USD</th>'+
+            '<th class="r" style="width:12%">Subtotal</th>'+
+            '</tr>';
+          tbl.appendChild(hdr);
+          var tb=document.createElement('tbody');
+          t.lineas.forEach(function(l){
+            var tr=document.createElement('tr');
+            tr.innerHTML=
+              '<td class="m">'+(t.fecha||'—')+'</td>'+
+              '<td class="b">'+(l.prod||'—')+'</td>'+
+              '<td class="m" style="font-size:10px;color:var(--ts)">'+(l.subtipo||'')+'</td>'+
+              '<td class="m">'+(l.dosis||'—')+'</td>'+
+              '<td class="m">'+(l.unidad||'—')+'</td>'+
+              '<td class="m">'+(l.haL||t.haT||'—')+'</td>'+
+              '<td class="m">'+(l.cantReal||'—')+'</td>'+
+              '<td class="r m">'+(l.precio?'USD '+fmt(parseFloat(String(l.precio).replace(',','.'))):'—')+'</td>'+
+              '<td class="r b">USD '+fmt(parseFloat(l.sub)||0)+'</td>';
+            tb.appendChild(tr);
+          });
+          tbl.appendChild(tb);
+          card.appendChild(tbl);
+        }
+      });
+
+      // Renta si existe
+      var renta=alqCostoEstimado(c);
+      if(renta>0){
+        var rentaRow=document.createElement('div');
+        rentaRow.style.cssText='background:var(--bg);border:1px dashed var(--gl);border-radius:var(--ra);padding:7px 16px;display:flex;justify-content:space-between;align-items:center;margin-top:4px;font-size:12px;color:var(--gd)';
+        var rentaXha=c.ha?renta/c.ha:0;
+        var rentaLabel=c.alqTipo==='porcentaje'?'RENTA (estimada, '+c.alqVal+'% prod.)':'RENTA ('+alqLabel(c)+')';
+        rentaRow.innerHTML='<span>'+rentaLabel+'</span>'+
+          '<span><b>USD '+fmt(renta)+'</b>'+(rentaXha?'<span style="margin-left:8px;opacity:.8">USD '+fmt(rentaXha)+'/ha</span>':'')+
+          '</span>';
+        card.appendChild(rentaRow);
+      }
+
+      // Total chacra con renta
+      var totConRenta=acum+renta;
+      var xhaConRenta=c.ha?totConRenta/c.ha:0;
+      var totRow=document.createElement('div');
+      totRow.style.cssText='background:var(--gd);color:#fff;border-radius:var(--ra);padding:9px 16px;display:flex;justify-content:space-between;align-items:center;margin-top:4px;margin-bottom:10px';
+      totRow.innerHTML='<b>TOTAL '+c.chacra+(renta?' (inc. renta)':'')+'</b>'+
+        '<div><b>USD '+fmt(totConRenta)+'</b>'+(xhaConRenta?'<span style="font-size:12px;opacity:.8;margin-left:8px">USD '+fmt(xhaConRenta)+'/ha</span>':'')+
+        '</div>';
+      card.appendChild(totRow);
+
+      // Flete
+      var flD=document.createElement('div');
+      flD.style.cssText='display:flex;align-items:center;gap:8px;padding:4px 0';
+      var flL=document.createElement('span');flL.style.cssText='font-size:12px;color:var(--ts)';flL.textContent='Flete USD/ton:';
+      var flI=document.createElement('input');
+      flI.type='number';flI.min='0';flI.step='0.01';
+      flI.value=(pcEntry.flete!==undefined&&pcEntry.flete!=='')?pcEntry.flete:'';
+      flI.placeholder=flete||0;
+      flI.style.cssText='width:90px;padding:4px 7px;border:1px solid var(--brm);border-radius:6px;font-size:13px;text-align:right';
+      var cid=c.id;
+      flI.addEventListener('change',function(){updFleteSeg(cid,this.value);});
+      flD.appendChild(flL);flD.appendChild(flI);card.appendChild(flD);
+    }
+    cont.appendChild(card);
+  });
+
+  // Total campo al pie si hay varias chacras
+  if(filtCh.length>1){
+    var tp=document.createElement('div');
+    tp.style.cssText='background:var(--gd);color:#fff;border-radius:var(--ra);padding:12px 18px;display:flex;justify-content:space-between;align-items:center;margin-top:8px';
+    tp.innerHTML='<div style="font-size:14px;font-weight:700">TOTAL '+fCampo+'</div><div style="font-size:20px;font-weight:800">USD '+fmt(totCampo)+'</div>';
+    cont.appendChild(tp);
+  }
+}
+
+
+function updFleteSeg(chId, val){
+  if(!preciosChacra[chId])preciosChacra[chId]={};
+  preciosChacra[chId].flete = val;
+  autoSave();
+  renderSeg();
+}
+
+
+function precioPromedio(cultivo, zafra){
+  // Calcula precio promedio ponderado de las ventas para un cultivo/zafra
+  var vf = ventas.filter(function(v){
+    // Coincidir zafra exacta O que la zafra de la venta contenga el parámetro
+    var zafrOk = !zafra || v.zafra===zafra || (v.zafra||'').indexOf(zafra)>=0;
+    return v.grano===cultivo && zafrOk;
+  });
+  if(!vf.length) return 0;
+  var totTons = vf.reduce(function(s,v){return s+(v.tons||0);},0);
+  if(totTons>0){
+    // Promedio ponderado por toneladas
+    return vf.reduce(function(s,v){return s+v.precio*(v.tons||0);},0)/totTons;
+  }
+  // Si no hay toneladas, promedio simple
+  return vf.reduce(function(s,v){return s+v.precio;},0)/vf.length;
+}
+
+function eqCultInput(inp){
+  var cult = inp.getAttribute('data-cult');
+  var campo = inp.getAttribute('data-field');
+  if(!cult||!campo) return;
+  if(!preciosCultivo[cult]) preciosCultivo[cult]={precio:'',flete:''};
+  preciosCultivo[cult][campo] = inp.value;
+  autoSave();
+  renderEq();
+}
+
+function eqFleteChacra(inp){
+  var chId = inp.getAttribute('data-chid');
+  if(!chId) return;
+  if(!preciosChacra[chId]) preciosChacra[chId]={};
+  preciosChacra[chId].flete = inp.value;
+  autoSave();
+  renderEq();
+}
+
+function getPrecio(cultivo, chId, zafra){
+  // 1. Precio promedio de ventas registradas
+  var pp = precioPromedio(cultivo, zafra);
+  if(pp) return pp;
+  // 2. Precio manual en preciosCultivo
+  var pc = preciosCultivo[cultivo]||{};
+  return parseFloat(pc.precio)||0;
+}
+
+function getFlete(cultivo, chId){
+  // 1. Flete específico por chacra
+  var pch = preciosChacra[chId]||preciosChacra[String(chId)]||{};
+  if(pch.flete) return parseFloat(pch.flete)||0;
+  // 2. Flete por cultivo
+  var pc = preciosCultivo[cultivo]||{};
+  return parseFloat(pc.flete)||0;
+}
+
+function renderEq(){
+  // Poblar filtros
+  var eqAnio = document.getElementById('eq-anio');
+  var eqCampo = document.getElementById('eq-campo');
+  if(eqAnio){
+    var curA=eqAnio.value;
+    var anios=[];
+    chacras.forEach(function(c){var p=(c.zafra||'').split(' ');var a=p[p.length-1];if(a&&anios.indexOf(a)<0)anios.push(a);});
+    anios.sort().reverse();
+    eqAnio.innerHTML='<option value="">Todos los años</option>'+anios.map(function(a){return '<option value="'+a+'"'+(a===curA?' selected':'')+'>'+a+'</option>';}).join('');
+  }
+  if(eqCampo){
+    var curC=eqCampo.value;
+    var campos=[];
+    chacras.forEach(function(c){if(c.estab&&campos.indexOf(c.estab)<0)campos.push(c.estab);});
+    campos.sort();
+    eqCampo.innerHTML='<option value="">Todos los campos</option>'+campos.map(function(e){return '<option value="'+e+'"'+(e===curC?' selected':'')+'>'+e+'</option>';}).join('');
+  }
+  var fAnio  = eqAnio?eqAnio.value:'';
+  var fEst   = (document.getElementById('eq-est')||{value:''}).value;
+  var fCampo = eqCampo?eqCampo.value:'';
+
+  // Poblar chacras según campo seleccionado
+  var eqChacra = document.getElementById('eq-chacra');
+  if(eqChacra){
+    var curCh=eqChacra.value;
+    var chs=chacras.filter(function(c){
+      var z=(c.zafra||'').toUpperCase();
+      return(!fAnio||z.indexOf(fAnio)>=0)&&(!fEst||z.indexOf(fEst)>=0)&&(!fCampo||c.estab===fCampo);
+    });
+    eqChacra.innerHTML='<option value="">Todas las chacras</option>'+chs.map(function(c){
+      return '<option value="'+c.id+'"'+(String(c.id)===String(curCh)?' selected':'')+'>'+c.chacra+' ('+c.estab+')</option>';
+    }).join('');
+  }
+  var fChacra = eqChacra?eqChacra.value:'';
+
+  var filtCh = chacras.filter(function(c){
+    var z=(c.zafra||'').toUpperCase();
+    var p=z.split(' ');
+    var anioOk=!fAnio||p[p.length-1]===fAnio;
+    var estOk=!fEst||z.indexOf(fEst)>=0;
+    var campoOk=!fCampo||c.estab===fCampo;
+    var chacraOk=!fChacra||String(c.id)===String(fChacra);
+    return anioOk&&estOk&&campoOk&&chacraOk;
+  });
+
+  // Cultivos únicos
+  var cultivos=[];
+  filtCh.forEach(function(c){if(c.cultivo&&cultivos.indexOf(c.cultivo)<0)cultivos.push(c.cultivo);});
+  cultivos.sort();
+
+
+
+  var cont=document.getElementById('eq-content');
+  if(!cont)return;
+  if(!filtCh.length){cont.innerHTML='<div class="empty">Sin chacras con esos filtros.</div>';return;}
+
+  var haTotal=filtCh.reduce(function(s,c){return s+(c.ha||0);},0);
+
+  // Agrupar por cultivo
+  var byCult={};
+  filtCh.forEach(function(c){
+    if(!byCult[c.cultivo])byCult[c.cultivo]={cultivo:c.cultivo,chacras:[],haTot:0,costoTot:0};
+    var costo=tratos.filter(function(t){return String(t.chId)===String(c.id);}).reduce(function(s,t){return s+tratTot(t);},0);
+    var precio=getPrecio(c.cultivo,c.id,c.zafra);
+    var flete=getFlete(c.cultivo,c.id);
+    var neto=precio-flete;
+    var costoHa=c.ha?costo/c.ha:0;
+    var eqBase=(neto>0&&costoHa)?costoHa/(neto/1000):0;
+    var eqKgHa=null;
+    if(eqBase>0){
+      eqKgHa=(c.alqTipo==='porcentaje'&&c.alqVal>0)?Math.round(eqBase/(1-c.alqVal/100)):Math.round(eqBase);
+    }
+    byCult[c.cultivo].chacras.push({c:c,costo:costo,costoHa:costoHa,precio:precio,flete:flete,neto:neto,eqKgHa:eqKgHa});
+    byCult[c.cultivo].haTot+=(c.ha||0);
+    byCult[c.cultivo].costoTot+=costo;
+  });
+
+  var html='';
+  Object.values(byCult).sort(function(a,b){return a.cultivo>b.cultivo?1:-1;}).forEach(function(v){
+    var precioC=getPrecio(v.cultivo,'',fAnio?fAnio:'');
+    // Flete promedio ponderado por hectáreas de cada chacra
+    var fletePromPond=0;
+    var haTotConFlete=0;
+    v.chacras.forEach(function(d){
+      var fl=getFlete(d.c.cultivo,d.c.id);
+      fletePromPond+=fl*(d.c.ha||0);
+      haTotConFlete+=(d.c.ha||0);
+    });
+    var fleteC=haTotConFlete?fletePromPond/haTotConFlete:getFlete(v.cultivo,'');
+    var netoC=precioC-fleteC;
+    var costoHaC=v.haTot?v.costoTot/v.haTot:0;
+    var eqCult=(netoC>0&&costoHaC)?Math.round(costoHaC/(netoC/1000)):null;
+    var pctCult=haTotal?(v.haTot/haTotal*100).toFixed(1):'0';
+
+    html+='<div class="card" style="margin-bottom:14px">'+
+      '<div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;padding-bottom:10px;border-bottom:1px solid var(--br);margin-bottom:12px">'+
+        '<div>'+
+          '<div style="font-size:16px;font-weight:800;color:var(--gm)">'+v.cultivo+'</div>'+
+          '<div class="m">'+v.chacras.length+' chacra'+(v.chacras.length>1?'s':'')+' · '+v.haTot+' ha · '+pctCult+'% del área</div>'+
+        '</div>'+
+        '<div style="text-align:right;background:var(--gbg);border-radius:var(--ra);padding:8px 14px">'+
+          '<div style="font-size:11px;color:var(--gd)">Equilibrio promedio</div>'+
+          '<div style="font-size:22px;font-weight:800;color:var(--gd)">'+(eqCult?eqCult+' kg/ha':'— sin precio')+'</div>'+
+          (netoC>0?'<div style="font-size:11px;color:var(--ts)">Precio neto: USD '+fmt(netoC)+'/ton</div>':'')+
+        '</div>'+
+      '</div>'+
+      '<div class="tw"><table class="tbl"><thead><tr>'+
+        '<th>Chacra</th><th>Campo</th><th class="r">Ha</th>'+
+        '<th class="r">Costo USD</th><th class="r">USD/ha</th>'+
+        '<th class="r">Precio</th><th class="r">Flete chacra</th><th class="r">Precio neto</th>'+
+        '<th class="r" style="background:var(--gbg);color:var(--gd)">Equilibrio</th>'+
+      '</tr></thead><tbody>';
+
+    v.chacras.forEach(function(d){
+      var pchEntry=preciosChacra[d.c.id]||preciosChacra[String(d.c.id)]||{};
+      html+='<tr>'+
+        '<td class="b">'+d.c.chacra+'</td>'+
+        '<td class="m">'+d.c.estab+'</td>'+
+        '<td class="r">'+(d.c.ha||'—')+'</td>'+
+        '<td class="r">USD '+fmt(d.costo)+'</td>'+
+        '<td class="r b" style="color:var(--r)">'+fmt(d.costoHa)+'/ha</td>'+
+        '<td class="r">'+(d.precio?'USD '+fmt(d.precio)+'/t':'—')+'</td>'+
+        '<td class="r"><input type="number" min="0" step="0.01" value="'+(pchEntry.flete||'')+'" placeholder="'+fmt(fleteC)+'" '+
+          'style="width:80px;padding:4px 6px;border:1px solid var(--brm);border-radius:6px;font-size:12px;text-align:right" '+
+          'title="Flete específico para esta chacra. Vacío = usa flete del cultivo" '+
+          'data-chid="'+d.c.id+'" onchange="eqFleteChacra(this);"></td>'+
+        '<td class="r">'+(d.neto>0?'USD '+fmt(d.neto)+'/t':'—')+'</td>'+
+        '<td class="r b" style="background:var(--gbg);color:var(--gd);font-size:15px;font-weight:800">'+
+          (d.eqKgHa?d.eqKgHa+' kg/ha':(d.neto>0?'<span class="m">sin costos</span>':'<span class="m">sin precio</span>'))+
+        '</td>'+
+      '</tr>';
+    });
+
+    // Fila total
+    html+='<tr style="background:var(--gbg)">'+
+      '<td colspan="2" class="b" style="color:var(--gd)">PROMEDIO '+v.cultivo+'</td>'+
+      '<td class="r b" style="color:var(--gd)">'+v.haTot+'</td>'+
+      '<td class="r b" style="color:var(--gd)">USD '+fmt(v.costoTot)+'</td>'+
+      '<td class="r b" style="color:var(--gd)">'+fmt(costoHaC)+'/ha</td>'+
+      '<td colspan="3"></td>'+
+      '<td class="r b" style="color:var(--gd);background:var(--gbg)">'+(eqCult?eqCult+' kg/ha':'—')+'</td>'+
+    '</tr>';
+    html+='</tbody></table></div></div>';
+  });
+  cont.innerHTML=html;
+}
+
+function renderSiembra(){
+  var cont = document.getElementById('sb-content');
+
+  // Poblar selects cada vez
+  var sbA = document.getElementById('sb-anio');
+  var sbE = document.getElementById('sb-est');
+  var sbC = document.getElementById('sb-campo');
+  var valA = sbA.value;
+  var valE = sbE.value;
+  var valC = sbC.value;
+
+  var anos=[], campos=[];
+  chacras.forEach(function(c){
+    var a = c.zafra ? c.zafra.trim().split(' ').pop() : '';
+    if(a && anos.indexOf(a)<0) anos.push(a);
+    if(c.estab && campos.indexOf(c.estab)<0) campos.push(c.estab);
+  });
+  anos.sort(); campos.sort();
+  sbA.innerHTML = '<option value="">Todos los años</option>' + anos.map(function(a){return '<option value="'+a+'"'+(a===valA?' selected':'')+'>'+a+'</option>';}).join('');
+  sbC.innerHTML = '<option value="">Todos los campos</option>' + campos.map(function(e){return '<option value="'+e+'"'+(e===valC?' selected':'')+'>'+e+'</option>';}).join('');
+
+  // Filtrar
+  var filtCh = chacras.filter(function(c){
+    var partes = c.zafra ? c.zafra.trim().split(' ') : [];
+    var est = partes[0] || '';
+    var ano = partes[partes.length-1] || '';
+    var okA = !valA || ano === valA;
+    var okE = !valE || est === valE;
+    var okC = !valC || c.estab === valC;
+    return okA && okE && okC;
+  });
+
+  if(!filtCh.length){
+    cont.innerHTML = '<div class="empty">SIN CHACRAS CON ESOS FILTROS.</div>';
+    return;
+  }
+
+  var haTotal = filtCh.reduce(function(s,c){return s+(c.ha||0);},0);
+
+  // Agrupar por cultivo > epoca > variedad
+  var byCult = {};
+  filtCh.forEach(function(c){
+    var cult = c.cultivo || 'SIN CULTIVO';
+    var epoc = c.epoca || '—';
+    var vari = c.variedad || 'SIN VARIEDAD';
+    if(!byCult[cult]) byCult[cult]={cultivo:cult,ha:0,chacras:0,byEpoca:{}};
+    byCult[cult].ha += (c.ha||0);
+    byCult[cult].chacras++;
+    if(!byCult[cult].byEpoca[epoc]) byCult[cult].byEpoca[epoc]={epoca:epoc,ha:0,byVar:{}};
+    byCult[cult].byEpoca[epoc].ha += (c.ha||0);
+    if(!byCult[cult].byEpoca[epoc].byVar[vari]) byCult[cult].byEpoca[epoc].byVar[vari]={variedad:vari,ha:0,chacras:[]};
+    byCult[cult].byEpoca[epoc].byVar[vari].ha += (c.ha||0);
+    byCult[cult].byEpoca[epoc].byVar[vari].chacras.push(c);
+  });
+
+  var html = '';
+
+  // Resumen general
+  html += '<div class="g4" style="margin-bottom:16px">'+
+    '<div class="metric"><div class="mlabel">TOTAL SEMBRADO</div><div class="mval g">'+haTotal+' HA</div></div>'+
+    '<div class="metric"><div class="mlabel">CULTIVOS</div><div class="mval">'+Object.keys(byCult).length+'</div></div>'+
+    '<div class="metric"><div class="mlabel">CHACRAS</div><div class="mval">'+filtCh.length+'</div></div>'+
+    '<div class="metric"><div class="mlabel">CAMPOS</div><div class="mval">'+new Set(filtCh.map(function(c){return c.estab;})).size+'</div></div>'+
+    '</div>';
+
+  // Tabla resumen
+  html += '<div class="card"><div class="ctitle">RESUMEN DE SIEMBRA</div><div class="tw">'+
+    '<table class="tbl"><thead><tr>'+
+    '<th style="width:15%">CULTIVO</th>'+
+    '<th style="width:10%">ÉPOCA</th>'+
+    '<th style="width:18%">VARIEDAD</th>'+
+    '<th style="width:7%" class="r">% CULT.</th>'+
+    '<th style="width:6%" class="r">HA</th>'+
+    '<th style="width:7%" class="r">% ÁREA</th>'+
+    '<th>CHACRAS</th>'+
+    '</tr></thead><tbody>';
+
+  Object.values(byCult).sort(function(a,b){return b.ha-a.ha;}).forEach(function(v){
+    var epocas = Object.values(v.byEpoca).sort(function(a,b){return a.epoca>b.epoca?1:-1;});
+    var cultRowspan = 0;
+    epocas.forEach(function(e){cultRowspan += Object.keys(e.byVar).length;});
+    var firstCult = true;
+    var pctCult = haTotal ? (v.ha/haTotal*100).toFixed(1) : '0';
+
+    epocas.forEach(function(e){
+      var vars = Object.values(e.byVar).sort(function(a,b){return b.ha-a.ha;});
+      var firstEpoc = true;
+
+      vars.forEach(function(vv){
+        var pctArea = haTotal ? (vv.ha/haTotal*100).toFixed(1) : '0';
+        var pctVarDentCult = v.ha ? (vv.ha/v.ha*100).toFixed(1) : '0';
+        var chList = vv.chacras.map(function(c){
+          return '<span style="display:inline-block;background:var(--gbg);border-radius:4px;padding:1px 6px;margin:1px;font-size:11px;color:var(--gd)">'+c.chacra+' ('+c.estab+')</span>';
+        }).join('');
+
+        html += '<tr>';
+        if(firstCult){
+          html += '<td rowspan="'+cultRowspan+'" style="font-weight:800;font-size:14px;color:var(--gm);vertical-align:top;padding-top:12px">'+
+            v.cultivo+
+            '<div style="font-size:11px;font-weight:400;color:var(--ts)">'+v.ha+' HA</div>'+
+            '<div style="font-size:12px;font-weight:700;color:var(--gd)">'+pctCult+'% ÁREA</div>'+
+            '</td>';
+          firstCult = false;
+        }
+        if(firstEpoc){
+          html += '<td rowspan="'+Object.keys(e.byVar).length+'" style="vertical-align:top;padding-top:10px">'+
+            (e.epoca&&e.epoca!=='—'?'<span class="badge ba2">'+e.epoca+'</span>':'<span class="m">—</span>')+
+            '<div style="font-size:11px;color:var(--ts);margin-top:3px">'+e.ha+' HA</div></td>';
+          firstEpoc = false;
+        }
+        html += '<td class="b">'+vv.variedad+'</td>'+
+          '<td class="r m">'+pctVarDentCult+'%</td>'+
+          '<td class="r b" style="color:var(--gm)">'+vv.ha+'</td>'+
+          '<td class="r m">'+pctArea+'%</td>'+
+          '<td>'+chList+'</td>'+
+          '</tr>';
+      });
+    });
+  });
+
+  // Total
+  html += '<tr style="background:var(--gbg)">'+
+    '<td colspan="3" class="b" style="padding:9px;color:var(--gd)">TOTAL GENERAL</td>'+
+    '<td class="r b" style="padding:9px;color:var(--gd)">100%</td>'+
+    '<td class="r b" style="padding:9px;color:var(--gd)">'+haTotal+'</td>'+
+    '<td class="r b" style="padding:9px;color:var(--gd)">100%</td>'+
+    '<td></td></tr>';
+
+  html += '</tbody></table></div></div>';
+
+  // Detalle por campo
+  var byCampo = {};
+  filtCh.forEach(function(c){
+    if(!byCampo[c.estab])byCampo[c.estab]={estab:c.estab,ha:0,chacras:[]};
+    byCampo[c.estab].ha+=(c.ha||0);
+    byCampo[c.estab].chacras.push(c);
+  });
+
+  html += '<div class="card"><div class="ctitle">DETALLE POR CAMPO</div><div class="tw">'+
+    '<table class="tbl"><thead><tr>'+
+    '<th>CAMPO</th><th>CHACRA</th><th>CULTIVO</th><th>ÉPOCA</th><th>VARIEDAD</th>'+
+    '<th class="r">HA</th><th>ZAFRA</th><th>NOTAS</th>'+
+    '</tr></thead><tbody>';
+
+  Object.values(byCampo).sort(function(a,b){return a.estab>b.estab?1:-1;}).forEach(function(campo){
+    campo.chacras.sort(function(a,b){return a.cultivo>b.cultivo?1:-1;}).forEach(function(c,i){
+      html += '<tr>'+
+        (i===0?'<td rowspan="'+campo.chacras.length+'" class="b" style="vertical-align:top;padding-top:10px">'+campo.estab+'<div class="m">'+campo.ha+' HA</div></td>':'') +
+        '<td>'+c.chacra+'</td>'+
+        '<td>'+c.cultivo+'</td>'+
+        '<td>'+(c.epoca&&c.epoca!=='—'?'<span class="badge ba2">'+c.epoca+'</span>':'—')+'</td>'+
+        '<td class="m">'+(c.variedad||'—')+'</td>'+
+        '<td class="r">'+(c.ha||'—')+'</td>'+
+        '<td><span class="badge bb2">'+c.zafra+'</span></td>'+
+        '<td class="m">'+(c.nota||'—')+'</td>'+
+        '</tr>';
+    });
+  });
+
+  html += '</tbody></table></div></div>';
+  cont.innerHTML = html;
+}
+
+
+
+// CIERRES ─────────────────────────────────────────────────────────────────────
+var ciChId = null;
+
+function renderCierres(){
+  // Poblar selector de chacras
+  var wrap = document.getElementById('ci-selector-wrap');
+  if(!wrap) return;
+  var chIdsCerradas = cierres.map(function(c){return c.chId;});
+  var chAbiertas = chacras.filter(function(c){return chIdsCerradas.indexOf(c.id)<0;});
+
+  wrap.innerHTML = '';
+  if(!chAbiertas.length){
+    wrap.innerHTML = '<div class="alert ainf">Todas las chacras están cerradas o no hay chacras configuradas.</div>';
+  } else {
+    var sel = document.createElement('select');
+    sel.className = 'field';
+    sel.style.cssText = 'width:100%;padding:9px 11px;border:1px solid var(--brm);border-radius:var(--ra);font-size:14px;font-family:inherit;margin-bottom:10px';
+    var opt0 = document.createElement('option');
+    opt0.value = '';opt0.textContent = '— Seleccioná una chacra —';
+    sel.appendChild(opt0);
+    chAbiertas.forEach(function(c){
+      var opt = document.createElement('option');
+      opt.value = String(c.id);
+      opt.textContent = c.chacra + ' — ' + c.estab + ' (' + c.cultivo + ', ' + c.zafra + ')';
+      sel.appendChild(opt);
+    });
+    wrap.appendChild(sel);
+
+    var btn = document.createElement('button');
+    btn.className = 'btn btn-p';
+    btn.textContent = '✓ Cargar esta chacra';
+    btn.onclick = function(){
+      var v = sel.value;
+      if(!v){ alert('Seleccioná una chacra primero.'); return; }
+      var ch = chacras.find(function(c){ return String(c.id)===v; });
+      if(!ch){ alert('No se encontró la chacra.'); return; }
+      ciChId = ch.id;
+      mostrarFormCierre(ch);
+    };
+    wrap.appendChild(btn);
+  }
+
+  // Poblar filtros de lista
+  var cfZ = document.getElementById('cf-zafra');
+  var cfC = document.getElementById('cf-campo');
+  if(cfZ){
+    var curZ=cfZ.value, zafrasCi=[];
+    cierres.forEach(function(c){var ch=chById(c.chId)||{};if(ch.zafra&&zafrasCi.indexOf(ch.zafra)<0)zafrasCi.push(ch.zafra);});
+    cfZ.innerHTML='<option value="">Todas las zafras</option>'+zafrasCi.sort().map(function(z){return '<option value="'+z+'"'+(z===curZ?' selected':'')+'>'+z+'</option>';}).join('');
+  }
+  if(cfC){
+    var curC=cfC.value, camposCi=[];
+    cierres.forEach(function(c){var ch=chById(c.chId)||{};if(ch.estab&&camposCi.indexOf(ch.estab)<0)camposCi.push(ch.estab);});
+    cfC.innerHTML='<option value="">Todos los campos</option>'+camposCi.sort().map(function(e){return '<option value="'+e+'"'+(e===curC?' selected':'')+'>'+e+'</option>';}).join('');
+  }
+
+  renderListaCierres();
+}
+
+function mostrarFormCierre(ch){
+  var det = document.getElementById('ci-detalle');
+  det.style.display = 'block';
+  var ts = tratos.filter(function(t){return t.chId===ch.id;});
+  var costoTotal = ts.reduce(function(s,t){return s+tratTot(t);},0);
+  var costoHa = ch.ha ? costoTotal/ch.ha : 0;
+  var pVenta = precioPromedio(ch.cultivo, ch.zafra);
+  var infoCard = document.getElementById('ci-info-card');
+  infoCard.innerHTML =
+    '<div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px">'+
+    '<div>'+
+      '<div style="font-size:15px;font-weight:800;color:var(--gm)">'+ch.chacra+' — '+ch.estab+'</div>'+
+      '<div class="m">'+ch.cultivo+(ch.variedad?' ('+ch.variedad+')':'')+' &middot; <span class="badge bb2">'+ch.zafra+'</span>'+(ch.ha?' &middot; '+ch.ha+' ha':'')+'</div>'+
+    '</div>'+
+    '<div style="text-align:right">'+
+      '<div style="font-size:13px;color:var(--ts)">Costo acumulado</div>'+
+      '<div style="font-size:18px;font-weight:700;color:var(--r)">USD '+fmt(costoTotal)+'</div>'+
+      (ch.ha?'<div class="m">USD '+fmt(costoHa)+'/ha</div>':'')+
+      (pVenta?'<div style="font-size:13px;color:var(--gm);margin-top:4px">Precio prom. ventas: USD '+fmt(pVenta)+'/ton</div>':
+        '<div style="font-size:12px;color:var(--ad);margin-top:4px">Sin ventas registradas</div>')+
+    '</div></div>';
+
+  // Reset form
+  ciPostCosecha=[];ciPCId=0;
+  document.getElementById('ci-pc-body').innerHTML='';
+  document.getElementById('ci-kgha').value='';
+  document.getElementById('ci-kgtot').value='';
+  document.getElementById('ci-fecha').value='';
+  document.getElementById('ci-resultado-wrap').innerHTML='';
+
+  // Botones
+  var addBtn = document.getElementById('ci-add-pc-btn');
+  addBtn.onclick = addPostCosecha;
+  var guardarBtn = document.getElementById('ci-guardar-btn');
+  guardarBtn.onclick = guardarCierre;
+
+  det.scrollIntoView({behavior:'smooth', block:'start'});
+}
+
+function addPostCosecha(){
+  var id=++ciPCId;
+  ciPostCosecha.push({id:id,concepto:'',xton:0,total:0});
+  renderPCLineas();
+}
+function delPC(id){
+  ciPostCosecha=ciPostCosecha.filter(function(l){return l.id!==id;});
+  renderPCLineas();calcCierre();
+}
+function updPC(id,field,val){
+  var l=ciPostCosecha.find(function(x){return x.id===id;});
+  if(l){l[field]=field==='concepto'?String(val).toUpperCase():parseFloat(val)||0;}
+  calcCierre();
+}
+function renderPCLineas(){
+  var kgTot=parseFloat(document.getElementById('ci-kgtot').value)||0;
+  var tonTot=kgTot/1000;
+  var tbody=document.getElementById('ci-pc-body');
+  tbody.innerHTML='';
+  ciPostCosecha.forEach(function(l){
+    var tot=l.xton&&tonTot?l.xton*tonTot:l.total;
+    var tr=document.createElement('tr');
+    var td1=document.createElement('td');td1.style.padding='4px 6px';
+    var inp1=document.createElement('input');
+    inp1.value=l.concepto||'';inp1.placeholder='EJ: SECADO, ACONDICIONADO, FLETE';
+    inp1.style.cssText='width:100%;padding:5px 7px;border:1px solid var(--brm);border-radius:6px;font-size:12px;text-transform:uppercase';
+    inp1.addEventListener('input',function(){updPC(l.id,'concepto',this.value);});
+    td1.appendChild(inp1);tr.appendChild(td1);
+    var td2=document.createElement('td');td2.style.padding='4px 6px';
+    var inp2=document.createElement('input');
+    inp2.type='number';inp2.min='0';inp2.step='0.01';inp2.value=l.xton||'';inp2.placeholder='0.00';
+    inp2.style.cssText='width:100%;padding:5px 7px;border:1px solid var(--brm);border-radius:6px;font-size:12px;text-align:right';
+    inp2.addEventListener('input',function(){updPC(l.id,'xton',this.value);});
+    td2.appendChild(inp2);tr.appendChild(td2);
+    var td3=document.createElement('td');td3.style.cssText='padding:4px 6px;text-align:right;font-weight:700;color:var(--gm)';
+    td3.textContent='USD '+fmt(tot);tr.appendChild(td3);
+    var td4=document.createElement('td');td4.style.cssText='padding:4px 6px;text-align:center';
+    var btn=document.createElement('button');btn.className='btn-del';btn.textContent='✕';
+    btn.addEventListener('click',function(){delPC(l.id);});
+    td4.appendChild(btn);tr.appendChild(td4);
+    tbody.appendChild(tr);
+  });
+}
+
+function calcCierre(){
+  var ch=chacras.find(function(c){return c.id===ciChId;});
+  if(!ch)return;
+  var kgHa=parseFloat(document.getElementById('ci-kgha').value)||0;
+  var kgTot=parseFloat(document.getElementById('ci-kgtot').value)||0;
+  if(kgHa&&ch.ha&&!kgTot){kgTot=kgHa*ch.ha;document.getElementById('ci-kgtot').value=Math.round(kgTot);}
+  if(kgTot&&ch.ha&&!kgHa){kgHa=kgTot/ch.ha;document.getElementById('ci-kgha').value=Math.round(kgHa);}
+  var tonTot=kgTot/1000;
+  var ts=tratos.filter(function(t){return t.chId===ch.id;});
+  var costoTotal=ts.reduce(function(s,t){return s+tratTot(t);},0);
+  var costoPC=ciPostCosecha.reduce(function(s,l){return s+(l.xton&&tonTot?l.xton*tonTot:l.total);},0);
+  var costoAlq=alqCostoUSD(ch,kgHa);
+  var costoTotalFinal=costoTotal+costoPC+costoAlq;
+  var costoHa=ch.ha?costoTotalFinal/ch.ha:0;
+  var pVenta=precioPromedio(ch.cultivo,ch.zafra);
+  var ingresoTotal=tonTot*pVenta;
+  var ingresoHa=ch.ha?ingresoTotal/ch.ha:0;
+  var margenTotal=ingresoTotal-costoTotalFinal;
+  var margenHa=ch.ha?margenTotal/ch.ha:0;
+  var pos=margenTotal>=0;
+  renderPCLineas();
+  var rw=document.getElementById('ci-resultado-wrap');
+  rw.innerHTML=
+    '<div class="card">'+
+    '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;margin-bottom:12px">'+
+      '<div class="metric"><div class="mlabel">Rendimiento</div><div class="mval g">'+(kgHa?Math.round(kgHa)+' kg/ha':'—')+'</div><div style="font-size:11px;color:var(--ts)">'+(kgTot?Math.round(kgTot)+' kg totales':'')+'</div></div>'+
+      '<div class="metric"><div class="mlabel">Ingreso bruto</div><div class="mval g">USD '+fmt(ingresoTotal)+'</div><div style="font-size:11px;color:var(--ts)">'+(ingresoHa?'USD '+fmt(ingresoHa)+'/ha':'')+'</div></div>'+
+      '<div class="metric"><div class="mlabel">Costo total</div><div class="mval" style="color:var(--r)">USD '+fmt(costoTotalFinal)+'</div><div style="font-size:11px;color:var(--ts)">'+(costoHa?'USD '+fmt(costoHa)+'/ha':'')+'</div></div>'+
+      '<div class="metric"><div class="mlabel">Post-cosecha</div><div class="mval" style="color:var(--ad)">USD '+fmt(costoPC)+'</div></div>'+
+    '</div>'+
+    '<div style="background:'+(pos?'var(--gbg)':'var(--rbg)')+';border:1px solid '+(pos?'var(--gl)':'#F09595')+';border-radius:var(--ra);padding:14px 18px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px">'+
+      '<div>'+
+        '<div style="font-size:12px;font-weight:700;color:'+(pos?'var(--gd)':'var(--rd)')+';text-transform:uppercase">MARGEN '+(pos?'POSITIVO ✓':'NEGATIVO ✗')+'</div>'+
+        '<div style="font-size:11px;color:var(--ts);margin-top:2px">Precio prom. ventas: USD '+fmt(pVenta)+'/ton</div>'+
+      '</div>'+
+      '<div style="text-align:right">'+
+        '<div style="font-size:26px;font-weight:800;color:'+(pos?'var(--gm)':'var(--r)')+'">'+(pos?'+':'')+' USD '+fmt(margenTotal)+'</div>'+
+        (ch.ha?'<div style="font-size:14px;font-weight:600;color:'+(pos?'var(--gm)':'var(--r)')+'">'+(pos?'+':'')+' USD '+fmt(margenHa)+'/ha</div>':'')+
+      '</div>'+
+    '</div>'+
+    '</div>';
+}
+
+function guardarCierre(){
+  var ch=chacras.find(function(c){return c.id===ciChId;});
+  var msg=document.getElementById('ci-msg');
+  if(!ch){msg.className='alert aerr';msg.textContent='Error: seleccioná una chacra.';return;}
+  var kgHa=parseFloat(document.getElementById('ci-kgha').value)||0;
+  var kgTot=parseFloat(document.getElementById('ci-kgtot').value)||0;
+  var fecha=document.getElementById('ci-fecha').value.trim().toUpperCase();
+  var ts=tratos.filter(function(t){return t.chId===ch.id;});
+  var costoTotal=ts.reduce(function(s,t){return s+tratTot(t);},0);
+  var tonTot=kgTot/1000;
+  var costoPC=ciPostCosecha.reduce(function(s,l){return s+(l.xton&&tonTot?l.xton*tonTot:l.total);},0);
+  var costoAlq=alqCostoUSD(ch,kgHa);
+  var costoTotalFinal=costoTotal+costoPC+costoAlq;
+  var pVenta=precioPromedio(ch.cultivo,ch.zafra);
+  var ingresoTotal=tonTot*pVenta;
+  var margenTotal=ingresoTotal-costoTotalFinal;
+  var margenHa=ch.ha?margenTotal/ch.ha:0;
+  cierres.push({id:Date.now(),chId:ch.id,fecha:fecha,kgHa:kgHa,kgTot:kgTot,
+    costoTotal:costoTotal,costoPC:costoPC,costoAlq:costoAlq,costoTotalFinal:costoTotalFinal,
+    pVenta:pVenta,ingresoTotal:ingresoTotal,margenTotal:margenTotal,margenHa:margenHa,
+    postCosecha:ciPostCosecha.map(function(l){var tonT=kgTot/1000;return{concepto:l.concepto,xton:l.xton,total:l.xton&&tonT?l.xton*tonT:l.total};})
+  });
+  autoSave();limpCierre();renderCierres();
+  msg.className='alert aok';
+  msg.textContent='✓ '+ch.chacra+' cerrada. Margen: '+(margenTotal>=0?'+':'')+' USD '+fmt(margenTotal);
+  setTimeout(function(){msg.className='';msg.textContent='';},5000);
+}
+
+function limpCierre(){
+  ciChId=null;
+  document.getElementById('ci-detalle').style.display='none';
+}
+
+function elimCierre(id){
+  if(!confirm('¿Eliminar este cierre?'))return;
+  cierres=cierres.filter(function(c){return c.id!==id;});
+  autoSave();renderCierres();
+}
+
+function renderListaCierres(){
+  var fZ=document.getElementById('cf-zafra').value;
+  var fC=document.getElementById('cf-campo').value;
+  var cont=document.getElementById('ci-lista');
+  var filtCi=cierres.filter(function(c){
+    var ch=chById(c.chId)||{};
+    return(!fZ||ch.zafra===fZ)&&(!fC||ch.estab===fC);
+  });
+  if(!filtCi.length){cont.innerHTML='<div class="empty">Sin chacras cerradas aún.</div>';return;}
+  var totI=0,totC=0,totM=0;
+  filtCi.forEach(function(c){totI+=c.ingresoTotal;totC+=c.costoTotalFinal;totM+=c.margenTotal;});
+  var html='<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;margin-bottom:14px">'+
+    '<div class="metric"><div class="mlabel">Cerradas</div><div class="mval">'+filtCi.length+'</div></div>'+
+    '<div class="metric"><div class="mlabel">Ingreso total</div><div class="mval g">USD '+fmt(totI)+'</div></div>'+
+    '<div class="metric"><div class="mlabel">Costo total</div><div class="mval" style="color:var(--r)">USD '+fmt(totC)+'</div></div>'+
+    '<div class="metric"><div class="mlabel">Margen total</div><div class="mval" style="color:'+(totM>=0?'var(--gm)':'var(--r)')+'">'+(totM>=0?'+':'')+' USD '+fmt(totM)+'</div></div>'+
+    '</div>';
+  filtCi.forEach(function(ci){
+    var ch=chById(ci.chId)||{estab:'?',chacra:'?',cultivo:'?',zafra:'?',ha:0,variedad:''};
+    var pos=ci.margenTotal>=0;
+    var pcRows=(ci.postCosecha||[]).map(function(p){return '<tr><td style="padding:4px 8px;color:var(--ts)">'+p.concepto+'</td><td class="r b" style="padding:4px 8px">USD '+fmt(p.total)+'</td></tr>';}).join('');
+    html+='<div style="border:1px solid var(--br);border-radius:var(--rl);margin-bottom:12px;overflow:hidden">'+
+      '<div style="background:'+(pos?'var(--gd)':'var(--rd)')+';color:#fff;padding:12px 16px;display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px">'+
+        '<div>'+
+          '<div style="font-size:15px;font-weight:800">'+ch.chacra+' — '+ch.estab+'</div>'+
+          '<div style="font-size:12px;opacity:.8">'+ch.cultivo+(ch.variedad?' ('+ch.variedad+')':'')+' &middot; '+ch.zafra+(ci.fecha?' &middot; Cosecha: '+ci.fecha:'')+'</div>'+
+        '</div>'+
+        '<div style="text-align:right">'+
+          '<div style="font-size:11px;opacity:.8">MARGEN '+(pos?'POSITIVO':'NEGATIVO')+'</div>'+
+          '<div style="font-size:22px;font-weight:800">'+(pos?'+':'')+' USD '+fmt(ci.margenTotal)+'</div>'+
+          (ch.ha?'<div style="font-size:13px;opacity:.85">'+(pos?'+':'')+' USD '+fmt(ci.margenHa)+'/ha</div>':'')+
+        '</div>'+
+      '</div>'+
+      '<div style="padding:14px 16px">'+
+        '<table style="width:100%;border-collapse:collapse;font-size:13px">'+
+          '<tr><td style="padding:5px 8px;color:var(--ts)">Rendimiento</td><td class="r b" style="padding:5px 8px">'+(ci.kgHa?Math.round(ci.kgHa)+' kg/ha':'')+' '+(ci.kgTot?'· '+Math.round(ci.kgTot)+' kg':'' )+'</td></tr>'+
+          '<tr><td style="padding:5px 8px;color:var(--ts)">Precio promedio ventas</td><td class="r b" style="padding:5px 8px">USD '+fmt(ci.pVenta)+'/ton</td></tr>'+
+          '<tr style="background:var(--gbg)"><td style="padding:5px 8px;font-weight:600;color:var(--gd)">INGRESO BRUTO</td><td class="r b" style="padding:5px 8px;color:var(--gd)">USD '+fmt(ci.ingresoTotal)+'</td></tr>'+
+          '<tr><td style="padding:5px 8px;color:var(--ts)">Costos campaña</td><td class="r" style="padding:5px 8px">USD '+fmt(ci.costoTotal)+'</td></tr>'+
+          (pcRows?'<tr><td colspan="2" style="padding:3px 8px;font-size:11px;color:var(--ts);font-style:italic">Post-cosecha:</td></tr>'+pcRows:'')+ 
+          (ci.costoAlq?'<tr><td style="padding:5px 8px;color:var(--ts)">Alquiler</td><td class="r" style="padding:5px 8px">USD '+fmt(ci.costoAlq)+'</td></tr>':'')+
+          '<tr style="background:var(--rbg)"><td style="padding:5px 8px;font-weight:600;color:var(--rd)">COSTO TOTAL</td><td class="r b" style="padding:5px 8px;color:var(--rd)">USD '+fmt(ci.costoTotalFinal)+'</td></tr>'+
+          '<tr style="border-top:2px solid '+(pos?'var(--gl)':'#F09595')+'">'+
+            '<td style="padding:8px;font-weight:800;font-size:14px;color:'+(pos?'var(--gm)':'var(--r)')+'">MARGEN '+(pos?'✓':'✗')+'</td>'+
+            '<td class="r b" style="padding:8px;font-size:16px;color:'+(pos?'var(--gm)':'var(--r)')+'">'+(pos?'+':'')+' USD '+fmt(ci.margenTotal)+'</td>'+
+          '</tr>'+
+        '</table>'+
+        '<div style="margin-top:8px"><button class="btn-del" onclick="elimCierre('+ci.id+')">✕ Eliminar cierre</button></div>'+
+      '</div>'+
+    '</div>';
+  });
+  cont.innerHTML=html;
+}
+
+
+// FECHA AUTO-FORMATO ─────────────────────────────────────────────────────────
+var MESES_ABR=['ENE','FEB','MAR','ABR','MAY','JUN','JUL','AGO','SEP','OCT','NOV','DIC'];
+function fmtFecha(inp){
+  var v=inp.value.replace(/[^0-9]/g,'');  // solo números mientras escribe
+  if(v.length>=4){
+    var dia=v.substring(0,2);
+    var mes=parseInt(v.substring(2,4),10);
+    if(mes>=1&&mes<=12){
+      var anio=v.substring(4)||new Date().getFullYear().toString();
+      if(anio.length===0) anio=new Date().getFullYear().toString();
+      inp.value=(dia+MESES_ABR[mes-1]+(anio||'')).toUpperCase();
+      return;
+    }
+  }
+  inp.value=v;  // mientras sigue escribiendo, mostrar solo números
+}
+
+// FECHA PARSER GLOBAL ────────────────────────────────────────────────────────
+var MESES_ORD={'ENE':1,'FEB':2,'MAR':3,'ABR':4,'MAY':5,'JUN':6,'JUL':7,'AGO':8,'SEP':9,'OCT':10,'NOV':11,'DIC':12};
+function parseFechaGlobal(f){
+  if(!f)return 0;
+  f=String(f).toUpperCase().trim();
+  var m=f.match(/(\d{1,2})([A-Z]{3})(\d{4})/);
+  if(m)return parseInt(m[3])*10000+(MESES_ORD[m[2]]||0)*100+parseInt(m[1]);
+  return 0;
+}
+
+// NUEVA ZAFRA ─────────────────────────────────────────────────────────────────
+function nuevaZafra(){
+  var nombre = document.getElementById('nz-nombre').value.trim().toUpperCase();
+  if(!nombre){
+    alert('Ingresá un nombre para la zafra antes de continuar.');
+    return;
+  }
+  if(!confirm('Esto va a:\n\n1. Descargar el archivo TXT de la zafra ' + nombre + '\n2. Borrar todos los tratamientos, ventas y cierres\n3. Conservar las chacras configuradas\n\n¿Confirmar?')){
+    return;
+  }
+
+  // Paso 1: Descargar TXT con el nombre de la zafra
+  var data = {
+    chacras: chacras,
+    tratos: tratos,
+    ventas: ventas,
+    cierres: cierres,
+    preciosCultivo: preciosCultivo,
+    preciosChacra: preciosChacra,
+    zafra: nombre,
+    version: 5,
+    fechaArchivo: new Date().toLocaleString('es-UY')
+  };
+  var txt = JSON.stringify(data, null, 2);
+  var blob = new Blob([txt], {type: 'text/plain'});
+  var a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'ZAFRA_' + nombre.replace(/ /g,'_') + '.txt';
+  a.click();
+
+  // Paso 2: Limpiar tratamientos, ventas, cierres y precios por chacra
+  // Conservar chacras y preciosCultivo
+  setTimeout(function(){
+    tratos = [];
+    ventas = [];
+    cierres = [];
+    preciosChacra = {};
+    autoSave();
+    updFilters();
+    renderInicio();
+    document.getElementById('nz-nombre').value = '';
+    alert('✓ Zafra ' + nombre + ' archivada.\nSistema listo para la nueva zafra.\nRecordá actualizar el cultivo y zafra en cada chacra.');
+  }, 500);
+}
+
+// ALQUILER ─────────────────────────────────────────────────────────────────────
+// alqLabel movida a bloque alquiler
+
+function proporcionRenta(c){
+  // Devuelve la fracción de la renta anual que corresponde a este cultivo/zafra
+  // PRIMERA de verano → 1 (ocupa todo el año, no entra segunda)
+  // SEGUNDA de verano → 0.5 (comparte el año con invierno)
+  // Invierno         → 0.5 (comparte el año con verano)
+  // Sin época definida en verano → 0.5 (se asume que hay segunda)
+  var partes = c.zafra ? c.zafra.trim().split(' ') : [];
+  var estacion = partes[0] || '';
+  var esVerano = estacion === 'VERANO';
+  var esPrimera = c.epoca === 'PRIMERA';
+  if(esVerano && esPrimera) return 1;   // primera: renta completa
+  return 0.5;                            // invierno o segunda: mitad
+}
+
+function alqCostoEstimado(c){
+  // USD/ha y kg soja: costo fijo, se calcula siempre
+  if(!c.alqTipo||c.alqTipo===''||!c.ha) return 0;
+  if(c.alqTipo==='usd_ha') return alqCostoUSD(c,0);
+  if(c.alqTipo==='kg_soja') return alqCostoUSD(c,0);
+  // % de producción: solo se calcula si hay precio y flete cargados
+  if(c.alqTipo==='porcentaje'){
+    var pVenta=precioPromedio(c.cultivo,c.zafra)||0;
+    var pcEntry=preciosChacra[c.id]||preciosChacra[String(c.id)]||{};
+    var flete=parseFloat(pcEntry.flete)||0;
+    if(!flete&&preciosCultivo[c.cultivo])flete=parseFloat(preciosCultivo[c.cultivo].flete)||0;
+    // Sin precio o sin flete: no se puede calcular
+    if(!pVenta||!flete) return 0;
+    var neto=pVenta-flete;
+    if(neto<=0) return 0;
+    // Costo por ha de los tratamientos
+    var ts=tratos.filter(function(t){return String(t.chId)===String(c.id);});
+    var costoTotal=ts.reduce(function(s,t){return s+tratTot(t);},0);
+    var xha=c.ha?costoTotal/c.ha:0;
+    if(!xha) return 0;
+    // Equilibrio sin renta, luego ajustar por %
+    var eqBase=xha/(neto/1000);
+    var eqConRenta=eqBase/(1-c.alqVal/100);
+    // Renta en kg = eqConRenta * %renta/100
+    var kgRenta=eqConRenta*(c.alqVal/100);
+    return kgRenta*(neto/1000)*c.ha;
+  }
+  return 0;
+}
+
+function alqLabel(c){
+  if(!c.alqTipo||c.alqTipo==='') return '—';
+  var prop = proporcionRenta(c);
+  var propLabel = prop===1 ? '(renta completa)' : '(½ renta)';
+  if(c.alqTipo==='usd_ha') return (c.alqVal||0)+' USD/ha '+propLabel;
+  if(c.alqTipo==='kg_soja') return (c.alqVal||0)+' kg soja/ha/año × '+prop+' '+propLabel+' — USD '+(c.alqPrecio||0)+'/ton';
+  if(c.alqTipo==='porcentaje') return (c.alqVal||0)+'% producción';
+  return '—';
+}
+
+function alqCostoUSD(c, kgHaReal){
+  // Calcula el costo de alquiler en USD totales para esta chacra/zafra
+  if(!c.alqTipo||c.alqTipo===''||!c.ha) return 0;
+  var prop = proporcionRenta(c);  // 1 o 0.5 según época
+
+  if(c.alqTipo==='usd_ha'){
+    // USD/ha fijo × proporción × hectáreas
+    return (c.alqVal||0) * prop * c.ha;
+  }
+  if(c.alqTipo==='kg_soja'){
+    // kg/ha/año × proporción × ha × precio_acordado / 1000
+    var kgHaEsta = (c.alqVal||0) * prop;
+    var kgTotal  = kgHaEsta * c.ha;
+    return kgTotal * (c.alqPrecio||0) / 1000;
+  }
+  if(c.alqTipo==='porcentaje'){
+    // % de la producción real — no depende de proporción
+    if(!kgHaReal) return 0;
+    var kgTotalProd = kgHaReal * c.ha;
+    var kgAlquiler  = kgTotalProd * (c.alqVal||0) / 100;
+    var pVenta = precioPromedio(c.cultivo, c.zafra);
+    return kgAlquiler * pVenta / 1000;
+  }
+  return 0;
+}
+
+
+
+// INFORMES ────────────────────────────────────────────────────────────────────
+function renderInformes(){
+  var cont = document.getElementById('inf-content');
+  if(!cont) return;
+
+  // Poblar filtros
+  var infZ = document.getElementById('inf-zafra');
+  var infC = document.getElementById('inf-campo');
+  var infT = document.getElementById('inf-tipo');
+  if(infZ){var curZ=infZ.value;var zs=[];chacras.forEach(function(c){if(c.zafra&&zs.indexOf(c.zafra)<0)zs.push(c.zafra);});zs.sort();infZ.innerHTML='<option value="">Todas las zafras</option>'+zs.map(function(z){return '<option value="'+z+'"'+(z===curZ?' selected':'')+'>'+z+'</option>';}).join('');}
+  if(infC){var curC=infC.value;var cs=[];chacras.forEach(function(c){if(c.estab&&cs.indexOf(c.estab)<0)cs.push(c.estab);});cs.sort();infC.innerHTML='<option value="">Todos los campos</option>'+cs.map(function(e){return '<option value="'+e+'"'+(e===curC?' selected':'')+'>'+e+'</option>';}).join('');}
+
+  var fZ = infZ?infZ.value:'';
+  var fC = infC?infC.value:'';
+  var tipo = infT?infT.value:'chacra';
+
+  var filtCh = chacras.filter(function(c){
+    return(!fZ||c.zafra===fZ)&&(!fC||c.estab===fC);
+  });
+
+  if(!filtCh.length){cont.innerHTML='<div class="empty">Sin datos con esos filtros.</div>';return;}
+
+  var TIPOS_COLS = ['AGROQUIMICO','LABOREO','COMBUSTIBLES','FERTILIZANTES','SEMILLAS','SEGUROS AGRICOLAS','RENTA','COSTOS ESTRUCTURA','OTROS'];
+
+  function getTN(l){
+    var t=(l.tipo||'').trim();
+    if(!t||t==='INSUMO') return 'AGROQUIMICO';
+    if(t==='LABOR PROPIA'||t==='LABOR AGRICOLA PROPIA'||t==='LABOR CONTRATADA'||t==='LABOR AGRICOLA CONTRATADA') return 'LABOREO';
+    return t;
+  }
+
+  function calcChacra(c){
+    var ts=tratos.filter(function(t){return String(t.chId)===String(c.id);});
+    var porTipo={};TIPOS_COLS.forEach(function(t){porTipo[t]=0;});
+    var tot=0;
+    ts.forEach(function(t){(t.lineas||[]).forEach(function(l){var s=parseFloat(l.sub)||0;var tp=getTN(l);if(porTipo[tp]!==undefined)porTipo[tp]+=s;else porTipo['OTROS']+=s;tot+=s;});});
+    // Agregar renta calculada si la chacra tiene alquiler configurado
+    if(c.alqTipo&&c.alqTipo!==''){
+      var renta=alqCostoEstimado(c);
+      if(renta>0){
+        porTipo['RENTA']+=renta;
+        tot+=renta;
+      }
+    }
+    return {tot:tot, xha:c.ha?tot/c.ha:0, porTipo:porTipo, nTratos:ts.length};
+  }
+
+  var html = '';
+
+  // ── 1. COSTO POR CHACRA ──────────────────────────────────────────────────
+  if(tipo==='chacra'){
+    html += '<div class="card"><div class="ctitle">Costo por chacra</div>';
+    var totG=0,haG=0;
+    var rows = filtCh.map(function(c){var d=calcChacra(c);totG+=d.tot;haG+=(c.ha||0);return {c:c,d:d};});
+    var xhaG=haG?totG/haG:0;
+
+    html += '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-bottom:16px">'+
+      '<div class="metric"><div class="mlabel">Chacras</div><div class="mval">'+rows.length+'</div></div>'+
+      '<div class="metric"><div class="mlabel">Total ha</div><div class="mval">'+haG+'</div></div>'+
+      '<div class="metric"><div class="mlabel">Costo total</div><div class="mval g">USD '+fmt(totG)+'</div></div>'+
+      '<div class="metric"><div class="mlabel">USD/ha prom.</div><div class="mval g">'+fmt(xhaG)+'</div></div>'+
+    '</div>';
+
+    html += '<div class="tw"><table class="tbl"><thead><tr>'+
+      '<th>Chacra</th><th>Campo</th><th>Cultivo</th><th>Variedad</th><th>Zafra</th>'+
+      '<th class="r">Ha</th><th class="r">Tratos</th>';
+    TIPOS_COLS.forEach(function(t){html+='<th class="r" style="font-size:10px">'+t+'</th>';});
+    html += '<th class="r">TOTAL</th><th class="r">USD/ha</th></tr></thead><tbody>';
+
+    rows.sort(function(a,b){
+      if(a.c.cultivo!==b.c.cultivo)return a.c.cultivo>b.c.cultivo?1:-1;
+      return b.d.xha-a.d.xha;
+    }).forEach(function(r){
+      html += '<tr>'+
+        '<td class="b">'+r.c.chacra+'</td>'+
+        '<td class="m">'+r.c.estab+'</td>'+
+        '<td>'+r.c.cultivo+'</td>'+
+        '<td class="m">'+(r.c.variedad||'—')+'</td>'+
+        '<td><span class="badge bb2">'+r.c.zafra+'</span></td>'+
+        '<td class="r">'+(r.c.ha||'—')+'</td>'+
+        '<td class="r m">'+r.d.nTratos+'</td>';
+      TIPOS_COLS.forEach(function(t){
+        var xha=r.c.ha&&r.d.porTipo[t]?r.d.porTipo[t]/r.c.ha:0;
+        html+='<td class="r">'+(xha?fmt(xha):'—')+'</td>';
+      });
+      html += '<td class="r b" style="color:var(--gd)">USD '+fmt(r.d.tot)+'</td>'+
+        '<td class="r b" style="color:var(--gm)">'+fmt(r.d.xha)+'</td></tr>';
+    });
+    // Total
+    var totRow = '<tr style="background:var(--gd);color:#fff"><td colspan="5" class="b">TOTAL GENERAL</td>'+
+      '<td class="r b">'+haG+'</td><td></td>';
+    TIPOS_COLS.forEach(function(t){
+      var tot2=filtCh.reduce(function(s,c){return s+(calcChacra(c).porTipo[t]||0);},0);
+      var xha=haG?tot2/haG:0;
+      totRow+='<td class="r b">'+(xha?fmt(xha):'—')+'</td>';
+    });
+    totRow+='<td class="r b">USD '+fmt(totG)+'</td><td class="r b">'+fmt(xhaG)+'</td></tr>';
+    html += totRow+'</tbody></table></div></div>';
+  }
+
+  // ── 2. COSTO POR CAMPO ───────────────────────────────────────────────────
+  else if(tipo==='campo'){
+    var byCampo={};
+    filtCh.forEach(function(c){
+      if(!byCampo[c.estab])byCampo[c.estab]={estab:c.estab,chacras:[],tot:0,ha:0,porTipo:{}};
+      TIPOS_COLS.forEach(function(t){if(!byCampo[c.estab].porTipo[t])byCampo[c.estab].porTipo[t]=0;});
+      var d=calcChacra(c);
+      byCampo[c.estab].chacras.push({c:c,d:d});
+      byCampo[c.estab].tot+=d.tot;
+      byCampo[c.estab].ha+=(c.ha||0);
+      TIPOS_COLS.forEach(function(t){byCampo[c.estab].porTipo[t]+=d.porTipo[t];});
+    });
+
+    html += '<div class="card"><div class="ctitle">Costo por campo / establecimiento</div>';
+    Object.values(byCampo).sort(function(a,b){return a.estab>b.estab?1:-1;}).forEach(function(campo){
+      var xha=campo.ha?campo.tot/campo.ha:0;
+      html += '<div style="border:1px solid var(--br);border-radius:var(--rl);margin-bottom:14px;overflow:hidden">'+
+        '<div style="background:var(--gd);color:#fff;padding:10px 16px;display:flex;justify-content:space-between;align-items:center">'+
+          '<div><div style="font-size:16px;font-weight:800">'+campo.estab+'</div>'+
+          '<div style="font-size:11px;opacity:.75">'+campo.chacras.length+' chacras · '+campo.ha+' ha</div></div>'+
+          '<div style="text-align:right"><div style="font-size:18px;font-weight:800">USD '+fmt(campo.tot)+'</div>'+
+          '<div style="font-size:12px;opacity:.85">'+fmt(xha)+' USD/ha</div></div>'+
+        '</div>'+
+        '<div style="padding:12px 16px"><div class="tw"><table class="tbl"><thead><tr>'+
+          '<th>Chacra</th><th>Cultivo</th><th class="r">Ha</th>';
+      TIPOS_COLS.forEach(function(t){if(campo.porTipo[t])html+='<th class="r" style="font-size:10px">'+t+'</th>';});
+      html += '<th class="r">Total</th><th class="r">USD/ha</th></tr></thead><tbody>';
+      campo.chacras.sort(function(a,b){return b.d.xha-a.d.xha;}).forEach(function(r){
+        html += '<tr><td class="b">'+r.c.chacra+'</td><td>'+r.c.cultivo+'</td><td class="r">'+(r.c.ha||'—')+'</td>';
+        TIPOS_COLS.forEach(function(t){if(campo.porTipo[t]){var xha2=r.c.ha&&r.d.porTipo[t]?r.d.porTipo[t]/r.c.ha:0;html+='<td class="r">'+(xha2?fmt(xha2):'—')+'</td>';}});
+        html += '<td class="r b" style="color:var(--gd)">USD '+fmt(r.d.tot)+'</td><td class="r b" style="color:var(--gm)">'+fmt(r.d.xha)+'</td></tr>';
+      });
+      html += '<tr style="background:var(--gbg)"><td colspan="2" class="b" style="color:var(--gd)">TOTAL '+campo.estab+'</td><td class="r b">'+campo.ha+'</td>';
+      TIPOS_COLS.forEach(function(t){if(campo.porTipo[t]){var xha2=campo.ha?campo.porTipo[t]/campo.ha:0;html+='<td class="r b" style="color:var(--gd)">'+fmt(xha2)+'</td>';}});
+      html += '<td class="r b" style="color:var(--gd)">USD '+fmt(campo.tot)+'</td><td class="r b" style="color:var(--gd)">'+fmt(xha)+'</td></tr>';
+      html += '</tbody></table></div></div></div>';
+    });
+    html += '</div>';
+  }
+
+  // ── 3. HISTÓRICO POR CULTIVO ─────────────────────────────────────────────
+  else if(tipo==='historico'){
+    var byZafraCult={};
+    filtCh.forEach(function(c){
+      var key=c.zafra+'|'+c.cultivo;
+      if(!byZafraCult[key])byZafraCult[key]={zafra:c.zafra,cultivo:c.cultivo,chacras:[],tot:0,ha:0,porTipo:{}};
+      TIPOS_COLS.forEach(function(t){if(!byZafraCult[key].porTipo[t])byZafraCult[key].porTipo[t]=0;});
+      var d=calcChacra(c);
+      byZafraCult[key].chacras.push(c);
+      byZafraCult[key].tot+=d.tot;
+      byZafraCult[key].ha+=(c.ha||0);
+      TIPOS_COLS.forEach(function(t){byZafraCult[key].porTipo[t]+=d.porTipo[t];});
+    });
+
+    html += '<div class="card"><div class="ctitle">Histórico por cultivo y zafra</div>';
+    html += '<div class="tw"><table class="tbl"><thead><tr>'+
+      '<th>Zafra</th><th>Cultivo</th><th class="r">Chacras</th><th class="r">Ha</th>'+
+      '<th class="r">Total USD</th><th class="r">USD/ha</th>';
+    TIPOS_COLS.forEach(function(t){html+='<th class="r" style="font-size:10px">'+t+'/ha</th>';});
+    html += '</tr></thead><tbody>';
+    Object.values(byZafraCult).sort(function(a,b){
+      if(a.zafra!==b.zafra)return a.zafra>b.zafra?1:-1;
+      return a.cultivo>b.cultivo?1:-1;
+    }).forEach(function(r){
+      var xha=r.ha?r.tot/r.ha:0;
+      html += '<tr><td><span class="badge bb2">'+r.zafra+'</span></td><td class="b">'+r.cultivo+'</td>'+
+        '<td class="r">'+r.chacras.length+'</td><td class="r">'+r.ha+'</td>'+
+        '<td class="r b" style="color:var(--gd)">USD '+fmt(r.tot)+'</td>'+
+        '<td class="r b" style="color:var(--gm)">'+fmt(xha)+'</td>';
+      TIPOS_COLS.forEach(function(t){var xha2=r.ha&&r.porTipo[t]?r.porTipo[t]/r.ha:0;html+='<td class="r">'+(xha2?fmt(xha2):'—')+'</td>';});
+      html += '</tr>';
+    });
+    html += '</tbody></table></div></div>';
+  }
+
+  // ── 4. RANKING DE CHACRAS ────────────────────────────────────────────────
+  else if(tipo==='ranking'){
+    html += '<div class="card"><div class="ctitle">Ranking de chacras — menor a mayor costo USD/ha</div>';
+    var byCultRank={};
+    filtCh.forEach(function(c){
+      var cult=c.cultivo;
+      if(!byCultRank[cult])byCultRank[cult]=[];
+      var d=calcChacra(c);
+      byCultRank[cult].push({c:c,d:d});
+    });
+    Object.keys(byCultRank).sort().forEach(function(cult){
+      var rows2=byCultRank[cult].sort(function(a,b){return a.d.xha-b.d.xha;});
+      var promXha=rows2.reduce(function(s,r){return s+r.d.xha;},0)/rows2.length;
+      html += '<div style="margin-bottom:16px"><div style="font-size:14px;font-weight:800;color:var(--gm);margin-bottom:8px;padding-bottom:4px;border-bottom:2px solid var(--gl)">'+cult+' — promedio: USD '+fmt(promXha)+'/ha</div>';
+      html += '<div class="tw"><table class="tbl"><thead><tr><th>#</th><th>Chacra</th><th>Campo</th><th class="r">Ha</th><th class="r">USD/ha</th><th class="r">Total USD</th><th class="r">DIF. prom.</th></tr></thead><tbody>';
+      rows2.forEach(function(r,i){
+        var diff=r.d.xha-promXha;
+        var diffCol=diff>0?'var(--r)':'var(--gm)';
+        html += '<tr>'+
+          '<td style="color:var(--ts);font-weight:700">'+(i+1)+'</td>'+
+          '<td class="b">'+r.c.chacra+'</td>'+
+          '<td class="m">'+r.c.estab+'</td>'+
+          '<td class="r">'+(r.c.ha||'—')+'</td>'+
+          '<td class="r b" style="color:var(--gm)">'+fmt(r.d.xha)+'</td>'+
+          '<td class="r">USD '+fmt(r.d.tot)+'</td>'+
+          '<td class="r b" style="color:'+diffCol+'">'+(diff===0?'—':(diff>0?'+':'')+fmt(Math.abs(diff)))+'</td>'+
+        '</tr>';
+      });
+      html += '</tbody></table></div></div>';
+    });
+    html += '</div>';
+  }
+
+  // ── 5. RESUMEN DE CIERRES ────────────────────────────────────────────────
+  else if(tipo==='cierre'){
+    var filtCi=cierres.filter(function(ci){
+      var ch=chacras.find(function(c){return String(c.id)===String(ci.chId);});
+      return ch&&(!fZ||ch.zafra===fZ)&&(!fC||ch.estab===fC);
+    });
+    html += '<div class="card"><div class="ctitle">Resumen de cierres de campaña</div>';
+    if(!filtCi.length){html+='<div class="empty">Sin cierres registrados.</div></div>';cont.innerHTML=html;return;}
+
+    var totI=0,totC=0,totM=0,totHa=0;
+    filtCi.forEach(function(ci){totI+=ci.ingresoTotal;totC+=ci.costoTotalFinal;totM+=ci.margenTotal;var ch=chacras.find(function(c){return String(c.id)===String(ci.chId);});if(ch)totHa+=(ch.ha||0);});
+
+    html += '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-bottom:16px">'+
+      '<div class="metric"><div class="mlabel">Chacras cerradas</div><div class="mval">'+filtCi.length+'</div></div>'+
+      '<div class="metric"><div class="mlabel">Ingreso total</div><div class="mval g">USD '+fmt(totI)+'</div></div>'+
+      '<div class="metric"><div class="mlabel">Costo total</div><div class="mval" style="color:var(--r)">USD '+fmt(totC)+'</div></div>'+
+      '<div class="metric"><div class="mlabel">Margen total</div><div class="mval" style="color:'+(totM>=0?'var(--gm)':'var(--r)')+'">'+(totM>=0?'+':'')+' USD '+fmt(totM)+'</div></div>'+
+    '</div>';
+
+    html += '<div class="tw"><table class="tbl"><thead><tr>'+
+      '<th>Chacra</th><th>Campo</th><th>Cultivo</th><th>Zafra</th>'+
+      '<th class="r">Ha</th><th class="r">Rend. kg/ha</th>'+
+      '<th class="r">Precio USD/t</th><th class="r">Ingreso USD</th>'+
+      '<th class="r">Costo USD</th><th class="r">MARGEN</th><th class="r">USD/ha</th>'+
+      '</tr></thead><tbody>';
+    filtCi.forEach(function(ci){
+      var ch=chacras.find(function(c){return String(c.id)===String(ci.chId);})||{chacra:'?',estab:'?',cultivo:'?',zafra:'?',ha:0};
+      var pos=ci.margenTotal>=0;
+      html += '<tr>'+
+        '<td class="b">'+ch.chacra+'</td><td class="m">'+ch.estab+'</td>'+
+        '<td>'+ch.cultivo+'</td><td><span class="badge bb2">'+ch.zafra+'</span></td>'+
+        '<td class="r">'+(ch.ha||'—')+'</td>'+
+        '<td class="r">'+(ci.kgHa?Math.round(ci.kgHa)+' kg':'—')+'</td>'+
+        '<td class="r">'+(ci.pVenta?'USD '+fmt(ci.pVenta):'—')+'</td>'+
+        '<td class="r b" style="color:var(--gd)">USD '+fmt(ci.ingresoTotal)+'</td>'+
+        '<td class="r" style="color:var(--r)">USD '+fmt(ci.costoTotalFinal)+'</td>'+
+        '<td class="r b" style="color:'+(pos?'var(--gm)':'var(--r)')+'">'+(pos?'+':'')+' USD '+fmt(ci.margenTotal)+'</td>'+
+        '<td class="r b" style="color:'+(pos?'var(--gm)':'var(--r)')+'">'+(pos?'+':'')+fmt(ci.margenHa)+'</td>'+
+      '</tr>';
+    });
+    html += '<tr style="background:var(--gd);color:#fff"><td colspan="7" class="b">TOTAL</td>'+
+      '<td class="r b">USD '+fmt(totI)+'</td>'+
+      '<td class="r b">USD '+fmt(totC)+'</td>'+
+      '<td class="r b">'+(totM>=0?'+':'')+' USD '+fmt(totM)+'</td>'+
+      '<td class="r b">'+(totHa?(totM>=0?'+':'')+fmt(totM/totHa)+'/ha':'—')+'</td></tr>';
+    html += '</tbody></table></div></div>';
+  }
+
+  // ── 6. ANÁLISIS DE EQUILIBRIO ────────────────────────────────────────────
+  else if(tipo==='equilibrio'){
+    html += '<div class="card"><div class="ctitle">Análisis de equilibrio — chacras sin cerrar</div>';
+    var chIdsCerradas=cierres.map(function(c){return String(c.chId);});
+    var chAbiertas=filtCh.filter(function(c){return chIdsCerradas.indexOf(String(c.id))<0;});
+    if(!chAbiertas.length){html+='<div class="empty">Todas las chacras están cerradas o sin datos.</div></div>';cont.innerHTML=html;return;}
+
+    html += '<div class="tw"><table class="tbl"><thead><tr>'+
+      '<th>Chacra</th><th>Campo</th><th>Cultivo</th><th>Zafra</th>'+
+      '<th class="r">Ha</th><th class="r">Costo acum.</th><th class="r">USD/ha acum.</th>'+
+      '<th class="r">Precio ventas</th><th class="r">Flete</th>'+
+      '<th class="r">Precio neto</th><th class="r">EQUILIBRIO kg/ha</th>'+
+      '</tr></thead><tbody>';
+
+    chAbiertas.sort(function(a,b){
+      if(a.cultivo!==b.cultivo)return a.cultivo>b.cultivo?1:-1;
+      return a.estab>b.estab?1:-1;
+    }).forEach(function(c){
+      var d=calcChacra(c);
+      var pVenta=precioPromedio(c.cultivo,c.zafra)||0;
+      var pcEntry=preciosChacra[c.id]||preciosChacra[String(c.id)]||{};
+      var flete=parseFloat(pcEntry.flete)||0;
+      if(!flete&&preciosCultivo[c.cultivo])flete=parseFloat(preciosCultivo[c.cultivo].flete)||0;
+      var neto=pVenta-flete;
+      var eq=(neto>0&&d.xha>0)?Math.round(d.xha/(neto/1000)):null;
+      var eqColor=eq&&eq<2000?'var(--gm)':eq&&eq<3000?'var(--ad)':'var(--r)';
+      html += '<tr>'+
+        '<td class="b">'+c.chacra+'</td><td class="m">'+c.estab+'</td>'+
+        '<td>'+c.cultivo+'</td><td><span class="badge bb2">'+c.zafra+'</span></td>'+
+        '<td class="r">'+(c.ha||'—')+'</td>'+
+        '<td class="r">USD '+fmt(d.tot)+'</td>'+
+        '<td class="r b" style="color:var(--r)">'+fmt(d.xha)+'</td>'+
+        '<td class="r">'+(pVenta?'USD '+fmt(pVenta)+'/t':'—')+'</td>'+
+        '<td class="r">'+(flete?fmt(flete):'—')+'</td>'+
+        '<td class="r">'+(neto?'USD '+fmt(neto)+'/t':'—')+'</td>'+
+        '<td class="r b" style="color:'+(eq?eqColor:'var(--ts)')+';font-size:14px;font-weight:800">'+(eq?eq+' kg/ha':'Sin precio')+'</td>'+
+      '</tr>';
+    });
+    html += '</tbody></table></div></div>';
+  }
+
+  cont.innerHTML = html;
+}
+
+// CLASIFICAR ─────────────────────────────────────────────────────────────────
+var clasifChanges = {};  // {prod: newTipo}
+var clasifSubChanges = {};  // {prod: newSubtipo}
+
+function migrarTiposViejos(){
+  // Mapeo automático de tipos viejos a nuevos
+  var MAP = {
+    'INSUMO': 'AGROQUIMICO',
+    'LABOR PROPIA': 'LABOREO',
+    'LABOR CONTRATADA': 'LABOREO',
+    'LABOR AGRICOLA PROPIA': 'LABOREO',
+    'LABOR AGRICOLA CONTRATADA': 'LABOREO'
+  };
+  var SUBMAP = {
+    'LABOR PROPIA': 'PROPIA',
+    'LABOR CONTRATADA': 'CONTRATADA',
+    'LABOR AGRICOLA PROPIA': 'PROPIA',
+    'LABOR AGRICOLA CONTRATADA': 'CONTRATADA'
+  };
+  var count = 0;
+  tratos.forEach(function(t){
+    (t.lineas||[]).forEach(function(l){
+      var tipo = (l.tipo||'').trim().toUpperCase();
+      if(MAP[tipo]){
+        if(SUBMAP[tipo]) l.subtipo = SUBMAP[tipo];
+        l.tipo = MAP[tipo];
+        count++;
+      }
+      // Si tipo está vacío, poner AGROQUIMICO por defecto
+      if(!l.tipo||l.tipo===''){
+        l.tipo = 'AGROQUIMICO';
+        count++;
+      }
+    });
+  });
+  autoSave();
+  renderClasificar();
+  var msg=document.getElementById('clasif-msg');
+  if(msg){
+    msg.className='alert aok';
+    msg.textContent='✓ '+count+' líneas migradas. Ahora podés reclasificar cada producto correctamente.';
+    setTimeout(function(){msg.className='';msg.textContent='';},5000);
+  }
+}
+
+function renderClasificar(){
+  var TIPOS = ['AGROQUIMICO','LABOREO','COMBUSTIBLES','FERTILIZANTES','SEMILLAS','SEGUROS AGRICOLAS','RENTA','COSTOS ESTRUCTURA','OTROS'];
+
+  // Recolectar todos los productos únicos con su tipo actual
+  var prods = {};
+  tratos.forEach(function(t){
+    (t.lineas||[]).forEach(function(l){
+      if(!l.prod||!l.prod.trim()) return;
+      var p = l.prod.toUpperCase().trim();
+      var tipoL = l.tipo||'AGROQUIMICO';
+      var mapV = {'INSUMO':'AGROQUIMICO','LABOR PROPIA':'LABOR AGRICOLA PROPIA','LABOR CONTRATADA':'LABOR AGRICOLA CONTRATADA'};
+      tipoL = mapV[tipoL] || tipoL;
+      var subtipoL = l.subtipo||'';
+      if(!prods[p]) prods[p] = {prod:p, tipo:tipoL, subtipo:subtipoL, count:0, tratos:[]};
+      prods[p].count++;
+      if(prods[p].tratos.indexOf(t.id)<0) prods[p].tratos.push(t.id);
+    });
+  });
+
+  var lista = Object.values(prods).sort(function(a,b){return a.prod>b.prod?1:-1;});
+  var tabla = document.getElementById('clasif-tabla');
+
+  if(!lista.length){
+    tabla.innerHTML='<div class="empty">Sin productos cargados aún.</div>';
+    return;
+  }
+
+  var tbl = document.createElement('table');
+  tbl.className = 'tbl';
+  var hdr = document.createElement('thead');
+  hdr.innerHTML = '<tr>'+
+    '<th style="width:32%">Producto / Concepto</th>'+
+    '<th style="width:8%" class="r">Usos</th>'+
+    '<th style="width:8%" class="r">Tratos</th>'+
+    '<th style="width:25%">Tipo de gasto</th>'+
+    '<th style="width:20%">Subtipo</th>'+
+    '<th style="width:5%"></th>'+
+    '</tr>';
+  tbl.appendChild(hdr);
+
+  var tb = document.createElement('tbody');
+  lista.forEach(function(p){
+    var tr = document.createElement('tr');
+    tr.id = 'clasif-row-'+p.prod.replace(/[^A-Z0-9]/g,'_');
+
+    // Tipo actual (puede haber sido cambiado en clasifChanges)
+    var tipoRaw = clasifChanges[p.prod] || p.tipo;
+    // Mapear tipos viejos a nuevos
+    var mapViejos = {'INSUMO':'AGROQUIMICO','LABOR PROPIA':'LABOR AGRICOLA PROPIA','LABOR CONTRATADA':'LABOR AGRICOLA CONTRATADA'};
+    var tipoActual = mapViejos[tipoRaw] || tipoRaw;
+
+    var tdProd = document.createElement('td');
+    tdProd.innerHTML = '<strong>'+p.prod+'</strong>'+(p.subtipo?' <span class="m" style="font-size:10px">('+p.subtipo+')</span>':'');
+    tr.appendChild(tdProd);
+
+    var tdCount = document.createElement('td');
+    tdCount.className = 'r m';
+    tdCount.textContent = p.count;
+    tr.appendChild(tdCount);
+
+    var tdTrats = document.createElement('td');
+    tdTrats.className = 'r m';
+    tdTrats.textContent = p.tratos.length;
+    tr.appendChild(tdTrats);
+
+    var tdTipo = document.createElement('td');
+    var sel = document.createElement('select');
+    sel.style.cssText = 'width:100%;padding:5px 8px;border:1px solid var(--brm);border-radius:6px;font-size:12px;font-family:inherit';
+    TIPOS.forEach(function(t){
+      var opt = document.createElement('option');
+      opt.value = t;
+      opt.textContent = t;
+      if(t === tipoActual) opt.selected = true;
+      sel.appendChild(opt);
+    });
+    tdTipo.appendChild(sel);
+    tr.appendChild(tdTipo);
+
+    // Subtipo
+    var SUBTIPOS_MAP_C = {
+      'AGROQUIMICO': ['HERBICIDA','FUNGICIDA','INSECTICIDA','BIOESTIMULANTE','FERTILIZANTE LIQUIDO','OTRO'],
+      'LABOREO': ['PROPIA','CONTRATADA']
+    };
+    var subtipoActual = clasifSubChanges[p.prod] || p.subtipo || '';
+    var tdSub = document.createElement('td');
+    var selSub = document.createElement('select');
+    selSub.style.cssText = 'width:100%;padding:5px 8px;border:1px solid var(--brm);border-radius:6px;font-size:12px;font-family:inherit';
+
+    function poblarSubClasif(tipo, valActual){
+      selSub.innerHTML = '';
+      var opts = SUBTIPOS_MAP_C[tipo] || [];
+      if(!opts.length){ selSub.style.display='none'; return; }
+      selSub.style.display = 'block';
+      var oEmpty = document.createElement('option');
+      oEmpty.value=''; oEmpty.textContent='— elegir —';
+      selSub.appendChild(oEmpty);
+      opts.forEach(function(s){
+        var o=document.createElement('option');
+        o.value=s; o.textContent=s;
+        if(s===valActual) o.selected=true;
+        selSub.appendChild(o);
+      });
+    }
+    poblarSubClasif(tipoActual, subtipoActual);
+
+    sel.addEventListener('change', function(){
+      clasifChanges[p.prod] = this.value;
+      poblarSubClasif(this.value, '');
+      tr.style.background = 'var(--gbg)';
+    });
+    selSub.addEventListener('change', function(){
+      clasifSubChanges[p.prod] = this.value;
+      tr.style.background = 'var(--gbg)';
+    });
+    tdSub.appendChild(selSub);
+    tr.appendChild(tdSub);
+
+    var tdBtn = document.createElement('td');
+    var btn = document.createElement('button');
+    btn.className = 'btn btn-s btn-sm';
+    btn.textContent = '✓';
+    btn.title = 'Aplicar solo a este producto';
+    btn.addEventListener('click', function(){
+      var nuevoTipo = sel.value;
+      var nuevoSub = selSub.value;
+      aplicarClasifProducto(p.prod, nuevoTipo, nuevoSub);
+      tr.style.background = '';
+      delete clasifChanges[p.prod];
+      delete clasifSubChanges[p.prod];
+    });
+    tdBtn.appendChild(btn);
+    tr.appendChild(tdBtn);
+
+    tb.appendChild(tr);
+  });
+
+  tbl.appendChild(tb);
+  tabla.innerHTML = '';
+  tabla.appendChild(tbl);
+}
+
+function aplicarClasifProducto(prod, nuevoTipo, nuevoSub){
+  var count = 0;
+  tratos.forEach(function(t){
+    (t.lineas||[]).forEach(function(l){
+      if(l.prod&&l.prod.toUpperCase().trim()===prod){
+        l.tipo = nuevoTipo;
+        // Solo actualizar subtipo si se eligió uno explícitamente (no vacío)
+        if(nuevoSub&&nuevoSub!=='') l.subtipo = nuevoSub;
+        count++;
+      }
+    });
+  });
+  autoSave();
+  var msg = document.getElementById('clasif-msg');
+  if(msg){
+    msg.className='alert aok';
+    msg.textContent='✓ '+prod+': tipo actualizado a '+nuevoTipo+' en '+count+' líneas.';
+    setTimeout(function(){msg.className='';msg.textContent='';},3000);
+  }
+}
+
+function aplicarTodosClasif(){
+  if(!Object.keys(clasifChanges).length){
+    var msg=document.getElementById('clasif-msg');
+    if(msg){msg.className='alert ainf';msg.textContent='Sin cambios pendientes.';setTimeout(function(){msg.className='';msg.textContent='';},2000);}
+    return;
+  }
+  var total = 0;
+  var allProds = new Set(Object.keys(clasifChanges).concat(Object.keys(clasifSubChanges)));
+  allProds.forEach(function(prod){
+    var nuevoTipo = clasifChanges[prod];
+    var nuevoSub = clasifSubChanges[prod];
+    tratos.forEach(function(t){
+      (t.lineas||[]).forEach(function(l){
+        if(l.prod&&l.prod.toUpperCase().trim()===prod){
+          if(nuevoTipo) l.tipo = nuevoTipo;
+          if(nuevoSub&&nuevoSub!=='') l.subtipo = nuevoSub;
+          total++;
+        }
+      });
+    });
+  });
+  autoSave();
+  clasifChanges = {};
+  clasifSubChanges = {};
+  renderClasificar();
+  var msg=document.getElementById('clasif-msg');
+  if(msg){
+    msg.className='alert aok';
+    msg.textContent='✓ '+total+' líneas actualizadas y guardadas.';
+    setTimeout(function(){msg.className='';msg.textContent='';},4000);
+  }
+}
+
+// VENTAS ──────────────────────────────────────────────────────────────────────
+function guardarVenta(){
+  var fecha  = document.getElementById('v-fecha').value;
+  var grano  = (document.getElementById('v-grano').value||'').toUpperCase().trim();
+  var precio = parseFloat(document.getElementById('v-precio').value)||0;
+  var tons   = parseFloat(document.getElementById('v-tons').value)||0;
+  var cliente= document.getElementById('v-cliente').value.trim();
+  var zEst   = document.getElementById('v-zafra-est').value;
+  var zAnio  = document.getElementById('v-zafra-anio').value;
+  var obs    = document.getElementById('v-obs').value.trim();
+  var zafra  = zEst+' '+zAnio;
+  var msg    = document.getElementById('v-msg');
+
+  if(!grano){
+    if(msg){msg.className='alert aerr';msg.textContent='Ingresá el grano.';setTimeout(function(){msg.className='';msg.textContent='';},3000);}
+    return;
+  }
+  if(!precio){
+    if(msg){msg.className='alert aerr';msg.textContent='Ingresá el precio USD/ton.';setTimeout(function(){msg.className='';msg.textContent='';},3000);}
+    return;
+  }
+
+  var venta = {
+    id: Date.now(),
+    fecha: fecha,
+    grano: grano,
+    precio: precio,
+    tons: tons,
+    cliente: cliente,
+    zafra: zafra,
+    obs: obs
+  };
+  ventas.push(venta);
+  autoSave();
+  limpV();
+  renderVentas();
+
+  // Actualizar datalist de clientes
+  var dl = document.getElementById('v-cliente-dl');
+  if(dl&&cliente&&!Array.from(dl.options).find(function(o){return o.value===cliente;})){
+    var opt=document.createElement('option');opt.value=cliente;dl.appendChild(opt);
+  }
+
+  setTimeout(function(){
+    var msgEl=document.getElementById('v-msg');
+    if(msgEl){
+      msgEl.className='alert aok';
+      msgEl.textContent='✓ Venta registrada — '+grano+' a USD '+fmt(precio)+'/ton'+(tons?' ('+fmt(tons)+' ton)':'');
+      setTimeout(function(){msgEl.className='';msgEl.textContent='';},4000);
+    }
+  },50);
+}
+
+function limpV(){
+  ['v-fecha','v-grano','v-precio','v-tons','v-cliente','v-obs'].forEach(function(id){
+    var el=document.getElementById(id);
+    if(el)el.value='';
+  });
+}
+
+function elimVenta(id){
+  if(!confirm('¿Eliminar esta venta?'))return;
+  ventas=ventas.filter(function(v){return v.id!==id;});
+  autoSave();
+  renderVentas();
+}
+
+function renderVentas(){
+  // Poblar filtros
+  var vfG=document.getElementById('vf-grano');
+  var vfZ=document.getElementById('vf-zafra');
+  if(vfG){var cg=vfG.value;var gs=[];ventas.forEach(function(v){if(v.grano&&gs.indexOf(v.grano)<0)gs.push(v.grano);});gs.sort();vfG.innerHTML='<option value="">Todos los granos</option>'+gs.map(function(g){return '<option value="'+g+'"'+(g===cg?' selected':'')+'>'+g+'</option>';}).join('');}
+  if(vfZ){var cz=vfZ.value;var zs=[];ventas.forEach(function(v){if(v.zafra&&zs.indexOf(v.zafra)<0)zs.push(v.zafra);});zs.sort();vfZ.innerHTML='<option value="">Todas las zafras</option>'+zs.map(function(z){return '<option value="'+z+'"'+(z===cz?' selected':'')+'>'+z+'</option>';}).join('');}
+
+  var fG=vfG?vfG.value:'';
+  var fZ=vfZ?vfZ.value:'';
+
+  var filtV=ventas.filter(function(v){return(!fG||v.grano===fG)&&(!fZ||v.zafra===fZ);});
+
+  // Resumen por grano
+  var byGrano={};
+  filtV.forEach(function(v){
+    if(!byGrano[v.grano])byGrano[v.grano]={grano:v.grano,ventas:[],totTons:0,sumPxT:0};
+    byGrano[v.grano].ventas.push(v);
+    byGrano[v.grano].totTons+=v.tons||0;
+    byGrano[v.grano].sumPxT+=(v.precio*(v.tons||1));
+  });
+
+  var resHtml='';
+  Object.values(byGrano).sort(function(a,b){return a.grano>b.grano?1:-1;}).forEach(function(g){
+    var prom=g.totTons?g.sumPxT/g.totTons:g.sumPxT/g.ventas.length;
+    resHtml+='<div class="metric" style="display:inline-block;margin:4px 8px 4px 0">'+
+      '<div class="mlabel">'+g.grano+' — precio prom.</div>'+
+      '<div class="mval g">USD '+fmt(prom)+'/ton</div>'+
+      '<div style="font-size:11px;color:var(--ts)">'+g.ventas.length+' venta'+(g.ventas.length>1?'s':'')+(g.totTons?' · '+fmt(g.totTons)+' ton':'')+' </div>'+
+    '</div>';
+  });
+  var resDiv=document.getElementById('v-resumen');
+  if(resDiv){
+    resDiv.innerHTML=resHtml?'<div class="card" style="margin-bottom:12px"><div class="ctitle">Precio promedio por grano</div>'+resHtml+'</div>':'';
+  }
+
+  // Historial
+  var hist=document.getElementById('v-historial');
+  if(!hist)return;
+  if(!filtV.length){hist.innerHTML='<div class="empty">Sin ventas registradas.</div>';return;}
+
+  var tbl='<table class="tbl"><thead><tr>'+
+    '<th>Fecha</th><th>Grano</th><th>Zafra</th><th>Cliente</th>'+
+    '<th class="r">Precio USD/ton</th><th class="r">Toneladas</th><th class="r">Total USD</th>'+
+    '<th>Obs.</th><th></th></tr></thead><tbody>';
+
+  filtV.sort(function(a,b){return (a.fecha||'')<(b.fecha||'')?1:-1;}).forEach(function(v){
+    tbl+='<tr>'+
+      '<td class="m">'+(v.fecha||'—')+'</td>'+
+      '<td class="b">'+v.grano+'</td>'+
+      '<td><span class="badge bb2">'+v.zafra+'</span></td>'+
+      '<td class="m">'+(v.cliente||'—')+'</td>'+
+      '<td class="r b" style="color:var(--gm)">USD '+fmt(v.precio)+'</td>'+
+      '<td class="r">'+(v.tons?fmt(v.tons)+' t':'—')+'</td>'+
+      '<td class="r">'+(v.tons?'USD '+fmt(v.precio*v.tons):'—')+'</td>'+
+      '<td class="m" style="font-size:11px">'+(v.obs||'')+'</td>'+
+      '<td><button class="btn btn-s btn-sm" onclick="elimVenta('+v.id+')">✕</button></td>'+
+    '</tr>';
+  });
+  tbl+='</tbody></table>';
+  hist.innerHTML=tbl;
+}
+
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAgzKvfHanb9tldra2ueC78_DDtL8r1WTg",
+  authDomain: "costos-agro.firebaseapp.com",
+  projectId: "costos-agro",
+  storageBucket: "costos-agro.firebasestorage.app",
+  messagingSenderId: "370779341706",
+  appId: "1:370779341706:web:5639368706ada87467fe73"
+};
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+const DOC_ID = 'fabricio'; // ID único del usuario
+
+// ── FIREBASE SYNC ─────────────────────────────────────────────────────────────
+var _syncTimer = null;
+var _lastSaved = null;
+
+function autoSave(){
+  // Guardar en localStorage como respaldo inmediato
+  try{
+    localStorage.setItem('agro_ch_v4', JSON.stringify(chacras));
+    localStorage.setItem('agro_ot_v4', JSON.stringify(tratos));
+    localStorage.setItem('agro_vt_v4', JSON.stringify(ventas));
+    localStorage.setItem('agro_ci_v4', JSON.stringify(cierres));
+    localStorage.setItem('agro_pc_v4', JSON.stringify(preciosCultivo));
+    localStorage.setItem('agro_pch_v4', JSON.stringify(preciosChacra));
+  }catch(e){}
+  
+  // Sincronizar con Firebase con debounce de 2 segundos
+  clearTimeout(_syncTimer);
+  _syncTimer = setTimeout(syncToFirebase, 2000);
+}
+
+function syncToFirebase(){
+  var ind = document.getElementById('autosave-ind');
+  if(ind) ind.textContent = 'Guardando en la nube...';
+  
+  db.collection('usuarios').doc(DOC_ID).set({
+    chacras: JSON.stringify(chacras),
+    tratos: JSON.stringify(tratos),
+    ventas: JSON.stringify(ventas),
+    cierres: JSON.stringify(cierres),
+    preciosCultivo: JSON.stringify(preciosCultivo),
+    preciosChacra: JSON.stringify(preciosChacra),
+    updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+  }).then(function(){
+    _lastSaved = new Date();
+    var ind = document.getElementById('autosave-ind');
+    if(ind) ind.textContent = 'Guardado en la nube ✓ — ' + chacras.length + ' chacras, ' + tratos.length + ' tratamientos.';
+  }).catch(function(err){
+    console.error('Error guardando:', err);
+    var ind = document.getElementById('autosave-ind');
+    if(ind) ind.textContent = 'Error al guardar en la nube — datos guardados localmente.';
+  });
+}
+
+function loadFromFirebase(callback){
+  var ind = document.getElementById('autosave-ind');
+  if(ind) ind.textContent = 'Cargando datos...';
+  
+  db.collection('usuarios').doc(DOC_ID).get().then(function(doc){
+    if(doc.exists){
+      var data = doc.data();
+      try{
+        if(data.chacras) chacras = JSON.parse(data.chacras)||[];
+        if(data.tratos) tratos = JSON.parse(data.tratos)||[];
+        if(data.ventas) ventas = JSON.parse(data.ventas)||[];
+        if(data.cierres) cierres = JSON.parse(data.cierres)||[];
+        if(data.preciosCultivo) preciosCultivo = JSON.parse(data.preciosCultivo)||{};
+        if(data.preciosChacra) preciosChacra = JSON.parse(data.preciosChacra)||{};
+        
+        // Limpiar haL incorrectos
+        tratos.forEach(function(t){
+          (t.lineas||[]).forEach(function(l){
+            var haLnum = parseFloat(l.haL);
+            if(haLnum && haLnum > 500) l.haL = '';
+          });
+        });
+        
+        if(ind) ind.textContent = 'Datos cargados ✓ — ' + chacras.length + ' chacras, ' + tratos.length + ' tratamientos.';
+      }catch(e){
+        if(ind) ind.textContent = 'Error al cargar datos.';
+      }
+    } else {
+      // No hay datos en Firebase -- cargar del localStorage si hay
+      cargarDeLocalStorage();
+      if(ind) ind.textContent = 'Sin datos en la nube. ' + (chacras.length ? 'Datos locales cargados.' : 'Sistema listo.');
+    }
+    if(callback) callback();
+  }).catch(function(err){
+    console.error('Error cargando:', err);
+    cargarDeLocalStorage();
+    if(ind) ind.textContent = 'Sin conexión — usando datos locales.';
+    if(callback) callback();
+  });
+}
+
+function cargarDeLocalStorage(){
+  try{
+    var ch = localStorage.getItem('agro_ch_v4');
+    var tr = localStorage.getItem('agro_ot_v4');
+    var vt = localStorage.getItem('agro_vt_v4');
+    var ci = localStorage.getItem('agro_ci_v4');
+    var pc = localStorage.getItem('agro_pc_v4');
+    var pch= localStorage.getItem('agro_pch_v4');
+    if(ch) chacras = JSON.parse(ch)||[];
+    if(tr) tratos = JSON.parse(tr)||[];
+    if(vt) ventas = JSON.parse(vt)||[];
+    if(ci) cierres = JSON.parse(ci)||[];
+    if(pc) preciosCultivo = JSON.parse(pc)||{};
+    if(pch) preciosChacra = JSON.parse(pch)||{};
+  }catch(e){}
+}
+
+// INIT
+(function(){
+  // Cargar desde Firebase, luego inicializar la UI
+  loadFromFirebase(function(){
+    updFilters();
+    renderMaestro();
+    renderInicio();
+    renderSiembra();
+    renderVentas();
+  });
+})();
+</script>
+</body>
+</html>
