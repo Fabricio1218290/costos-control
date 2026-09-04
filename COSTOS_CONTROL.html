@@ -3612,7 +3612,7 @@ function aplicarClasifProducto(prod, nuevoTipo, nuevoSub){
 }
 
 function aplicarTodosClasif(){
-  if(!Object.keys(clasifChanges).length){
+  if(!Object.keys(clasifChanges).length && !Object.keys(clasifSubChanges).length){
     var msg=document.getElementById('clasif-msg');
     if(msg){msg.className='alert ainf';msg.textContent='Sin cambios pendientes.';setTimeout(function(){msg.className='';msg.textContent='';},2000);}
     return;
