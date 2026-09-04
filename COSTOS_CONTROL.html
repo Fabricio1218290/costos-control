@@ -3598,7 +3598,11 @@ function aplicarClasifProducto(prod, nuevoTipo, nuevoSub){
       }
     });
   });
-  autoSave();
+  clearTimeout(_syncTimer);
+  syncToFirebase();
+  try{
+    localStorage.setItem('agro_ot_v4', JSON.stringify(tratos));
+  }catch(e){}
   var msg = document.getElementById('clasif-msg');
   if(msg){
     msg.className='alert aok';
@@ -3628,7 +3632,11 @@ function aplicarTodosClasif(){
       });
     });
   });
-  autoSave();
+  clearTimeout(_syncTimer);
+  syncToFirebase();
+  try{
+    localStorage.setItem('agro_ot_v4', JSON.stringify(tratos));
+  }catch(e){}
   clasifChanges = {};
   clasifSubChanges = {};
   renderClasificar();
