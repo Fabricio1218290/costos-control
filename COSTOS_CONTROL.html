@@ -432,6 +432,7 @@ datalist option {
       <option value="ranking">🏆 Ranking de chacras</option>
       <option value="cierre">💰 Resumen de cierres</option>
       <option value="equilibrio">⚖ Análisis de equilibrio</option>
+      <option value="personalizado">🔧 Informe personalizado</option>
     </select>
     <button class="btn btn-p no-print" onclick="window.print()">🖨 Imprimir / PDF</button>
   </div>
@@ -3616,7 +3617,154 @@ function renderInformes(){
     html += '</tbody></table></div></div>';
   }
 
+  // ── 7. INFORME PERSONALIZADO ─────────────────────────────────────────────
+  else if(tipo==='personalizado'){
+    var ipCultivos = uniq(filtCh, 'cultivo');
+    var ipChacras = filtCh.slice().sort(function(a,b){return (a.chacra||'')>(b.chacra||'')?1:-1;});
+    var ipChIdSet = {}; filtCh.forEach(function(c){ipChIdSet[String(c.id)]=1;});
+    var ipProdSet = {};
+    tratos.forEach(function(t){
+      if(!ipChIdSet[String(t.chId)]) return;
+      (t.lineas||[]).forEach(function(l){ if(l.prod) ipProdSet[l.prod]=1; });
+    });
+    var ipProds = Object.keys(ipProdSet).sort();
+
+    html += '<div class="card no-print">';
+    html += '<div class="ctitle">🔧 Informe personalizado</div>';
+    html += '<div class="csub">Elegí cualquier combinación de filtros y cómo agrupar el resultado. La Zafra y el Campo de arriba también aplican acá.</div>';
+    html += '<div class="g4" style="margin-bottom:10px">';
+    html += '<div class="field"><label>Chacra</label><select onchange="ipSetFiltro(\'chacra\',this.value)"><option value="">Todas</option>'+
+      ipChacras.map(function(c){return '<option value="'+String(c.id)+'"'+(String(c.id)===IP_STATE.chacra?' selected':'')+'>'+c.chacra+'</option>';}).join('')+'</select></div>';
+    html += '<div class="field"><label>Cultivo</label><select onchange="ipSetFiltro(\'cultivo\',this.value)"><option value="">Todos</option>'+
+      ipCultivos.map(function(cv){return '<option value="'+cv+'"'+(cv===IP_STATE.cultivo?' selected':'')+'>'+cv+'</option>';}).join('')+'</select></div>';
+    html += '<div class="field"><label>Época</label><select onchange="ipSetFiltro(\'epoca\',this.value)">'+
+      ['','PRIMERA','SEGUNDA'].map(function(ev){return '<option value="'+ev+'"'+(ev===IP_STATE.epoca?' selected':'')+'>'+(ev||'Todas')+'</option>';}).join('')+'</select></div>';
+    html += '<div class="field"><label>Categoría de costo</label><select onchange="ipSetFiltro(\'catTipo\',this.value)"><option value="">Todas</option>'+
+      ['AGROQUIMICO','LABOREO','COMBUSTIBLES','FERTILIZANTES','SEMILLAS','SEGUROS AGRICOLAS','RENTA','COSTOS ESTRUCTURA','OTROS'].map(function(tv){return '<option value="'+tv+'"'+(tv===IP_STATE.catTipo?' selected':'')+'>'+tv+'</option>';}).join('')+'</select></div>';
+    html += '</div>';
+    html += '<div class="g3">';
+    html += '<div class="field"><label>Producto (opcional)</label><input list="ip-prod-dl" value="'+(IP_STATE.prod||'').replace(/"/g,'&quot;')+'" onchange="ipSetFiltro(\'prod\',this.value)" placeholder="Ej: Glifosato"><datalist id="ip-prod-dl">'+ipProds.map(function(p){return '<option value="'+p+'">';}).join('')+'</datalist></div>';
+    html += '<div class="field"><label>Agrupar por</label><select onchange="ipSetFiltro(\'agrupar\',this.value)">'+
+      [['producto','Producto'],['categoria','Categoría de costo'],['cultivo','Cultivo'],['chacra','Chacra'],['campo','Campo'],['zafra','Zafra'],['epoca','Época'],['ninguno','Sin agrupar (total general)']]
+        .map(function(o){return '<option value="'+o[0]+'"'+(o[0]===IP_STATE.agrupar?' selected':'')+'>'+o[1]+'</option>';}).join('')+'</select></div>';
+    html += '<div class="field" style="display:flex;align-items:flex-end"><button class="btn btn-s" onclick="exportarInformePersonalizado()">⬇ Exportar Excel</button></div>';
+    html += '</div></div>';
+
+    var ipItemsList = ipItems(filtCh);
+    var ipGroupsList = ipGroups(ipItemsList);
+    var ipTotalG = ipItemsList.reduce(function(s,it){return s+(parseFloat(it.l.sub)||0);},0);
+
+    html += '<div class="card"><div class="ctitle">Resultado</div>';
+    if(!ipItemsList.length){
+      html += '<div class="empty">Sin datos con esos filtros.</div></div>';
+    } else {
+      html += '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-bottom:16px">'+
+        '<div class="metric"><div class="mlabel">Líneas incluidas</div><div class="mval">'+ipItemsList.length+'</div></div>'+
+        '<div class="metric"><div class="mlabel">Grupos</div><div class="mval">'+ipGroupsList.length+'</div></div>'+
+        '<div class="metric"><div class="mlabel">Total</div><div class="mval g">USD '+fmt(ipTotalG)+'</div></div>'+
+      '</div>';
+      var ipColLabel = {producto:'Producto',categoria:'Categoría',cultivo:'Cultivo',chacra:'Chacra',campo:'Campo',zafra:'Zafra',epoca:'Época',ninguno:'—'}[IP_STATE.agrupar]||'Grupo';
+      html += '<div class="tw"><table class="tbl"><thead><tr><th>'+ipColLabel+'</th><th class="r">Líneas</th><th class="r">Total USD</th><th class="r">% del total</th></tr></thead><tbody>';
+      ipGroupsList.forEach(function(g){
+        html += '<tr><td class="b">'+g.label+'</td><td class="r m">'+g.n+'</td><td class="r">USD '+fmt(g.total)+'</td><td class="r m">'+(ipTotalG?fmt(g.total/ipTotalG*100):'0')+'%</td></tr>';
+      });
+      html += '<tr style="font-weight:800;border-top:2px solid var(--bd)"><td>TOTAL</td><td class="r">'+ipItemsList.length+'</td><td class="r">USD '+fmt(ipTotalG)+'</td><td class="r">100%</td></tr>';
+      html += '</tbody></table></div></div>';
+    }
+  }
+
   cont.innerHTML = html;
+}
+
+// ── INFORME PERSONALIZADO: filtros, agrupado y export ───────────────────────
+var IP_STATE = {chacra:'', cultivo:'', epoca:'', catTipo:'', prod:'', agrupar:'producto'};
+
+function ipGetTipoNorm(l){
+  var t=(l.tipo||'').trim();
+  if(!t||t==='INSUMO') return 'AGROQUIMICO';
+  if(t==='LABOR PROPIA'||t==='LABOR AGRICOLA PROPIA'||t==='LABOR CONTRATADA'||t==='LABOR AGRICOLA CONTRATADA') return 'LABOREO';
+  return t;
+}
+
+function ipItems(filtCh){
+  var chSet = filtCh.filter(function(c){
+    if(IP_STATE.chacra && String(c.id)!==IP_STATE.chacra) return false;
+    if(IP_STATE.cultivo && c.cultivo!==IP_STATE.cultivo) return false;
+    if(IP_STATE.epoca && c.epoca!==IP_STATE.epoca) return false;
+    return true;
+  });
+  var chIds = chSet.map(function(c){return String(c.id);});
+  var out = [];
+  tratos.forEach(function(t){
+    if(chIds.indexOf(String(t.chId))<0) return;
+    var ch = chById(t.chId);
+    (t.lineas||[]).forEach(function(l){
+      if(IP_STATE.catTipo && ipGetTipoNorm(l)!==IP_STATE.catTipo) return;
+      if(IP_STATE.prod && (l.prod||'').toUpperCase().indexOf(IP_STATE.prod.toUpperCase())<0) return;
+      out.push({l:l, t:t, ch:ch});
+    });
+  });
+  return out;
+}
+
+function ipGroupKey(it){
+  switch(IP_STATE.agrupar){
+    case 'producto': return it.l.prod || '(sin producto)';
+    case 'categoria': return ipGetTipoNorm(it.l);
+    case 'cultivo': return (it.ch&&it.ch.cultivo) || '(sin cultivo)';
+    case 'chacra': return (it.ch&&it.ch.chacra) || '(sin chacra)';
+    case 'campo': return (it.ch&&it.ch.estab) || '(sin campo)';
+    case 'zafra': return (it.ch&&it.ch.zafra) || '(sin zafra)';
+    case 'epoca': return (it.ch&&it.ch.epoca) || '(sin época)';
+    default: return 'TOTAL';
+  }
+}
+
+function ipGroups(items){
+  var groups = {};
+  items.forEach(function(it){
+    var k = ipGroupKey(it);
+    if(!groups[k]) groups[k]={label:k, total:0, n:0};
+    groups[k].total += parseFloat(it.l.sub)||0;
+    groups[k].n++;
+  });
+  return Object.keys(groups).map(function(k){return groups[k];}).sort(function(a,b){return b.total-a.total;});
+}
+
+function ipSetFiltro(campo, val){
+  IP_STATE[campo]=val;
+  renderInformes();
+}
+
+function exportarInformePersonalizado(){
+  var infZ = document.getElementById('inf-zafra');
+  var infC = document.getElementById('inf-campo');
+  var fZ = infZ?infZ.value:'';
+  var fC = infC?infC.value:'';
+  var filtCh = chacras.filter(function(c){return(!fZ||c.zafra===fZ)&&(!fC||c.estab===fC);});
+  var items = ipItems(filtCh);
+  if(!items.length){alert('Sin datos para exportar con estos filtros.');return;}
+  var groups = ipGroups(items);
+  var totalG = items.reduce(function(s,it){return s+(parseFloat(it.l.sub)||0);},0);
+  var wb = XLSX.utils.book_new();
+  var resumenSh = groups.map(function(g){
+    return {'Grupo':g.label, 'Lineas':g.n, 'Total_USD':+g.total.toFixed(2), 'Pct':totalG?+(g.total/totalG*100).toFixed(1):0};
+  });
+  resumenSh.push({'Grupo':'TOTAL', 'Lineas':items.length, 'Total_USD':+totalG.toFixed(2), 'Pct':100});
+  XLSX.utils.book_append_sheet(wb, XLSX.utils.json_to_sheet(resumenSh), 'Resumen');
+  var detalleSh = items.map(function(it){
+    return {
+      'Campo': it.ch?it.ch.estab:'', 'Chacra': it.ch?it.ch.chacra:'', 'Cultivo': it.ch?it.ch.cultivo:'',
+      'Epoca': it.ch?(it.ch.epoca||''):'', 'Zafra': it.ch?it.ch.zafra:'',
+      'Fecha': it.t.fecha||'', 'N_OT': it.t.ot||'',
+      'Categoria': ipGetTipoNorm(it.l), 'Producto': it.l.prod||'',
+      'Dosis': it.l.dosis||'', 'Unidad': it.l.unidad||'', 'Precio_USD': it.l.precio||'',
+      'Subtotal_USD': parseFloat(it.l.sub)||0
+    };
+  });
+  XLSX.utils.book_append_sheet(wb, XLSX.utils.json_to_sheet(detalleSh), 'Detalle');
+  var nombre = 'informe_personalizado'+(fZ?'_'+fZ.replace(/ /g,'_'):'')+'.xlsx';
+  XLSX.writeFile(wb, nombre);
 }
 
 // CLASIFICAR ─────────────────────────────────────────────────────────────────
