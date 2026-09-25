@@ -1629,9 +1629,25 @@ function elimTrat(id){
 
 // ── INICIO ────────────────────────────────────────────────────────────────────
 function renderInicio(){
-  var tot=tratos.reduce(function(s,t){return s+tratTot(t);},0);
+  var zafTot={};
+  tratos.forEach(function(t){
+    var ch=chById(t.chId);
+    var z=(ch&&ch.zafra)?ch.zafra:'SIN ZAFRA';
+    zafTot[z]=(zafTot[z]||0)+tratTot(t);
+  });
+  var zKeys=Object.keys(zafTot).sort(function(a,b){
+    var pa=a.split(' '),pb=b.split(' ');
+    var ord={INVIERNO:0,VERANO:1};
+    var oa=(ord[pa[0]]!==undefined)?ord[pa[0]]:2;
+    var ob=(ord[pb[0]]!==undefined)?ord[pb[0]]:2;
+    if(oa!==ob)return oa-ob;
+    return (pa[1]||'')<(pb[1]||'')?-1:1;
+  });
+  var kpiCostos=zKeys.length?
+    zKeys.map(function(z){return '<div class="metric"><div class="mlabel">Costo total '+z+'</div><div class="mval g">USD '+fmt(zafTot[z])+'</div></div>';}).join('')
+    :'<div class="metric"><div class="mlabel">Costo total</div><div class="mval g">USD 0,00</div></div>';
   document.getElementById('kpi').innerHTML=
-    '<div class="metric"><div class="mlabel">Costo total</div><div class="mval g">USD '+fmt(tot)+'</div></div>'+
+    kpiCostos+
     '<div class="metric"><div class="mlabel">Chacras</div><div class="mval">'+chacras.length+'</div></div>'+
     '<div class="metric"><div class="mlabel">Campos</div><div class="mval">'+new Set(chacras.map(function(c){return c.estab;})).size+'</div></div>'+
     '<div class="metric"><div class="mlabel">Tratamientos</div><div class="mval">'+tratos.length+'</div></div>';
