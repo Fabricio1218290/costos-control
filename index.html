@@ -496,12 +496,14 @@ datalist option {
     </ul>
   </div>
   <div class="card">
-    <div class="ctitle">🗓 Nueva zafra (archivar y empezar de cero)</div>
-    <div class="csub">Cerrá la zafra actual: queda archivada (TXT + nube) y el sistema se limpia para la próxima, conservando las chacras configuradas.</div>
+    <div class="ctitle">🗓 Cerrar zafra (archivar y empezar de cero)</div>
+    <div class="csub">Archivá una zafra puntual: solo se tocan sus tratamientos, ventas, cierres y adelantos. Si tenés otra zafra activa en paralelo (ej. INVIERNO y VERANO superpuestas), esa no se toca.</div>
     <div class="data-box">
-      <p style="font-size:13px;color:var(--ts);margin-bottom:10px">Esto va a descargar un TXT de respaldo, guardar una copia permanente en la nube, y borrar tratamientos/ventas/cierres actuales (las chacras se conservan).</p>
-      <div class="field" style="margin-bottom:10px"><label>Nombre de la zafra a archivar</label><input id="nz-nombre" placeholder="Ej: INVIERNO 2026"></div>
-      <button class="btn btn-p" onclick="nuevaZafra()">🗓 Archivar zafra y empezar de cero</button>
+      <p style="font-size:13px;color:var(--ts);margin-bottom:10px">Esto va a descargar un TXT y guardar en la nube solo los datos de la zafra elegida, y después borrarlos del sistema activo (las chacras se conservan siempre).</p>
+      <div class="field" style="margin-bottom:10px"><label>Zafra a cerrar</label>
+        <select id="nz-zafra"><option value="">Seleccioná una zafra...</option></select>
+      </div>
+      <button class="btn btn-p" onclick="nuevaZafra()">🗓 Cerrar y archivar esta zafra</button>
     </div>
   </div>
   <div class="card">
@@ -753,7 +755,7 @@ function st(id){
   if(id==='adelantos') renderAdelantos();
   if(id==='equilibrio') renderEq();
   if(id==='cierres') renderCierres();
-  if(id==='datos') renderZafrasArchivadas();
+  if(id==='datos'){ renderZafrasArchivadas(); renderNzSelect(); }
 }
 
 // ── FILTROS ──────────────────────────────────────────────────────────────────
@@ -3054,27 +3056,71 @@ function parseFechaGlobal(f){
 }
 
 // NUEVA ZAFRA ─────────────────────────────────────────────────────────────────
+function renderNzSelect(){
+  var sel = document.getElementById('nz-zafra');
+  if(!sel) return;
+  var actual = sel.value;
+  var zafras = uniq(chacras.filter(function(c){return c.zafra;}), 'zafra').sort(function(a,b){
+    var pa=a.split(' '),pb=b.split(' ');
+    var ord={INVIERNO:0,VERANO:1};
+    var oa=(ord[pa[0]]!==undefined)?ord[pa[0]]:2;
+    var ob=(ord[pb[0]]!==undefined)?ord[pb[0]]:2;
+    if(oa!==ob)return oa-ob;
+    return (pa[1]||'')<(pb[1]||'')?-1:1;
+  });
+  sel.innerHTML = '<option value="">Seleccioná una zafra...</option>' +
+    zafras.map(function(z){return '<option value="'+z+'">'+z+'</option>';}).join('');
+  if(zafras.indexOf(actual)!==-1) sel.value = actual;
+}
+
 function nuevaZafra(){
-  var nombre = document.getElementById('nz-nombre').value.trim().toUpperCase();
+  var nombre = document.getElementById('nz-zafra').value;
   if(!nombre){
-    alert('Ingresá un nombre para la zafra antes de continuar.');
-    return;
-  }
-  if(!confirm('Esto va a:\n\n1. Descargar el archivo TXT de la zafra ' + nombre + '\n2. Guardar una copia permanente en la nube\n3. Borrar todos los tratamientos, ventas y cierres\n4. Conservar las chacras configuradas\n\n¿Confirmar?')){
+    alert('Seleccioná la zafra que querés cerrar.');
     return;
   }
 
-  // Paso 1: Descargar TXT con el nombre de la zafra
+  // Recortar SOLO lo que pertenece a esta zafra. Si hay otra zafra activa en
+  // paralelo (ej. INVIERNO y VERANO superpuestas), sus datos no se tocan.
+  var chacrasZafra = chacras.filter(function(c){ return c.zafra===nombre; });
+  var chIdsZafra = chacrasZafra.map(function(c){ return String(c.id); });
+  var tratosZafra = tratos.filter(function(t){ var ch=chById(t.chId); return ch && ch.zafra===nombre; });
+  var ventasZafra = ventas.filter(function(v){ return v.zafra===nombre; });
+  var cierresZafra = cierres.filter(function(c){ var ch=chById(c.chId); return ch && ch.zafra===nombre; });
+  var adelantosZafra = adelantos.filter(function(a){ return a.zafra===nombre; });
+  var preciosChacraZafra = {};
+  chIdsZafra.forEach(function(id){
+    if(preciosChacra[id]) preciosChacraZafra[id] = preciosChacra[id];
+  });
+
+  if(!tratosZafra.length && !ventasZafra.length && !cierresZafra.length && !adelantosZafra.length){
+    alert('No hay tratamientos, ventas, cierres ni adelantos cargados todavía para ' + nombre + '. No hay nada para archivar.');
+    return;
+  }
+
+  if(!confirm('Esto va a archivar SOLO la zafra ' + nombre + ':\n\n' +
+    '• ' + tratosZafra.length + ' tratamientos\n' +
+    '• ' + ventasZafra.length + ' ventas\n' +
+    '• ' + cierresZafra.length + ' cierres\n' +
+    '• ' + adelantosZafra.length + ' adelantos\n\n' +
+    '1. Se descarga un TXT de respaldo\n' +
+    '2. Se guarda una copia permanente en la nube\n' +
+    '3. Se borran esos registros del sistema activo (otra zafra en curso al mismo tiempo NO se toca)\n' +
+    '4. Las chacras se conservan siempre\n\n¿Confirmar?')){
+    return;
+  }
+
+  // Paso 1: Descargar TXT con los datos de ESTA zafra únicamente
   var data = {
-    chacras: chacras,
-    tratos: tratos,
-    ventas: ventas,
-    cierres: cierres,
+    chacras: chacrasZafra,
+    tratos: tratosZafra,
+    ventas: ventasZafra,
+    cierres: cierresZafra,
     preciosCultivo: preciosCultivo,
-    preciosChacra: preciosChacra,
-    adelantos: adelantos,
+    preciosChacra: preciosChacraZafra,
+    adelantos: adelantosZafra,
     zafra: nombre,
-    version: 5,
+    version: 6,
     fechaArchivo: new Date().toLocaleString('es-UY')
   };
   var txt = JSON.stringify(data, null, 2);
@@ -3085,20 +3131,21 @@ function nuevaZafra(){
   a.click();
 
   // Paso 1b: Guardar copia permanente en la nube (historial multi-año)
-  archivarZafraEnNube(nombre, txt, chacras.length, tratos.length);
+  archivarZafraEnNube(nombre, txt, chacrasZafra.length, tratosZafra.length);
 
-  // Paso 2: Limpiar tratamientos, ventas, cierres y precios por chacra
-  // Conservar chacras y preciosCultivo
+  // Paso 2: Limpiar SOLO los tratamientos/ventas/cierres/adelantos/precios de esta zafra.
+  // Las chacras siempre se conservan; lo de otra zafra en curso al mismo tiempo queda intacto.
   setTimeout(function(){
-    tratos = [];
-    ventas = [];
-    cierres = [];
-    preciosChacra = {};
+    tratos = tratos.filter(function(t){ var ch=chById(t.chId); return !(ch && ch.zafra===nombre); });
+    ventas = ventas.filter(function(v){ return v.zafra!==nombre; });
+    cierres = cierres.filter(function(c){ var ch=chById(c.chId); return !(ch && ch.zafra===nombre); });
+    adelantos = adelantos.filter(function(a){ return a.zafra!==nombre; });
+    chIdsZafra.forEach(function(id){ delete preciosChacra[id]; });
     autoSave();
     updFilters();
     renderInicio();
-    document.getElementById('nz-nombre').value = '';
-    alert('✓ Zafra ' + nombre + ' archivada (TXT descargado; se intentó guardar también una copia en la nube).\nSistema listo para la nueva zafra.\nRecordá actualizar el cultivo y zafra en cada chacra.');
+    renderNzSelect();
+    alert('✓ Zafra ' + nombre + ' archivada (TXT descargado; se intentó guardar también una copia en la nube).\nLas demás zafras en curso no se modificaron.\nRecordá actualizar el cultivo y zafra en las chacras que pasen a la nueva zafra.');
   }, 500);
 }
 
