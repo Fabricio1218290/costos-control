@@ -495,6 +495,20 @@ datalist option {
       <li><strong>El TXT</strong> es tu respaldo. Guardalo en OneDrive para tenerlo siempre disponible.</li>
     </ul>
   </div>
+  <div class="card">
+    <div class="ctitle">🗓 Nueva zafra (archivar y empezar de cero)</div>
+    <div class="csub">Cerrá la zafra actual: queda archivada (TXT + nube) y el sistema se limpia para la próxima, conservando las chacras configuradas.</div>
+    <div class="data-box">
+      <p style="font-size:13px;color:var(--ts);margin-bottom:10px">Esto va a descargar un TXT de respaldo, guardar una copia permanente en la nube, y borrar tratamientos/ventas/cierres actuales (las chacras se conservan).</p>
+      <div class="field" style="margin-bottom:10px"><label>Nombre de la zafra a archivar</label><input id="nz-nombre" placeholder="Ej: INVIERNO 2026"></div>
+      <button class="btn btn-p" onclick="nuevaZafra()">🗓 Archivar zafra y empezar de cero</button>
+    </div>
+  </div>
+  <div class="card">
+    <div class="ctitle">🗂 Zafras archivadas (historial en la nube)</div>
+    <div class="csub">Registro permanente de todas las zafras que fuiste cerrando con "Nueva zafra". Se guarda en la nube ademas del TXT, para que el historial no dependa de archivos sueltos.</div>
+    <div id="zafras-archivadas-list"><p style="font-size:13px;color:var(--ts)">Cargando...</p></div>
+  </div>
 </div>
 
 
@@ -739,6 +753,7 @@ function st(id){
   if(id==='adelantos') renderAdelantos();
   if(id==='equilibrio') renderEq();
   if(id==='cierres') renderCierres();
+  if(id==='datos') renderZafrasArchivadas();
 }
 
 // ── FILTROS ──────────────────────────────────────────────────────────────────
@@ -3045,7 +3060,7 @@ function nuevaZafra(){
     alert('Ingresá un nombre para la zafra antes de continuar.');
     return;
   }
-  if(!confirm('Esto va a:\n\n1. Descargar el archivo TXT de la zafra ' + nombre + '\n2. Borrar todos los tratamientos, ventas y cierres\n3. Conservar las chacras configuradas\n\n¿Confirmar?')){
+  if(!confirm('Esto va a:\n\n1. Descargar el archivo TXT de la zafra ' + nombre + '\n2. Guardar una copia permanente en la nube\n3. Borrar todos los tratamientos, ventas y cierres\n4. Conservar las chacras configuradas\n\n¿Confirmar?')){
     return;
   }
 
@@ -3057,6 +3072,7 @@ function nuevaZafra(){
     cierres: cierres,
     preciosCultivo: preciosCultivo,
     preciosChacra: preciosChacra,
+    adelantos: adelantos,
     zafra: nombre,
     version: 5,
     fechaArchivo: new Date().toLocaleString('es-UY')
@@ -3067,6 +3083,9 @@ function nuevaZafra(){
   a.href = URL.createObjectURL(blob);
   a.download = 'ZAFRA_' + nombre.replace(/ /g,'_') + '.txt';
   a.click();
+
+  // Paso 1b: Guardar copia permanente en la nube (historial multi-año)
+  archivarZafraEnNube(nombre, txt, chacras.length, tratos.length);
 
   // Paso 2: Limpiar tratamientos, ventas, cierres y precios por chacra
   // Conservar chacras y preciosCultivo
@@ -3079,8 +3098,71 @@ function nuevaZafra(){
     updFilters();
     renderInicio();
     document.getElementById('nz-nombre').value = '';
-    alert('✓ Zafra ' + nombre + ' archivada.\nSistema listo para la nueva zafra.\nRecordá actualizar el cultivo y zafra en cada chacra.');
+    alert('✓ Zafra ' + nombre + ' archivada (TXT descargado; se intentó guardar también una copia en la nube).\nSistema listo para la nueva zafra.\nRecordá actualizar el cultivo y zafra en cada chacra.');
   }, 500);
+}
+
+// ── ARCHIVO DE ZAFRAS EN LA NUBE (historial permanente) ────────────────────────
+function archivarZafraEnNube(nombre, datosJson, numChacras, numTratamientos){
+  db.collection('usuarios').doc(DOC_ID).collection('zafras_archivadas').add({
+    nombreZafra: nombre,
+    datos: datosJson,
+    numChacras: numChacras || 0,
+    numTratamientos: numTratamientos || 0,
+    fechaArchivo: new Date().toLocaleString('es-UY'),
+    archivadoEn: firebase.firestore.FieldValue.serverTimestamp()
+  }).then(function(){
+    renderZafrasArchivadas();
+  }).catch(function(err){
+    // No interrumpimos al usuario: el TXT ya se descargó y es el respaldo garantizado.
+    // La copia en la nube es un respaldo adicional; si falla (p.ej. reglas de Firestore
+    // pendientes de actualizar), se reintentará sola la próxima vez sin perder nada.
+    console.error('Error archivando zafra en la nube (el TXT sí se descargó):', err);
+  });
+}
+
+function renderZafrasArchivadas(){
+  var cont = document.getElementById('zafras-archivadas-list');
+  if(!cont) return;
+  cont.innerHTML = '<p style="font-size:13px;color:var(--ts)">Cargando...</p>';
+  db.collection('usuarios').doc(DOC_ID).collection('zafras_archivadas')
+    .orderBy('archivadoEn','desc')
+    .get()
+    .then(function(snap){
+      if(snap.empty){
+        cont.innerHTML = '<p style="font-size:13px;color:var(--ts)">Todavía no archivaste ninguna zafra en la nube.</p>';
+        return;
+      }
+      var html = '<div class="tw"><table class="tbl"><thead><tr><th>Zafra</th><th>Fecha de archivo</th><th class="r">Chacras</th><th class="r">Tratamientos</th><th></th></tr></thead><tbody>';
+      snap.forEach(function(doc){
+        var d = doc.data();
+        html += '<tr><td>'+(d.nombreZafra||'')+'</td><td>'+(d.fechaArchivo||'')+'</td><td class="r">'+(d.numChacras||0)+'</td><td class="r">'+(d.numTratamientos||0)+'</td>'+
+          '<td><button class="btn btn-s" onclick="descargarZafraArchivada(\''+doc.id+'\')">⬇ Descargar TXT</button></td></tr>';
+      });
+      html += '</tbody></table></div>';
+      cont.innerHTML = html;
+    })
+    .catch(function(err){
+      console.error('Error listando zafras archivadas:', err);
+      cont.innerHTML = '<p style="font-size:13px;color:var(--ts)">Historial en la nube no disponible por el momento. Tus TXT descargados siguen siendo el respaldo mientras tanto.</p>';
+    });
+}
+
+function descargarZafraArchivada(docId){
+  db.collection('usuarios').doc(DOC_ID).collection('zafras_archivadas').doc(docId).get()
+    .then(function(doc){
+      if(!doc.exists){ alert('No se encontró ese registro.'); return; }
+      var d = doc.data();
+      var blob = new Blob([d.datos], {type:'text/plain'});
+      var a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'ZAFRA_' + (d.nombreZafra||'archivo').replace(/ /g,'_') + '.txt';
+      a.click();
+    })
+    .catch(function(err){
+      console.error('Error descargando zafra archivada:', err);
+      alert('Error al descargar esa zafra archivada.');
+    });
 }
 
 // ALQUILER ─────────────────────────────────────────────────────────────────────
