@@ -120,12 +120,11 @@ body{font-family:'Aptos Narrow','Aptos','Calibri','Segoe UI',Arial,sans-serif;ba
 .rp-prov{color:#777;font-style:italic;}
 .rp-hat{color:#555;}
 .rp-tot{margin-left:auto;font-weight:700;color:#2d5a0e;}
-.rp-tbl{width:100%;border-collapse:collapse;font-size:11.5px;}
-.rp-tbl th{background:#f0f7e8;padding:5px 8px;text-align:left;font-size:10px;text-transform:uppercase;color:#555;border-bottom:1px solid #ddd;}
-.rp-tbl th.r,.rp-tbl td.r{text-align:right;}
-.rp-tbl td{padding:5px 8px;border-bottom:1px solid #eee;}
+.rp-tbl{width:100%;table-layout:fixed;border-collapse:collapse;font-size:10px;}
+.rp-tbl th{background:#f0f7e8;padding:4px 5px;text-align:left;font-size:8.5px;text-transform:uppercase;color:#555;border-bottom:1px solid #ddd;overflow:hidden}
+.rp-tbl td{padding:4px 5px;border-bottom:1px solid #eee;overflow-wrap:break-word;}
 .rp-tbl tr:last-child td{border-bottom:none;}
-.rp-tipo{font-size:9px;color:#888;margin-left:4px;}
+.rp-tipo{font-size:8px;color:#888;margin-left:3px;}
 .rp-total-camp{background:#2d5a0e;color:#fff;padding:8px 12px;display:flex;justify-content:space-between;font-weight:700;font-size:13px;margin-bottom:12px;border-radius:4px;}
 .rp-cierre{border:2px solid #2d5a0e;border-radius:6px;overflow:hidden;margin-top:8px;}
 .rp-cierre-tit{background:#2d5a0e;color:#fff;padding:6px 12px;font-weight:700;font-size:12px;letter-spacing:.3px;}
@@ -1605,6 +1604,8 @@ function renderHist(){
     var lins=t.lineas||[];
     if(fcat)lins=lins.filter(function(l){return l.cat===fcat;});
     var linRows=lins.map(function(l,i){
+      var haL=parseFloat(l.haL)||parseFloat(t.haT)||0;
+      var xha=haL?(parseFloat(l.sub)||0)/haL:0;
       return '<tr>'+
         '<td class="m" style="text-align:center">'+(i+1)+'</td>'+
         '<td class="b">'+(l.prod||'—')+'</td>'+
@@ -1612,6 +1613,7 @@ function renderHist(){
         '<td class="r m">'+(l.dosis?l.dosis+' '+(l.unidad||''):'—')+'</td>'+
         '<td class="r m">'+(l.precio?'USD '+fmt(l.precio):'—')+'</td>'+
         '<td class="r m">'+(l.haL||t.haT||'—')+' ha</td>'+
+        '<td class="r m">'+(xha?fmt(xha):'—')+'</td>'+
         '<td class="r b">USD '+fmt(l.sub)+'</td>'+
         '</tr>';
     }).join('');
@@ -1631,7 +1633,7 @@ function renderHist(){
       '</div>'+
       (lins.length?
         '<div style="padding:10px 14px"><div class="tw"><table class="tbl">'+
-          '<thead><tr><th style="width:4%">#</th><th style="width:26%">Producto/Concepto</th><th style="width:15%">Categoria</th><th style="width:14%" class="r">Dosis/Cant</th><th style="width:14%" class="r">Precio unit</th><th style="width:11%" class="r">Ha</th><th style="width:16%" class="r">Subtotal</th></tr></thead>'+
+          '<thead><tr><th style="width:3%">#</th><th style="width:22%">Producto/Concepto</th><th style="width:13%">Categoria</th><th style="width:12%" class="r">Dosis/Cant</th><th style="width:12%" class="r">Precio unit</th><th style="width:9%" class="r">Ha</th><th style="width:12%" class="r">USD/ha</th><th style="width:17%" class="r">Subtotal</th></tr></thead>'+
           '<tbody>'+linRows+'</tbody></table></div>'+
           (t.obs?'<div class="m" style="margin-top:7px;font-style:italic">Obs: '+t.obs+'</div>':'')+
         '</div>':'')+
@@ -1725,9 +1727,12 @@ function renderPrint(){
       var tot=tratTot(t);
       var lins=t.lineas||[];
       var linRows=lins.map(function(l){
+        var haL=parseFloat(l.haL)||parseFloat(t.haT)||0;
+        var xha=haL?(parseFloat(l.sub)||0)/haL:0;
         return '<tr><td>'+(l.prod||'—')+(l.tipo||l.cat?'<span class="rp-tipo">'+((l.tipo||l.cat||'')+(l.subtipo?' · '+l.subtipo:''))+'</span>':'')+'</td>'+
           '<td class="r">'+(l.dosis?l.dosis+' '+(l.unidad||''):'—')+'</td>'+
           '<td class="r">'+(l.precio?'USD '+fmt(l.precio):'—')+'</td>'+
+          '<td class="r">'+(xha?fmt(xha):'—')+'</td>'+
           '<td class="r">USD '+fmt(l.sub)+'</td></tr>';
       }).join('');
       return '<div class="rp-trat">'+
@@ -1739,7 +1744,7 @@ function renderPrint(){
           (t.haT?'<span class="rp-hat">'+t.haT+' ha</span>':'')+
           '<span class="rp-tot">USD '+fmt(tot)+'</span>'+
         '</div>'+
-        (lins.length?'<table class="rp-tbl"><thead><tr><th>Producto/Concepto</th><th class="r">Dosis/Cant</th><th class="r">Precio unit</th><th class="r">Subtotal</th></tr></thead><tbody>'+linRows+'</tbody></table>':'')+
+        (lins.length?'<table class="rp-tbl"><thead><tr><th style="width:34%">Producto/Concepto</th><th class="r" style="width:16%">Dosis/Cant</th><th class="r" style="width:16%">Precio unit</th><th class="r" style="width:14%">USD/ha</th><th class="r" style="width:20%">Subtotal</th></tr></thead><tbody>'+linRows+'</tbody></table>':'')+
         '</div>';
     }).join(''):'<div class="rp-empty">Sin tratamientos registrados.</div>';
 
