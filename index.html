@@ -135,17 +135,15 @@ body{font-family:'Aptos Narrow','Aptos','Calibri','Segoe UI',Arial,sans-serif;ba
 .rp-margen.neg td{background:#f8d7da;color:#721c24;font-weight:800;font-size:13px;}
 .rp-empty{color:#888;font-style:italic;padding:12px 0;}
 @media print{
-  /* Cuando se imprime desde cultivos, mostrar solo cult-content */
-  #cultivos .no-print { display: none !important; }
+  /* Solo se imprime la pestaña actualmente abierta (la que tiene .active) */
   #cult-content .card { page-break-inside: avoid; margin-bottom: 12pt; }
   #cult-content { font-size: 11pt; }
 
   .hdr,.nav,.fbar,.btn,.btn-p,.btn-s,.btn-b,.btn-a,.btn-del,.no-print{display:none!important}
   body{background:#fff;font-size:11pt}
   .main{padding:0;max-width:100%}
-  .sec{display:block!important}
-  #inicio,#maestro,#registro,#datos{display:none!important}
-  #imprimir{display:block!important}
+  .sec{display:none!important}
+  .sec.active{display:block!important}
   .card{border:none;border-radius:0;padding:0;margin:0;box-shadow:none}
   .print-field{break-inside:avoid}
   .print-page-break{page-break-before:always}
@@ -1691,6 +1689,91 @@ function renderInicio(){
 }
 
 // ── IMPRIMIR ──────────────────────────────────────────────────────────────────
+function renderPrint(){
+  var elZ=document.getElementById('pr-zafra');
+  var elE=document.getElementById('pr-estab');
+  var elC=document.getElementById('pr-chacra');
+  var fz=elZ?elZ.value:'';
+  var fe=elE?elE.value:'';
+  var fc=elC?elC.value:'';
+  var cont=document.getElementById('print-content');
+  if(!cont)return;
+  var filtCh=chacras.filter(function(c){
+    return (!fz||c.zafra===fz)&&(!fe||c.estab===fe)&&(!fc||String(c.id)===fc);
+  });
+  if(!filtCh.length){
+    cont.innerHTML='<div class="rp-empty">📁 Sin chacras con los filtros seleccionados.</div>';
+    return;
+  }
+  filtCh=[].concat(filtCh).sort(function(a,b){
+    if(a.estab!==b.estab)return (a.estab||'')<(b.estab||'')?-1:1;
+    return (a.chacra||'')<(b.chacra||'')?-1:1;
+  });
+  cont.innerHTML=filtCh.map(function(ch){
+    var ts=tratos.filter(function(t){return String(t.chId)===String(ch.id);});
+    ts=[].concat(ts).sort(function(a,b){
+      var fa=parseFechaGlobal(a.fecha),fb=parseFechaGlobal(b.fecha);
+      if(fa&&fb)return fa-fb;
+      return (a.fecha||'')<(b.fecha||'')?-1:1;
+    });
+    var costoTotal=ts.reduce(function(s,t){return s+tratTot(t);},0);
+    var costoHa=ch.ha?costoTotal/ch.ha:0;
+    var ci=cierres.find(function(c){return String(c.chId)===String(ch.id);});
+
+    var tratHtml=ts.length?ts.map(function(t){
+      var tot=tratTot(t);
+      var lins=t.lineas||[];
+      var linRows=lins.map(function(l){
+        return '<tr><td>'+(l.prod||'—')+(l.tipo||l.cat?'<span class="rp-tipo">'+((l.tipo||l.cat||'')+(l.subtipo?' · '+l.subtipo:''))+'</span>':'')+'</td>'+
+          '<td class="r">'+(l.dosis?l.dosis+' '+(l.unidad||''):'—')+'</td>'+
+          '<td class="r">'+(l.precio?'USD '+fmt(l.precio):'—')+'</td>'+
+          '<td class="r">USD '+fmt(l.sub)+'</td></tr>';
+      }).join('');
+      return '<div class="rp-trat">'+
+        '<div class="rp-trat-cab">'+
+          (t.ot?'<span class="rp-ot">'+t.ot+'</span>':'')+
+          '<span class="rp-fecha">'+(t.fecha||'s/f')+'</span>'+
+          '<span class="rp-desc">'+(t.desc||t.cat||'')+'</span>'+
+          (t.prov?'<span class="rp-prov">'+t.prov+'</span>':'')+
+          (t.haT?'<span class="rp-hat">'+t.haT+' ha</span>':'')+
+          '<span class="rp-tot">USD '+fmt(tot)+'</span>'+
+        '</div>'+
+        (lins.length?'<table class="rp-tbl"><thead><tr><th>Producto/Concepto</th><th class="r">Dosis/Cant</th><th class="r">Precio unit</th><th class="r">Subtotal</th></tr></thead><tbody>'+linRows+'</tbody></table>':'')+
+        '</div>';
+    }).join(''):'<div class="rp-empty">Sin tratamientos registrados.</div>';
+
+    var cierreHtml='';
+    if(ci){
+      cierreHtml='<div class="rp-cierre">'+
+        '<div class="rp-cierre-tit">💰 Cierre de zafra'+(ci.fecha?' — '+ci.fecha:'')+'</div>'+
+        '<table class="rp-tbl">'+
+          (ci.kgHa?'<tr><td>Rendimiento</td><td class="r">'+Math.round(ci.kgHa)+' kg/ha ('+Math.round(ci.kgTot||0)+' kg tot.)</td></tr>':'')+
+          '<tr class="rp-ingreso"><td>Ingreso bruto (USD '+fmt(ci.pVenta||0)+'/ton)</td><td class="r">USD '+fmt(ci.ingresoTotal||0)+'</td></tr>'+
+          '<tr class="rp-costo-tot"><td>Costo total (tratam. + post-cosecha + alquiler)</td><td class="r">USD '+fmt(ci.costoTotalFinal||0)+'</td></tr>'+
+          '<tr class="rp-margen '+(ci.margenTotal>=0?'pos':'neg')+'"><td>MARGEN '+(ci.margenTotal>=0?'POSITIVO':'NEGATIVO')+'</td><td class="r">'+(ci.margenTotal>=0?'+ ':'')+'USD '+fmt(ci.margenTotal||0)+(ch.ha?' ('+(ci.margenTotal>=0?'+':'')+'USD '+fmt(ci.margenHa||0)+'/ha)':'')+'</td></tr>'+
+        '</table>'+
+      '</div>';
+    }
+
+    return '<div class="pag-chacra">'+
+      '<div class="rp-cab">'+
+        '<div class="rp-cab-iz">'+
+          '<div class="rp-campo">'+ch.estab+'</div>'+
+          '<div class="rp-chacra">'+ch.chacra+'</div>'+
+          '<div class="rp-sub">'+ch.cultivo+(ch.variedad?' ('+ch.variedad+')':'')+(ch.epoca?' · '+ch.epoca:'')+'</div>'+
+        '</div>'+
+        '<div class="rp-cab-der">'+
+          '<div class="rp-zafra-lbl">'+ch.zafra+'</div>'+
+          '<div class="rp-ha">'+(ch.ha?ch.ha+' ha':'—')+'</div>'+
+          (ch.alqTipo?'<div class="rp-alq">Alquiler: '+alqLabel(ch)+'</div>':'')+
+        '</div>'+
+      '</div>'+
+      tratHtml+
+      (ts.length?'<div class="rp-total-camp"><span>Costo total '+ch.chacra+'</span><span>USD '+fmt(costoTotal)+(ch.ha?' ('+fmt(costoHa)+'/ha)':'')+'</span></div>':'')+
+      cierreHtml+
+      '</div>';
+  }).join('');
+}
 function filtrarChacrasPrint(){
   var fz=document.getElementById('pr-zafra').value;
   var fe=document.getElementById('pr-estab').value;
