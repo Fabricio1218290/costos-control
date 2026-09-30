@@ -423,6 +423,7 @@ datalist option {
   <div class="fbar no-print">
     <select id="inf-zafra" onchange="renderInformes()"><option value="">Todas las zafras</option></select>
     <select id="inf-campo" onchange="renderInformes()"><option value="">Todos los campos</option></select>
+    <select id="inf-cultivo" onchange="renderInformes()"><option value="">Todos los cultivos</option></select>
     <select id="inf-tipo" onchange="renderInformes()">
       <option value="chacra">📋 Costo por chacra</option>
       <option value="campo">🏘 Costo por campo</option>
@@ -3405,16 +3406,19 @@ function renderInformes(){
   // Poblar filtros
   var infZ = document.getElementById('inf-zafra');
   var infC = document.getElementById('inf-campo');
+  var infCv = document.getElementById('inf-cultivo');
   var infT = document.getElementById('inf-tipo');
   if(infZ){var curZ=infZ.value;var zs=[];chacras.forEach(function(c){if(c.zafra&&zs.indexOf(c.zafra)<0)zs.push(c.zafra);});zs.sort();infZ.innerHTML='<option value="">Todas las zafras</option>'+zs.map(function(z){return '<option value="'+z+'"'+(z===curZ?' selected':'')+'>'+z+'</option>';}).join('');}
   if(infC){var curC=infC.value;var cs=[];chacras.forEach(function(c){if(c.estab&&cs.indexOf(c.estab)<0)cs.push(c.estab);});cs.sort();infC.innerHTML='<option value="">Todos los campos</option>'+cs.map(function(e){return '<option value="'+e+'"'+(e===curC?' selected':'')+'>'+e+'</option>';}).join('');}
+  if(infCv){var curCv=infCv.value;var cvs=[];chacras.forEach(function(c){if(c.cultivo&&cvs.indexOf(c.cultivo)<0)cvs.push(c.cultivo);});cvs.sort();infCv.innerHTML='<option value="">Todos los cultivos</option>'+cvs.map(function(cv){return '<option value="'+cv+'"'+(cv===curCv?' selected':'')+'>'+cv+'</option>';}).join('');}
 
   var fZ = infZ?infZ.value:'';
   var fC = infC?infC.value:'';
+  var fCv = infCv?infCv.value:'';
   var tipo = infT?infT.value:'chacra';
 
   var filtCh = chacras.filter(function(c){
-    return(!fZ||c.zafra===fZ)&&(!fC||c.estab===fC);
+    return(!fZ||c.zafra===fZ)&&(!fC||c.estab===fC)&&(!fCv||c.cultivo===fCv);
   });
 
   if(!filtCh.length){cont.innerHTML='<div class="empty">Sin datos con esos filtros.</div>';return;}
@@ -3615,7 +3619,7 @@ function renderInformes(){
   else if(tipo==='cierre'){
     var filtCi=cierres.filter(function(ci){
       var ch=chacras.find(function(c){return String(c.id)===String(ci.chId);});
-      return ch&&(!fZ||ch.zafra===fZ)&&(!fC||ch.estab===fC);
+      return ch&&(!fZ||ch.zafra===fZ)&&(!fC||ch.estab===fC)&&(!fCv||ch.cultivo===fCv);
     });
     html += '<div class="card"><div class="ctitle">Resumen de cierres de campaña</div>';
     if(!filtCi.length){html+='<div class="empty">Sin cierres registrados.</div></div>';cont.innerHTML=html;return;}
@@ -3714,7 +3718,7 @@ function renderInformes(){
 
     html += '<div class="card no-print">';
     html += '<div class="ctitle">🔧 Informe personalizado</div>';
-    html += '<div class="csub">Elegí cualquier combinación de filtros y cómo agrupar el resultado. La Zafra y el Campo de arriba también aplican acá.</div>';
+    html += '<div class="csub">Elegí cualquier combinación de filtros y cómo agrupar el resultado. La Zafra, el Campo y el Cultivo de arriba también aplican acá.</div>';
     html += '<div class="g4" style="margin-bottom:10px">';
     html += '<div class="field"><label>Chacra</label><select onchange="ipSetFiltro(\'chacra\',this.value)"><option value="">Todas</option>'+
       ipChacras.map(function(c){return '<option value="'+String(c.id)+'"'+(String(c.id)===IP_STATE.chacra?' selected':'')+'>'+c.chacra+'</option>';}).join('')+'</select></div>';
@@ -3822,9 +3826,11 @@ function ipSetFiltro(campo, val){
 function exportarInformePersonalizado(){
   var infZ = document.getElementById('inf-zafra');
   var infC = document.getElementById('inf-campo');
+  var infCv = document.getElementById('inf-cultivo');
   var fZ = infZ?infZ.value:'';
   var fC = infC?infC.value:'';
-  var filtCh = chacras.filter(function(c){return(!fZ||c.zafra===fZ)&&(!fC||c.estab===fC);});
+  var fCv = infCv?infCv.value:'';
+  var filtCh = chacras.filter(function(c){return(!fZ||c.zafra===fZ)&&(!fC||c.estab===fC)&&(!fCv||c.cultivo===fCv);});
   var items = ipItems(filtCh);
   if(!items.length){alert('Sin datos para exportar con estos filtros.');return;}
   var groups = ipGroups(items);
