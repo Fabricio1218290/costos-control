@@ -1705,16 +1705,17 @@ function renderInicio(){
     var tot=ts.reduce(function(s,t){return s+tratTot(t);},0);
     return {c:c,tot:tot,n:ts.length};
   }).sort(function(a,b){return b.tot-a.tot;});
-  tbl.innerHTML='<table class="tbl"><thead><tr><th>Campo</th><th>Chacra</th><th>Cultivo</th><th>Zafra</th><th class="r">Ha</th><th class="r">Tratamientos</th><th class="r">Total USD</th></tr></thead><tbody>'+
+  tbl.innerHTML='<table class="tbl"><thead><tr><th>Campo</th><th>Chacra</th><th>Cultivo</th><th>Zafra</th><th class="r">Ha</th><th class="r">USD/ha</th><th class="r">Total USD</th></tr></thead><tbody>'+
     chRows.map(function(r){
       var c=r.c;
+      var xha=c.ha?r.tot/c.ha:0;
       return '<tr>'+
         '<td class="m">'+c.estab+'</td>'+
         '<td class="b">'+c.chacra+'</td>'+
         '<td>'+c.cultivo+'</td>'+
         '<td><span class="badge bb2">'+c.zafra+'</span></td>'+
         '<td class="r">'+(c.ha||'—')+'</td>'+
-        '<td class="r">'+r.n+'</td>'+
+        '<td class="r">'+(c.ha?fmt(xha):'—')+'</td>'+
         '<td class="r b">'+(r.n?'USD '+fmt(r.tot):'—')+'</td>'+
         '</tr>';
     }).join('')+
