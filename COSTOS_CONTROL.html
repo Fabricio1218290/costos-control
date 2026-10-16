@@ -33,7 +33,7 @@ body{font-family:'Aptos Narrow','Aptos','Calibri','Segoe UI',Arial,sans-serif;ba
 .hdr{background:var(--sf);color:var(--tx);padding:12px 22px;display:flex;align-items:center;gap:10px;border-bottom:1px solid var(--br);margin-left:250px}
 .hdr h1{font-size:16px;font-weight:700;letter-spacing:0}
 .hdr .hs{font-size:12px;opacity:.75;margin-left:auto}
-.nav-toggle{background:none;border:none;color:var(--tx);font-size:20px;cursor:pointer;padding:4px 8px;border-radius:6px;line-height:1;margin-right:2px;}
+.nav-toggle{display:none;background:none;border:none;color:var(--tx);font-size:20px;cursor:pointer;padding:4px 8px;border-radius:6px;line-height:1;margin-right:2px;}
 .nav-toggle:hover{background:var(--bg);}
 .main{padding:20px 28px;max-width:1140px;margin:0 0 0 250px;background:var(--bg);min-height:100vh;}
 .app-wrap{max-width:none;margin:0;}
@@ -107,6 +107,15 @@ body{font-family:'Aptos Narrow','Aptos','Calibri','Segoe UI',Arial,sans-serif;ba
 .nav button{background:none;color:var(--stx);border:none;border-left:3px solid transparent;border-radius:6px;padding:10px 12px;font-size:13.3px;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:9px;white-space:nowrap;font-family:inherit;text-align:left;width:100%;transition:background .15s,color .15s;box-shadow:none;}
 .nav button:hover{background:rgba(255,255,255,.06);color:#fff;}
 .nav button.active{background:var(--sbg2);color:#fff;border-left:3px solid var(--sac);}
+@media (max-width:900px){
+  .hdr{margin-left:0}
+  .main{margin:0;max-width:100%}
+  .nav-toggle{display:inline-flex;align-items:center;justify-content:center}
+  .nav-overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);opacity:0;pointer-events:none;transition:opacity .2s;z-index:998;}
+  .nav-overlay.open{opacity:1;pointer-events:auto;}
+  .nav{transform:translateX(-100%);transition:transform .22s ease;box-shadow:2px 0 18px rgba(0,0,0,.25);}
+  .nav.open{transform:translateX(0);}
+}
 /* PRINT */
 .pag-chacra{page-break-after:always;padding:0;margin:0;}
 .pag-chacra:last-child{page-break-after:avoid;}
@@ -209,6 +218,7 @@ datalist option {
 <div id="app-content">
 <div class="app-wrap">
 <div class="hdr">
+  <button id="nav-toggle" class="nav-toggle" onclick="toggleNav()" aria-label="Abrir menú">☰</button>
   <h1>Costos por Chacra</h1>
   <span class="hs" id="hstat">—</span>
   <button id="logout-btn" onclick="doLogout()" title="Cerrar sesión">✕ Salir</button>
