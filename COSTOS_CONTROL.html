@@ -247,7 +247,7 @@ datalist option {
 <div id="inicio" class="sec active">
   <div id="kpi" class="g4"></div>
   <div class="card">
-    <div class="ctitle">Últimos tratamientos registrados</div>
+    <div class="ctitle">Gasto total por chacra</div>
     <div class="tw" id="ult-tbl"></div>
   </div>
 </div>
@@ -1698,22 +1698,24 @@ function renderInicio(){
     '<div class="metric"><div class="mlabel">Chacras</div><div class="mval">'+chacras.length+'</div></div>'+
     '<div class="metric"><div class="mlabel">Campos</div><div class="mval">'+new Set(chacras.map(function(c){return c.estab;})).size+'</div></div>'+
     '<div class="metric"><div class="mlabel">Tratamientos</div><div class="mval">'+tratos.length+'</div></div>';
-  var ults=[].concat(tratos).sort(function(a,b){var fa=parseFechaGlobal(a.fecha),fb=parseFechaGlobal(b.fecha);if(fa&&fb)return fb-fa;return (a.fecha||'')<(b.fecha||'')?1:-1;}).slice(0,10);
   var tbl=document.getElementById('ult-tbl');
-  if(!ults.length){tbl.innerHTML='<div class="empty">🌾 Sin datos. Configurá chacras y registrá tratamientos.</div>';return;}
-  tbl.innerHTML='<table class="tbl"><thead><tr><th>N° OT</th><th>Chacra</th><th>Campo</th><th>Cultivo/Zafra</th><th>Descripcion</th><th>Fecha</th><th class="r">Ha</th><th class="r">Total USD</th><th></th></tr></thead><tbody>'+
-    ults.map(function(t){
-      var ch=chacras.find(function(c){return String(c.id)===String(t.chId);})||{};var tot=tratTot(t);
+  if(!chacras.length){tbl.innerHTML='<div class="empty">🌾 Sin datos. Configurá chacras y registrá tratamientos.</div>';return;}
+  var chRows=chacras.map(function(c){
+    var ts=tratos.filter(function(t){return String(t.chId)===String(c.id);});
+    var tot=ts.reduce(function(s,t){return s+tratTot(t);},0);
+    return {c:c,tot:tot,n:ts.length};
+  }).sort(function(a,b){return b.tot-a.tot;});
+  tbl.innerHTML='<table class="tbl"><thead><tr><th>Campo</th><th>Chacra</th><th>Cultivo</th><th>Zafra</th><th class="r">Ha</th><th class="r">Tratamientos</th><th class="r">Total USD</th></tr></thead><tbody>'+
+    chRows.map(function(r){
+      var c=r.c;
       return '<tr>'+
-        '<td class="b">'+(t.ot||'—')+'</td>'+
-        '<td>'+ch.chacra+'</td>'+
-        '<td class="m">'+ch.estab+'</td>'+
-        '<td><span class="badge bb2" style="font-size:10px">'+ch.zafra+'</span> '+ch.cultivo+'</td>'+
-        '<td class="m">'+(t.desc||t.cat)+'</td>'+
-        '<td class="m">'+(t.fecha||'—')+'</td>'+
-        '<td class="r">'+(t.haT||'—')+'</td>'+
-        '<td class="r b">USD '+fmt(tot)+'</td>'+
-        '<td class="r"><button class="btn-del" onclick="elimTrat('+t.id+');renderInicio()">✕</button></td>'+
+        '<td class="m">'+c.estab+'</td>'+
+        '<td class="b">'+c.chacra+'</td>'+
+        '<td>'+c.cultivo+'</td>'+
+        '<td><span class="badge bb2">'+c.zafra+'</span></td>'+
+        '<td class="r">'+(c.ha||'—')+'</td>'+
+        '<td class="r">'+r.n+'</td>'+
+        '<td class="r b">'+(r.n?'USD '+fmt(r.tot):'—')+'</td>'+
         '</tr>';
     }).join('')+
     '</tbody></table>';
