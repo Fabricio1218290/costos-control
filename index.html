@@ -1622,7 +1622,7 @@ function renderHist(){
   var filtCh=chacras.filter(function(c){return(!fe||c.estab===fe)&&(!fz||c.zafra===fz)&&(!fc||c.chacra===fc);});
   var chIds=filtCh.map(function(c){return c.id;});
   var filtT=tratos.filter(function(t){return chIds.some(function(id){return String(id)===String(t.chId);})&&(!fcat||t.cat===fcat||t.lineas.some(function(l){return l.cat===fcat;}));});
-  filtT=[].concat(filtT).sort(function(a,b){return a.fecha<b.fecha?1:-1;});
+  filtT=[].concat(filtT).sort(function(a,b){return parseFechaGlobal(b.fecha)-parseFechaGlobal(a.fecha);});
   var cont=document.getElementById('h-content');
   var acumDiv=document.getElementById('h-acum');
   if(!filtT.length){acumDiv.innerHTML='';cont.innerHTML='<div class="empty">📁 Sin tratamientos con los filtros seleccionados.</div>';return;}
